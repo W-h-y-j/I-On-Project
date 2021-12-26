@@ -23,7 +23,8 @@ body {
 }
 
 body {
-  background-image: url(../img/dash-bg-01.jpg);
+  /* background-image: url(../img/dash-bg-01.jpg); */
+  background-color: white;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -90,7 +91,8 @@ a:focus {
 }
 
 .tm-block {
-  padding: 50px 45px;
+/*   padding: 30px 25px; */
+	padding: 15px 0px;
 }
 
 .tm-block-title {
@@ -125,23 +127,28 @@ a:focus {
 }
 
 .tm-content-row {
-  justify-content: space-between;
+ /*  문제 발생시 justify-content:center 없애버려
+  justify-content: center;
   margin-left: -20px;
-  margin-right: -20px; /* To offset col padding */
+  margin-right: -20px; */ /* To offset col padding */
+
 }
 
 .tm-col {
   padding-left: 20px;
-  padding-right: 20px;
-  margin-bottom: 50px;
+  padding-right: 20px; 
+  margin-bottom: 50px; 
+  margin-bottom: 20px;
 }
 
 .tm-col-big {
-  width: 39%;
+/*   width: 39%; */
+ width: 40%;
 }
 
 .tm-col-small {
-  width: 21.95%;
+  /* width: 21.95%; */
+  width: 30%;
 }
 
 .tm-link-black {
@@ -457,7 +464,7 @@ footer {
 @media (max-width: 991px) {
   .tm-col-big,
   .tm-col-small {
-    width: 100%;
+    width: 100%; 
     min-height: 383px;
     height: auto;
   }

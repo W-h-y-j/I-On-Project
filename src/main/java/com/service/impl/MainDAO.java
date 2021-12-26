@@ -1,4 +1,4 @@
-package main.java.com.service.impl;
+package com.service.impl;
 
 import org.springframework.stereotype.Repository;
 

@@ -1,4 +1,4 @@
-package main.java.com.service;
+package com.service;
 
 public interface MainService {
 	String selectTest() throws Exception;

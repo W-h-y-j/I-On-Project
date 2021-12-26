@@ -1,10 +1,10 @@
-package main.java.com.service.impl;
+package com.service.impl;
 
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
-import main.java.com.service.MainService;
+import com.service.MainService;
 
 @Service("mainService")
 public class MainServiceImpl implements MainService{
