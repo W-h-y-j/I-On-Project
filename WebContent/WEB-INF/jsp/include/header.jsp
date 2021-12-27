@@ -44,21 +44,7 @@
 								class="dropdown-item" href="#">회원 정보 변경</a>
 						</div></li>
 				</ul>
-				<!--                    <ul class="navbar-nav">
-                          <li class="nav-item">
-                              <a class="nav-link d-flex" href="login.html">
-                                  <i class="far fa-user mr-2 tm-logout-icon"></i>
-                                  <span>LogIn</span>
-                              </a>
-                          </li>
-                      </ul> -->
 			</div>
 		</nav>
 	</div>
 </div>
-
-<!-- <div id="wrap"> -->
-<!-- 	<header> -->
-		
-<!-- 	</header> -->
-<!-- </div> -->
