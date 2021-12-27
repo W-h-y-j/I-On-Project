@@ -16,7 +16,7 @@ public class MainContoller {
 	
 	@RequestMapping(value="/")
 	public String test(Model model) throws Exception {
-		System.out.println("controller ");   
+		System.out.println("controller  ");   
 		String test=mainService.selectTest();
 		System.out.println(test);    
 		model.addAttribute("selectTableList", test);
