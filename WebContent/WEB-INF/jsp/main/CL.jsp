@@ -5,7 +5,7 @@
 <meta charset="UTF-8">
 <title> </title>
 <script src = "../js/jquery.js"></script>
-<link rel = "stylesheet" type = "text/css" href = "../css/CL.css" />
+<link rel = "stylesheet" type = "text/css" href = "././Resources/css/CL.css" />
 </head>
 <body> 
 <article id = "front">
