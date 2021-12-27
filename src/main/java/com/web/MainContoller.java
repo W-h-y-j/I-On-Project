@@ -9,20 +9,23 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.service.MainService;
 
 @Controller
-public class MainContoller { 
+public class MainContoller {
 	/*
-	 * @Resource(name="mainService") 
-	 * private MainService mainService;
+	 * @Resource(name="mainService") private MainService mainService;
 	 */
-	
+
 	@RequestMapping(value="/")
 	public String test(Model model) throws Exception {
 		/* String test=mainService.selectTest(); */
 		/* model.addAttribute("selectTableList", test); */
 		return "main/Main";
 	}
-	
+
+	@RequestMapping(value = "/CL")
+	public String test2(Model model) throws Exception {
+		/* String test=mainService.selectTest(); */
+		/* model.addAttribute("selectTableList", test); */  
+		return "main/CL";
+	}
+
 }
-
-
-

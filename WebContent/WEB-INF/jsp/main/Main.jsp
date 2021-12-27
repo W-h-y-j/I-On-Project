@@ -21,14 +21,16 @@
                     </div>
                 </div>
                 <div class="tm-col tm-col-big">
-                    <div class="bg-white tm-block h-100 row">
-                    	<div class="col-8">
-                    		<h2 class="tm-block-title">센터 활동 사진</h2>
+                    <div class="bg-white tm-block h-100">
+                    	<div class="row">
+                    		<div class="col-8">
+	                    		<h2 class="tm-block-title">센터 활동 사진</h2>
+	                    	</div>
+	                        <div class="col-4 text-right"> 
+	                    		<a href="" class="tm-link-black"> 전체 보기</a> 
+	                    	</div>
                     	</div>
-                        <div class="col-4 text-right"> 
-                    		<a href="" class="tm-link-black"> 전체 보기</a> 
-                    	</div>
-						<div id="carouselExampleIndicators" class="carousel slide"
+                    	<div id="carouselExampleIndicators" class="carousel slide"
 							data-ride="carousel">
 							<ol class="carousel-indicators">
 								<li data-target="#carouselExampleIndicators" data-slide-to="0"
@@ -60,8 +62,8 @@
 								aria-hidden="true"></span> <span class="sr-only">Next</span>
 							</a>
 						</div>
-
 					</div>
+					
                 </div>
                 
                 <div class="tm-col tm-col-small" >
