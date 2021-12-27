@@ -22,6 +22,13 @@ public class MainContoller {
 		return "main/Main";
 	}
 	
+	@RequestMapping(value="/CL")
+	public String test2(Model model) throws Exception {
+		/* String test=mainService.selectTest(); */
+		/* model.addAttribute("selectTableList", test); */
+		return "main/CL";
+	}
+	
 }
 
 
