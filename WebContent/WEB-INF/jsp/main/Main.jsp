@@ -17,7 +17,7 @@
                 <div class="tm-col tm-col-small">
                     <div class="bg-white tm-block h-100">
                         <h2 class="tm-block-title">센터 찾기</h2>
-                        	<input type="button" class="btn btn-primary d-block mx-auto" value="센터 찾으러 가기" onclick="#">
+                        	<input type="button" class="btn btn-primary d-block mx-auto" value="센터 찾으러 가기" onclick="location='CL.jsp'">
                     </div>
                 </div>
                 <div class="tm-col tm-col-big">

@@ -1,0 +1,78 @@
+@charset "UTF-8";
+
+article #front {
+	margin: 5px 0px 5px 0px;
+}
+
+body {
+	background-color: #BDBDBD;	
+}
+
+#search {
+	border: 2px solid black;
+	border-radius: 10px; /* css3에서 추가된 속성으로 테두리를 둥글게 처리 */
+	width: 1000px; min-height: 500px; /* 최소 높이 */
+	background: white;
+	padding: 10px;
+	margin: 200px 0px 0px 0px; /* 바깥 왼쪽 여백 설정 */
+	margin-left: auto; margin-right: auto;
+	background-image: url(../images/seoul.jpg);
+	background-repeat: no-repeat;
+	background-position: center center;
+}
+
+.searchArea {
+	margin: 470px 0px 0px 300px;	
+}
+
+.textbox {
+	width: 250px; height: 15px;
+	
+}
+
+.btn {
+	border: 1px solid black;
+	font-size: 13px;	
+}
+
+#listTable {			
+	text-align: center;
+	margin-left: 440px;	
+}
+
+#list th {
+	border-top: 3px solid black;
+	border-bottom: 1px solid black;
+	text-align: center;
+	padding: 15px 0px;
+}
+
+#list th.name {
+	width: 300px;
+}
+
+#list th.addr {
+	width: 550px;
+	border-left: 1px solid gray;
+	border-right: 1px solid gray;	
+}
+
+#list th.tel {
+	width: 150px;	
+	text-align: center;
+}
+
+#list td {
+	text-align: center;
+	padding: 10px 0px;
+	border-bottom-width: 1px;
+	border-bottom-style: dotted;
+	border-bottom-color: #999;	
+}
+
+#list td.left {
+	border-left: 1px solid gray;
+	border-right: 1px solid gray;
+	text-align: left;
+	padding: 0px 0px 0px 10px;
+}
