@@ -22,11 +22,25 @@ public class MainContoller {
 		return "main/Main";
 	}
 	
-	@RequestMapping(value="/CL")
+//	@RequestMapping(value="/CL")
+//	public String test2(Model model) throws Exception {
+//		/* String test=mainService.selectTest(); */
+//		/* model.addAttribute("selectTableList", test); */
+//		return "main/CL";
+//	}
+	
+	@RequestMapping(value="/cl-test")
 	public String test2(Model model) throws Exception {
 		/* String test=mainService.selectTest(); */
 		/* model.addAttribute("selectTableList", test); */
-		return "main/CL";
+		return "main/cl-test";
+	}
+	
+	@RequestMapping(value="/Notice")
+	public String test3(Model model) throws Exception {
+		/* String test=mainService.selectTest(); */
+		/* model.addAttribute("selectTableList", test); */
+		return "main/Notice";
 	}
 	
 }
