@@ -9,41 +9,31 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.service.MainService;
 
 @Controller
-public class MainContoller { 
+public class MainContoller {
 	/*
-	 * @Resource(name="mainService") 
-	 * private MainService mainService;
+	 * @Resource(name="mainService") private MainService mainService;
 	 */
-	
-	@RequestMapping(value="/")
+
+	@RequestMapping(value = "/")
 	public String test(Model model) throws Exception {
 		/* String test=mainService.selectTest(); */
 		/* model.addAttribute("selectTableList", test); */
 		return "main/Main";
 	}
-	
-//	@RequestMapping(value="/CL")
-//	public String test2(Model model) throws Exception {
-//		/* String test=mainService.selectTest(); */
-//		/* model.addAttribute("selectTableList", test); */
-//		return "main/CL";
-//	}
-	
-	@RequestMapping(value="/cl-test")
+
+	@RequestMapping(value="/CL")
 	public String test2(Model model) throws Exception {
 		/* String test=mainService.selectTest(); */
 		/* model.addAttribute("selectTableList", test); */
-		return "main/cl-test";
+		return "main/CL";
 	}
-	
-	@RequestMapping(value="/Notice")
-	public String test3(Model model) throws Exception {
+
+
+	@RequestMapping(value = "/CenterNotice")
+	public String test6(Model model) throws Exception {
 		/* String test=mainService.selectTest(); */
 		/* model.addAttribute("selectTableList", test); */
-		return "main/Notice";
+		return "main/CenterNotice";
 	}
-	
+
 }
-
-
-

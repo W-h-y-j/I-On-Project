@@ -15,12 +15,26 @@
 			<!-- row -->
 			<div class="row tm-content-row tm-mt-big">
 				<div class="tm-col tm-col-small">
-					<div class="bg-white tm-block h-100">
-						<h2 class="tm-block-title">센터 찾기</h2>
-						<input type="button" class="btn btn-primary d-block mx-auto"
-							value="센터 찾으러 가기" onclick="location='CL.jsp'">
+					<div class="row">
+						<div class="col-8">
+							<h2 class="tm-block-title d-inline-block">시스템 공지</h2>
+						</div>
+						<div class="col-4 text-right">
+							<a href="/Notice" class="tm-link-black"> 전체 보기</a>
+						</div>
 					</div>
+					<ol
+						class="tm-list-group tm-list-group-alternate-color tm-list-group-pad-big">
+						<li class="tm-list-group-item">Donec eget libero</li>
+						<li class="tm-list-group-item">Nunc luctus suscipit elementum</li>
+						<li class="tm-list-group-item">Maecenas eu justo maximus</li>
+						<li class="tm-list-group-item">Maecenas eu justo maximus</li>
+						<li class="tm-list-group-item">Nunc luctus suscipit elementum</li>
+						<li class="tm-list-group-item">Nunc luctus suscipit elementum</li>
+						<li class="tm-list-group-item">Maecenas eu justo maximus</li>
+					</ol>
 				</div>
+
 				<div class="tm-col tm-col-big">
 					<div class="bg-white tm-block h-100 ">
 						<div class="row">
@@ -72,19 +86,29 @@
 				<div class="tm-col tm-col-small">
 					<div class="bg-white tm-block border border-secondary">
 						<div class="col-12">
-							<button type="button" class="btn btn-primary w-100">로그인하고
-								후원하기</button>
+							<button type="button" class="btn btn-primary w-100"
+								onclick="location.href='/LoginForm'">로그인하고 후원하기</button>
 						</div>
-						<div class="row mt-3">
-							<div class="col-6 text-center">
-								<a href="" class="tm-link-black">회원가입</a>
+						<div class="row mt-2">
+							<div class="col-12 text-right">
+								<a href="/CenterUserInsert" class="tm-link-black"
+									style="padding-right: 50px;">회원가입</a>
 							</div>
-							<div class="col-6 text-center">
+							<!-- <div class="col-6 text-center">
 								<a href="" class="tm-link-black">비밀번호 찾기</a>
-							</div>
+							</div> -->
 						</div>
 					</div>
-					<div class="bg-white tm-block ">
+
+					<div class="tm-col tm-block">
+						<div class="bg-white tm-block h-100">
+							<h2 class="tm-block-title">센터 찾기</h2>
+							<input type="button" class="btn btn-primary d-block mx-auto"
+								value="센터 찾으러 가기" onclick="location.href='CL'">
+						</div>
+					</div>
+
+					<!-- <div class="bg-white tm-block ">
 						<div class="row">
 							<div class="col-8">
 								<h2 class="tm-block-title d-inline-block">시스템 공지</h2>
@@ -100,7 +124,8 @@
 								elementum</li>
 							<li class="tm-list-group-item">Maecenas eu justo maximus</li>
 						</ol>
-					</div>
+					</div> -->
+
 				</div>
 
 

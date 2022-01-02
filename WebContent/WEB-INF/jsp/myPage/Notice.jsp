@@ -108,7 +108,7 @@
 									<tr>
 										<th scope="row"><input type="checkbox"
 											aria-label="Checkbox"></th>
-										<td class="tm-product-name">	` Donec semper massa eget</td>
+										<td class="tm-product-name"> Donec semper massa eget</td>
 										<td class="text-center">시스템 관리자</td>
 										<!-- <td class="text-center">655</td> -->
 										<td>2019-03-22</td>

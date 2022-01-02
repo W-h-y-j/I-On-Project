@@ -204,10 +204,14 @@ ol {
 }
 
 .form-control {
+/*   margin-bottom: 23px; */
+/*   padding: 19px 18px; */
+/*   border-radius: 0; */
+/*   height: 50px; */
   margin-bottom: 23px;
-  padding: 19px 18px;
+  padding: 10px 18px;
   border-radius: 0;
-  height: 50px;
+  height: 35px;
 }
 
 label {
@@ -217,12 +221,14 @@ label {
 .btn {
   border-radius: 0;
   padding: 13px 28px;
+/*   padding: 6px 15px; */
   transition: all 0.2s ease;
   max-width: 100%;
 }
 
 .btn-small {
-  padding: 10px 24px;
+/*   padding: 10px 24px; */
+  padding: 4px 15px;
 }
 
 .btn-primary {
