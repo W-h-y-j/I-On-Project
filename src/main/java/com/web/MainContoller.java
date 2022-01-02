@@ -15,14 +15,14 @@ public class MainContoller {
 	 */
 
 	@RequestMapping(value = "/")
-	public String test(Model model) throws Exception {
+	public String main(Model model) throws Exception {
 		/* String test=mainService.selectTest(); */
 		/* model.addAttribute("selectTableList", test); */
 		return "main/Main";
 	}
 
 	@RequestMapping(value="/CL")
-	public String test2(Model model) throws Exception {
+	public String searchCenter(Model model) throws Exception {
 		/* String test=mainService.selectTest(); */
 		/* model.addAttribute("selectTableList", test); */
 		return "main/CL";
@@ -30,7 +30,7 @@ public class MainContoller {
 
 
 	@RequestMapping(value = "/CenterNotice")
-	public String test6(Model model) throws Exception {
+	public String centerNotice(Model model) throws Exception {
 		/* String test=mainService.selectTest(); */
 		/* model.addAttribute("selectTableList", test); */
 		return "main/CenterNotice";

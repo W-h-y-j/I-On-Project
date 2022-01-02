@@ -22,8 +22,8 @@
 
 							</div>
 							<div class="col-md-4 col-sm-24 text-right">
-								<a href="add-product.html" class="btn btn-small btn-primary">등록</a>
-								<a href="add-product.html" class="btn btn-small btn-primary">수정</a>
+								<a href="/Notice-Add" class="btn btn-small btn-primary">등록</a>
+								<a href="/Notice-Mod" class="btn btn-small btn-primary">수정</a>
 							</div>
 						</div>
 						<div class="table-responsive">
