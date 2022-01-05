@@ -2,40 +2,59 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<title>I-ON:아이 온 희망나눔 서비스</title>
-	<jsp:include page="../include/base.jsp" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>I-ON:아이 온 희망나눔 서비스</title>
+<jsp:include page="../include/base.jsp" />
 </head>
 <body id="reportsPage">
-    <div class="" id="home">
-        <div class="container">
-        	<jsp:include page="../include/header.jsp" />
-            <!-- row -->
-            <div class="row tm-content-row tm-mt-big">
-                <div class="tm-col tm-col-small">
-                    <div class="bg-white tm-block h-100">
-                        <h2 class="tm-block-title">센터 찾기</h2>
-                        	<input type="button" class="btn btn-primary d-block mx-auto" value="센터 찾으러 가기" onclick="#">
-                    </div>
-                </div>
-                <div class="tm-col tm-col-big">
-                    <div class="bg-white tm-block h-100 row">
-                    	<div class="col-8">
-                    		<h2 class="tm-block-title">센터 활동 사진</h2>
-                    	</div>
-                        <div class="col-4 text-right"> 
-                    		<a href="" class="tm-link-black"> 전체 보기</a> 
-                    	</div>
+	<div class="" id="home">
+		<div class="container">
+			<jsp:include page="../include/header.jsp" />
+			<!-- row -->
+			<div class="row tm-content-row tm-mt-big">
+				<div class="tm-col tm-col-small">
+					<div class="row">
+						<div class="col-8">
+							<h2 class="tm-block-title d-inline-block">시스템 공지</h2>
+						</div>
+						<div class="col-4 text-right">
+							<a href="/Notice" class="tm-link-black"> 전체 보기</a>
+						</div>
+					</div>
+					<ol
+						class="tm-list-group tm-list-group-alternate-color tm-list-group-pad-big">
+						<li class="tm-list-group-item">Donec eget libero</li>
+						<li class="tm-list-group-item">Nunc luctus suscipit elementum</li>
+						<li class="tm-list-group-item">Maecenas eu justo maximus</li>
+						<li class="tm-list-group-item">Maecenas eu justo maximus</li>
+						<li class="tm-list-group-item">Nunc luctus suscipit elementum</li>
+						<li class="tm-list-group-item">Nunc luctus suscipit elementum</li>
+						<li class="tm-list-group-item">Maecenas eu justo maximus</li>
+					</ol>
+				</div>
+
+				<div class="tm-col tm-col-big">
+					<div class="bg-white tm-block h-100 ">
+						<div class="row">
+							<div class="col-8">
+								<h2 class="tm-block-title">센터 활동 사진</h2>
+							</div>
+							<div class="col-4 text-right">
+								<a href="" class="tm-link-black"> 전체 보기</a>
+							</div>
+						</div>
 						<div id="carouselExampleIndicators" class="carousel slide"
 							data-ride="carousel">
+
 							<ol class="carousel-indicators">
 								<li data-target="#carouselExampleIndicators" data-slide-to="0"
 									class="active"></li>
 								<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
 								<li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
 							</ol>
+
 							<div class="carousel-inner">
 								<div class="carousel-item active">
 									<img class="d-block" src="Resources/img/main/main01.jpg"
@@ -62,157 +81,138 @@
 						</div>
 
 					</div>
-                </div>
-                
-                <div class="tm-col tm-col-small" >
-                    <div class="bg-white tm-block border border-secondary" >
-    					<div class="col-12">
-							<button type="button" class="btn btn-primary w-100">로그인하고 후원하기</button>
-						</div>
-                    	<div class="row mt-3">
-                    		<div class="col-6 text-center">
-                    			<a href="" class="tm-link-black">회원가입</a>
-                    		</div>
-                    		<div class="col-6 text-center"> 
-                    			<a href="" class="tm-link-black">비밀번호 찾기</a>
-                    		</div>
-                    	</div>
-                    </div>
-                	<div class="bg-white tm-block " >
-                    	<div class="row">
-                    		<div class="col-8">
-                    			<h2 class="tm-block-title d-inline-block">시스템 공지</h2>
-                    		</div>
-                    		<div class="col-4 text-right"> 
-                    			<a href="" class="tm-link-black"> 전체 보기</a> 
-                    		</div>
-                    	</div>
-	                   	<ol class="tm-list-group tm-list-group-alternate-color tm-list-group-pad-big">
-                            <li class="tm-list-group-item">
-                                Donec eget libero
-                            </li>
-                            <li class="tm-list-group-item">
-                                Nunc luctus suscipit elementum
-                            </li>
-                            <li class="tm-list-group-item">
-                                Maecenas eu justo maximus
-                            </li>
-                        </ol>
-                    </div>
 				</div>
-                
 
-                <div class="tm-col tm-col-small">
-                    <div class="bg-white tm-block h-100">
-                        <div class="row">
-                            <div class="col-8">
-                                <h2 class="tm-block-title d-inline-block">센터 공지사항</h2>
-                            </div>
-                            <div class="col-4 text-right">
-                                <a href="products.html" class="tm-link-black">전체 보기</a>
-                            </div>
-                        </div>
-                        <ol class="tm-list-group tm-list-group-alternate-color tm-list-group-pad-big">
-                            <li class="tm-list-group-item">
-                                Donec eget libero
-                            </li>
-                            <li class="tm-list-group-item">
-                                Nunc luctus suscipit elementum
-                            </li>
-                            <li class="tm-list-group-item">
-                                Maecenas eu justo maximus
-                            </li>
-                            <li class="tm-list-group-item">
-                                Pellentesque auctor urna nunc
-                            </li>
-                            <li class="tm-list-group-item">
-                                Sit amet aliquam lorem efficitur
-                            </li>
-                            <li class="tm-list-group-item">
-                                Pellentesque auctor urna nunc
-                            </li>
-                            <li class="tm-list-group-item">
-                                Sit amet aliquam lorem efficitur
-                            </li>
-                        </ol>
-                    </div>
-                </div>
-                <div class="tm-col tm-col-big">
-                    <div class="bg-white tm-block h-100">
-                        <div class="row">
-                            <div class="col-8">
-                                <h2 class="tm-block-title d-inline-block">센터 후원 요청</h2>
-                            </div>
-                            <div class="col-4 text-right">
-                                <a href="products.html" class="tm-link-black">전체 보기</a>
-                            </div>
-                        </div>
-                        <ol class="tm-list-group tm-list-group-alternate-color tm-list-group-pad-big">
-                            <li class="tm-list-group-item">
-                                Donec eget libero
-                            </li>
-                            <li class="tm-list-group-item">
-                                Nunc luctus suscipit elementum
-                            </li>
-                            <li class="tm-list-group-item">
-                                Maecenas eu justo maximusyy
-                            </li>
-                            <li class="tm-list-group-item">
-                                Pellentesque auctor urna nunc
-                            </li>
-                            <li class="tm-list-group-item">
-                                Sit amet aliquam lorem efficitur
-                            </li>
-                            <li class="tm-list-group-item">
-                                Pellentesque auctor urna nunc
-                            </li>
-                            <li class="tm-list-group-item">
-                                Sit amet aliquam lorem efficitur
-                            </li>
-                        </ol>
-                    </div>
-                </div>
-                <div class="tm-col tm-col-small">
-                    <div class="bg-white tm-block h-100">
-                    	<div class="row">
-                            <div class="col-8">
-                                <h2 class="tm-block-title d-inline-block">센터 사용 내역</h2>
-                            </div>
-                            <div class="col-4 text-right">
-                                <a href="products.html" class="tm-link-black">전체 보기</a>
-                            </div>
-                        </div>
-                        
-                        <ol class="tm-list-group tm-list-group-alternate-color tm-list-group-pad-big">
-                            <li class="tm-list-group-item">
-                                Donec eget libero
-                            </li>
-                            <li class="tm-list-group-item">
-                                Nunc luctus suscipit elementum
-                            </li>
-                            <li class="tm-list-group-item">
-                                Maecenas eu justo maximus
-                            </li>
-                            <li class="tm-list-group-item">
-                                Pellentesque auctor urna nunc
-                            </li>
-                            <li class="tm-list-group-item">
-                                Sit amet aliquam lorem efficitur
-                            </li>
-                            <li class="tm-list-group-item">
-                                Pellentesque auctor urna nunc
-                            </li>
-                            <li class="tm-list-group-item">
-                                Sit amet aliquam lorem efficitur
-                            </li>
-                        </ol>
-                    </div>
-                </div>
-            </div>
-            <jsp:include page="../include/footer.jsp" />
-        </div>
-    </div>
-    <jsp:include page="../include/chartThings.jsp"/>
+				<div class="tm-col tm-col-small">
+					<div class="bg-white tm-block border border-secondary">
+						<div class="col-12">
+							<button type="button" class="btn btn-primary w-100"
+								onclick="location.href='/LoginForm'">로그인하고 후원하기</button>
+						</div>
+						<div class="row mt-2">
+							<div class="col-12 text-right">
+								<a href="/CenterUserInsert" class="tm-link-black"
+									style="padding-right: 50px;">회원가입</a>
+							</div>
+							<!-- <div class="col-6 text-center">
+								<a href="" class="tm-link-black">비밀번호 찾기</a>
+							</div> -->
+						</div>
+					</div>
+
+					<div class="tm-col tm-block">
+						<div class="bg-white tm-block h-100">
+							<h2 class="tm-block-title">센터 찾기</h2>
+							<input type="button" class="btn btn-primary d-block mx-auto"
+								value="센터 찾으러 가기" onclick="location.href='CL'">
+						</div>
+					</div>
+
+					<!-- <div class="bg-white tm-block ">
+						<div class="row">
+							<div class="col-8">
+								<h2 class="tm-block-title d-inline-block">시스템 공지</h2>
+							</div>
+							<div class="col-4 text-right">
+								<a href="" class="tm-link-black"> 전체 보기</a>
+							</div>
+						</div>
+						<ol
+							class="tm-list-group tm-list-group-alternate-color tm-list-group-pad-big">
+							<li class="tm-list-group-item">Donec eget libero</li>
+							<li class="tm-list-group-item">Nunc luctus suscipit
+								elementum</li>
+							<li class="tm-list-group-item">Maecenas eu justo maximus</li>
+						</ol>
+					</div> -->
+
+				</div>
+
+
+				<div class="tm-col tm-col-small">
+					<div class="bg-white tm-block h-100">
+						<div class="row">
+							<div class="col-8">
+								<h2 class="tm-block-title d-inline-block">센터 공지사항</h2>
+							</div>
+							<div class="col-4 text-right">
+								<a href="products.html" class="tm-link-black">전체 보기</a>
+							</div>
+						</div>
+						<ol
+							class="tm-list-group tm-list-group-alternate-color tm-list-group-pad-big">
+							<li class="tm-list-group-item">「용산비젼공부방」 12월 급식표 안내</li>
+							<li class="tm-list-group-item">「성수비젼공부방」 12월 급식표 안내</li>
+							<li class="tm-list-group-item">「신대방삼거리복지센터」 보육 교사 긴급 충원 0인</li>
+							<li class="tm-list-group-item">「관악아동복지센터」 12월 운영일정 및 행사 안내</li>
+							<li class="tm-list-group-item">「강서아동복지센터」 12월 공부방 운영시간 공지</li>
+							<li class="tm-list-group-item">「안암칠드런센터」 12월 참여 공지사항 안내</li>
+							<li class="tm-list-group-item">「원효로3가청소년공부방」 12월 급식표 알림</li>
+						</ol>
+					</div>
+				</div>
+				<div class="tm-col tm-col-big">
+					<div class="bg-white tm-block h-100">
+						<div class="row">
+							<div class="col-8">
+								<h2 class="tm-block-title d-inline-block">센터 후원 요청</h2>
+							</div>
+							<div class="col-4 text-right">
+								<a href="products.html" class="tm-link-black">전체 보기</a>
+							</div>
+						</div>
+
+						<ol
+							class="tm-list-group tm-list-group-alternate-color tm-list-group-pad-big">
+							<li class="tm-list-group-item">「용산비젼공부방」 12월 운영비 사용 부족으로 인한
+								긴급 지원 요청</li>
+							<li class="tm-list-group-item">「성수비젼공부방」 12월 후원비 요청 드립니다.</li>
+							<li class="tm-list-group-item">「신대방삼거리복지센터」 14시 부터 19시까지
+								봉사자를 구합니다.</li>
+							<li class="tm-list-group-item">「관악아동복지센터」 세탁기가 고장나 수리가 불가하여
+								새로운 제품을</li>
+							<li class="tm-list-group-item">「강서아동복지센터」 11월 후원금이 부족해 간식지급에
+								어려움이</li>
+							<li class="tm-list-group-item">「안암칠드런센터」 12월 참여 활동지원 요청
+								드립니다.</li>
+							<li class="tm-list-group-item">「원효로3가청소년공부방」 책상이 너무 낡아서 다
+								부서지려고 합니다.</li>
+						</ol>
+					</div>
+				</div>
+				<div class="tm-col tm-col-small">
+					<div class="bg-white tm-block h-100">
+						<div class="row">
+							<div class="col-8">
+								<h2 class="tm-block-title d-inline-block">센터 사용 내역</h2>
+							</div>
+							<div class="col-4 text-right">
+								<a href="products.html" class="tm-link-black">전체 보기</a>
+							</div>
+						</div>
+
+						<ol
+							class="tm-list-group tm-list-group-alternate-color tm-list-group-pad-big">
+							<li class="tm-list-group-item">Donec eget libero</li>
+							<li class="tm-list-group-item">Nunc luctus suscipit
+								elementum</li>
+							<li class="tm-list-group-item">Maecenas eu justo maximus</li>
+							<li class="tm-list-group-item">Pellentesque auctor urna nunc
+							</li>
+							<li class="tm-list-group-item">Sit amet aliquam lorem
+								efficitur</li>
+							<li class="tm-list-group-item">Pellentesque auctor urna nunc
+							</li>
+							<li class="tm-list-group-item">Sit amet aliquam lorem
+								efficitur</li>
+						</ol>
+					</div>
+				</div>
+			</div>
+			<jsp:include page="../include/footer.jsp" />
+		</div>
+	</div>
+	<jsp:include page="../include/chartThings.jsp" />
 </body>
 </html>
 
