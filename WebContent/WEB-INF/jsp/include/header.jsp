@@ -15,7 +15,7 @@
 			</button>
 
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
-				<ul class="nav nav-pills mx-auto"> <!-- navbar-nav -->
+				<ul class="nav nav-pills ml-auto"> <!-- navbar-nav -->
 					<li class="nav-item dropdown">
 						<a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-toggle="dropdown"
 						aria-haspopup="true" aria-expanded="false"> 아동 센터 </a>
@@ -43,7 +43,7 @@
 						aria-haspopup="true" aria-expanded="false">My Page</a>
 						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 							<a class="dropdown-item" href="/Notice">공지 사항</a> <a
-								class="dropdown-item" href="#">나의 후원 내역</a> <a
+								class="dropdown-item" href="/Donation-History">나의 후원 내역</a> <a
 								class="dropdown-item" href="#">우리 센터 블로그</a> <a
 								class="dropdown-item" href="#">후원자 관리</a> <a
 								class="dropdown-item" href="#">센터 운영자 관리</a> <a
