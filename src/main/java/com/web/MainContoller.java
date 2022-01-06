@@ -21,11 +21,11 @@ public class MainContoller {
 		return "main/Main";
 	}
 
-	@RequestMapping(value="/CL")
+	@RequestMapping(value="/Center_Location")
 	public String searchCenter(Model model) throws Exception {
 		/* String test=mainService.selectTest(); */
 		/* model.addAttribute("selectTableList", test); */
-		return "main/CL";
+		return "main/Center_Location";
 	}
 
 

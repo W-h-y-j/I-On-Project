@@ -7642,8 +7642,8 @@ supports ((position:-webkit-sticky) or (position:sticky)) { .
 }
 
 .mr-auto, .mx-auto {
-	/* margin-right: auto !important */
-	margin-right: 90px;
+	margin-right: auto !important
+	/* margin-right: 90px; */
 }
 
 .mb-auto, .my-auto {

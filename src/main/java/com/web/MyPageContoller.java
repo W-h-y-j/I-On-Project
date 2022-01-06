@@ -27,4 +27,11 @@ public class MyPageContoller {
 		/* model.addAttribute("selectTableList", test); */
 		return "myPage/Notice-Mod";
 	}
+	
+	@RequestMapping(value = "/Donation-History")
+	public String donationHistory(Model model) throws Exception {
+		/* String test=mainService.selectTest(); */
+		/* model.addAttribute("selectTableList", test); */
+		return "myPage/Donation-History";
+	}
 }
