@@ -1,0 +1,23 @@
+#CenterUseTitle{
+    border-bottom: 2px solid black;
+}
+
+#CenterUsePage{
+    margin-left: 25vw;
+}
+
+#CenterUseBtn{
+    margin-left: 20vw;
+}
+
+#CenterUseTable tr td{
+    text-overflow: ellipsis; white-space: nowrap; max-width: 25vw; overflow: hidden;
+}
+
+#CenterUseLine{
+    height: 65vh;
+}
+
+#CenterUseTable{
+    width:62vw;
+}

@@ -1,0 +1,23 @@
+#CenterThkTitle{
+    border-bottom: 2px solid black;
+}
+
+#CenterThkPage{
+    margin-left: 25vw;
+}
+
+#CenterThkBtn{
+    margin-left: 20vw;
+}
+
+#CenterThkTable tr td{
+    text-overflow: ellipsis; white-space: nowrap; max-width: 25vw; overflow: hidden;
+}
+
+#CenterThkLine{
+    height: 65vh;
+}
+
+#CenterThkTable{
+    width:62vw;
+}

@@ -1,0 +1,23 @@
+#CenterHelpTitle{
+    border-bottom: 2px solid black;
+}
+
+#CenterHelpPage{
+    margin-left: 25vw;
+}
+
+#CenterHelpBtn{
+    margin-left: 20vw;
+}
+
+#CenterHelpTable tr td{
+    text-overflow: ellipsis; white-space: nowrap; max-width: 25vw; overflow: hidden;
+}
+
+#CenterHelpLine{
+    height: 65vh;
+}
+
+#CenterHelpTable{
+    width:62vw;
+}

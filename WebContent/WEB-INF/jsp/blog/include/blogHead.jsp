@@ -3,7 +3,7 @@
 
     <nav class="navbar navbar-expand-lg navbar-light"style="background-color: #e3f2fd;">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#"><b>I-ON: 아이 온 희망나눔</b></a>
+            <a class="navbar-brand" href="/blog"><b>I-ON: 아이 온 희망나눔</b></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -18,27 +18,27 @@
                             시설 소개
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="#">시설 소개</a></li>
-                            <li><a class="dropdown-item" href="#">센터장 인사말</a></li>
+                            <li><a class="dropdown-item" href="/blog/Info">시설 소개</a></li>
+                            <li><a class="dropdown-item" href="/blog/Info">센터장 인사말</a></li>
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">공지사항</a>
+                        <a class="nav-link" href="/blog/Notice">공지사항</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">활동사진</a>
+                        <a class="nav-link" href="/blog/Gallery">활동사진</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">운영일정</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">필요해요!</a>
+                        <a class="nav-link" href="/blog/Help">필요해요!</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">감사해요!</a>
+                        <a class="nav-link" href="/blog/Thk">감사해요!</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">후원금 내역</a>
+                        <a class="nav-link" href="/blog/Use">후원금 내역</a>
                     </li>
                 </ul>
             </div>

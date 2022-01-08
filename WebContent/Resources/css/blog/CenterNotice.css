@@ -1,0 +1,24 @@
+#CenterNoticeTitle{
+    border-bottom: 2px solid black;
+}
+
+#CenterNoticeTable tr td{
+    text-overflow: ellipsis; white-space: nowrap; max-width: 25vw; overflow: hidden;
+}
+
+#CenterNoticePage{
+    margin-left: 26vw;
+}
+
+#CenterNoticeBtn{
+    margin-left: 18vw;
+    text-overflow: ellipsis; white-space: nowrap; max-width: 12vw; overflow: hidden;
+}
+
+#CenterNoticeTable{
+    width:62vw;
+}
+
+#CenterNoticeLine{
+    height: 65vh;
+}

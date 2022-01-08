@@ -1,0 +1,22 @@
+#CenterInfoTitle{
+    border-bottom: 2px solid black;
+}
+
+#CenterInfoPhoto {
+    width:63vw;
+    height:35vh;
+}
+
+#CenterInfoImg {
+    margin:auto;  
+}
+
+#CenterInfoTextLine{
+    height:25vh;
+    width:65vw;
+    
+}
+
+#ChangeInfoInfo{
+    height:78vh;
+}

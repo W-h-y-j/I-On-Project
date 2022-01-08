@@ -36,10 +36,5 @@ public class MainContoller {
 		return "main/CenterNotice";
 	}
 
-	@RequestMapping(value = "/blog")
-	public String BlogMain(Model model) throws Exception {
-		/* String test=mainService.selectTest(); */
-		/* model.addAttribute("selectTableList", test); */
-		return "blog/BlogMain";
-	}
+	
 }
