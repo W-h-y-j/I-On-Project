@@ -1,4 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -94,9 +95,6 @@
 								<a href="/CenterUserInsert" class="tm-link-black"
 									style="padding-right: 50px;">회원가입</a>
 							</div>
-							<!-- <div class="col-6 text-center">
-								<a href="" class="tm-link-black">비밀번호 찾기</a>
-							</div> -->
 						</div>
 					</div>
 
@@ -104,28 +102,9 @@
 						<div class="bg-white tm-block h-100">
 							<h2 class="tm-block-title">센터 찾기</h2>
 							<input type="button" class="btn btn-primary d-block mx-auto"
-								value="센터 찾으러 가기" onclick="location.href='CL'">
+								value="센터 찾으러 가기" onclick="location.href='Center_Location'">
 						</div>
 					</div>
-
-					<!-- <div class="bg-white tm-block ">
-						<div class="row">
-							<div class="col-8">
-								<h2 class="tm-block-title d-inline-block">시스템 공지</h2>
-							</div>
-							<div class="col-4 text-right">
-								<a href="" class="tm-link-black"> 전체 보기</a>
-							</div>
-						</div>
-						<ol
-							class="tm-list-group tm-list-group-alternate-color tm-list-group-pad-big">
-							<li class="tm-list-group-item">Donec eget libero</li>
-							<li class="tm-list-group-item">Nunc luctus suscipit
-								elementum</li>
-							<li class="tm-list-group-item">Maecenas eu justo maximus</li>
-						</ol>
-					</div> -->
-
 				</div>
 
 

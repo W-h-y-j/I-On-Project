@@ -35,7 +35,6 @@
 										<th scope="col" class="text-center">작성자</th>
 										<!-- <th scope="col" class="text-center"></th> -->
 										<th scope="col">작성일</th>
-										<th scope="col">&nbsp;</th>
 									</tr>
 								</thead>
 								<tbody>
@@ -46,7 +45,6 @@
 										<td class="text-center">시스템 관리자</td>
 										<!-- <td class="text-center">255</td> -->
 										<td>2018-10-28</td>
-										<td><i class="fas fa-trash-alt tm-trash-icon"></i></td>
 									</tr>
 									<tr>
 										<th scope="row"><input type="checkbox"
@@ -56,7 +54,6 @@
 										<td class="text-center">시스템 관리자</td>
 										<!-- <td class="text-center">260</td> -->
 										<td>2018-10-24</td>
-										<td><i class="fas fa-trash-alt tm-trash-icon"></i></td>
 									</tr>
 									<tr>
 										<th scope="row"><input type="checkbox"
@@ -66,7 +63,6 @@
 										<td class="text-center">시스템 관리자</td>
 										<!-- <td class="text-center">440</td> -->
 										<td>2019-02-14</td>
-										<td><i class="fas fa-trash-alt tm-trash-icon"></i></td>
 									</tr>
 									<tr>
 										<th scope="row"><input type="checkbox"
@@ -75,7 +71,6 @@
 										<td class="text-center">시스템 관리자</td>
 										<!-- <td class="text-center">655</td> -->
 										<td>2019-03-22</td>
-										<td><i class="fas fa-trash-alt tm-trash-icon"></i></td>
 									</tr>
 									<tr>
 										<th scope="row"><input type="checkbox"
@@ -84,7 +79,6 @@
 										<td class="text-center">시스템 관리자</td>
 										<!-- <td class="text-center">655</td> -->
 										<td>2019-03-22</td>
-										<td><i class="fas fa-trash-alt tm-trash-icon"></i></td>
 									</tr>
 									<tr>
 										<th scope="row"><input type="checkbox"
@@ -93,7 +87,6 @@
 										<td class="text-center">시스템 관리자</td>
 										<!-- <td class="text-center">655</td> -->
 										<td>2019-03-22</td>
-										<td><i class="fas fa-trash-alt tm-trash-icon"></i></td>
 									</tr>
 									<tr>
 										<th scope="row"><input type="checkbox"
@@ -102,7 +95,6 @@
 										<td class="text-center">시스템 관리자</td>
 										<!-- <td class="text-center">655</td> -->
 										<td>2019-03-22</td>
-										<td><i class="fas fa-trash-alt tm-trash-icon"></i></td>
 									</tr>
 									<tr>
 										<th scope="row"><input type="checkbox"
@@ -111,7 +103,6 @@
 										<td class="text-center">시스템 관리자</td>
 										<!-- <td class="text-center">655</td> -->
 										<td>2019-03-22</td>
-										<td><i class="fas fa-trash-alt tm-trash-icon"></i></td>
 									</tr>
 								</tbody>
 							</table>
