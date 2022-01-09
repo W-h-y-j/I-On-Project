@@ -43,7 +43,7 @@
 								<h2 class="tm-block-title">센터 활동 사진</h2>
 							</div>
 							<div class="col-4 text-right">
-								<a href="" class="tm-link-black"> 전체 보기</a>
+								<a href="/Center_Image" class="tm-link-black"> 전체 보기</a>
 							</div>
 						</div>
 						<div id="carouselExampleIndicators" class="carousel slide"
@@ -115,7 +115,7 @@
 								<h2 class="tm-block-title d-inline-block">센터 공지사항</h2>
 							</div>
 							<div class="col-4 text-right">
-								<a href="products.html" class="tm-link-black">전체 보기</a>
+								<a href="/Center_Notice" class="tm-link-black">전체 보기</a>
 							</div>
 						</div>
 						<ol
@@ -137,7 +137,7 @@
 								<h2 class="tm-block-title d-inline-block">센터 후원 요청</h2>
 							</div>
 							<div class="col-4 text-right">
-								<a href="products.html" class="tm-link-black">전체 보기</a>
+								<a href="/Center_Help" class="tm-link-black">전체 보기</a>
 							</div>
 						</div>
 
@@ -166,7 +166,7 @@
 								<h2 class="tm-block-title d-inline-block">센터 사용 내역</h2>
 							</div>
 							<div class="col-4 text-right">
-								<a href="products.html" class="tm-link-black">전체 보기</a>
+								<a href="/Center_Thk" class="tm-link-black">전체 보기</a>
 							</div>
 						</div>
 

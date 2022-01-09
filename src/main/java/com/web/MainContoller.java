@@ -35,6 +35,34 @@ public class MainContoller {
 		/* model.addAttribute("selectTableList", test); */
 		return "main/CenterNotice";
 	}
+	
+	@RequestMapping(value = "/Center_Notice")
+	public String center_Notice(Model model) throws Exception {
+		/* String test=mainService.selectTest(); */
+		/* model.addAttribute("selectTableList", test); */
+		return "main/Center_Notice";
+	}
+	
+	@RequestMapping(value = "/Center_Thk")
+	public String Center_Thk(Model model) throws Exception {
+		/* String test=mainService.selectTest(); */
+		/* model.addAttribute("selectTableList", test); */
+		return "main/Center_Thk";
+	}
+	
+	@RequestMapping(value = "/Center_Image")
+	public String Center_Image(Model model) throws Exception {
+		/* String test=mainService.selectTest(); */
+		/* model.addAttribute("selectTableList", test); */
+		return "main/Center_Image";
+	}
+	
+	@RequestMapping(value = "/Center_Help")
+	public String Center_Help(Model model) throws Exception {
+		/* String test=mainService.selectTest(); */
+		/* model.addAttribute("selectTableList", test); */
+		return "main/Center_Help";
+	}
 
 	
 }
