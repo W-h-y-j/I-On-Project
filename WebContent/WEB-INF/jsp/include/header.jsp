@@ -43,7 +43,7 @@
 						aria-haspopup="true" aria-expanded="false">My Page</a>
 						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 							<a class="dropdown-item" href="/Notice">공지 사항</a> <a
-								class="dropdown-item" href="/Donation-History">나의 후원 내역</a> <a
+								class="dropdown-item" href="/DonationHistory">나의 후원 내역</a> <a
 								class="dropdown-item" href="#">우리 센터 블로그</a> <a
 								class="dropdown-item" href="#">후원자 관리</a> <a
 								class="dropdown-item" href="#">센터 운영자 관리</a> <a
