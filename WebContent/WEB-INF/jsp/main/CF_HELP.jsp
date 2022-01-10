@@ -9,16 +9,15 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    
-    <title>아동센터 후원 사용내역</title>
-    <jsp:include page="../include/base.jsp" />
+    <link rel="stylesheet" type="text/css" href="CF_HELP_style.css">
+    <title>필요해요</title>
+    <jsp:include page="./include/base.jsp" />
   </head>
   <body>
-  <div class="container">
-  <jsp:include page="../include/header.jsp"  />
+  <jsp:include page="./include/header.jsp"  />
    
-    <nav class="navbar navbar-expand-lg navbar-light bg-light" style="width:1600px; margin:auto">
-  <a class="navbar-brand" href="#">아동센터 후원 사용내역</a>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" style="width:50%; margin:auto">
+  <a class="navbar-brand" href="#">지역 아동센터 필요해요</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -26,23 +25,38 @@
 
 <ul class="nav justify-content-center">
   <li class="nav-item">
-    <a class="nav-link active" href="/Center_Location">아동 센터 찾기</a>
+    <a class="nav-link active" href="#">지원아동센터 찾기</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link active" href="/Center_Notice">아동 센터 공지</a>
+    <a class="nav-link active" href="#">지원아동센터 공지</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link active" href="/Center_Help">아동 센터 후원요청</a>
+    <a class="nav-link active" href="#">지원아동센터 필요해요</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link active" href="/Center_Thk">아동 센터 후원 사용 내역</a>
+    <a class="nav-link active" href="#">지원아동센터 감사해요</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link active" href="/Center_Image">아동 센터 활동 사진</a>
+    <a class="nav-link active" href="#">지원아동센터 활동사진</a>
   </li>
 </ul>
+
+<div class="form-check-form-check-inline">
+  <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+  <label class="form-check-label" for="inlineCheckbox1">강남구</label>
+</div>
+<div class="form-check-form-check-inline">
+  <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+  <label class="form-check-label" for="inlineCheckbox2">서초구</label>
+</div>
+<div class="form-check-form-check-inline">
+  <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">
+  <label class="form-check-label" for="inlineCheckbox3">마포구</label>
+</div>
+
+
  
- <p class="searchArea" style="width:1600px; margin:auto" >
+ <p class="searchArea" style="width:50%; margin:auto" >
 								<select class="option">
 									<option value="sr">검색</option>
 									<option value="title">제목</option>
@@ -50,9 +64,9 @@
 								</select>&nbsp; <input type="text" name="" class="textbox" /> <input
 									type="button" value="검색" class="btn" onclick="#" />
 							</p>
-						
+						</div> 
 	<div class="table-responsive">					
-    <table class="table table-hover" style="width:1600px; margin:auto"  >
+    <table class="table table-hover" style="width:50%; margin:auto"  >
 
   <thead>
     <tr>
@@ -143,8 +157,7 @@
     <li class="page-item"><a class="page-link" href="#">1</a></li>
     <li class="page-item"><a class="page-link" href="#">2</a></li>
     <li class="page-item"><a class="page-link" href="#">3</a></li>
-    <li class="page-item"><a class="page-link" href="#">4</a></li>
-    <li class="page-item"><a class="page-link" href="#">5</a></li>
+    <li class="page-item">
       <a class="page-link" href="#">Next</a>
     </li>
   </ul>
@@ -155,7 +168,6 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-      <jsp:include page="../include/footer.jsp" />
- </div>
+      <jsp:include page="./include/footer.jsp" />
   </body>
 </html>
