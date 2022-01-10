@@ -21,11 +21,11 @@
 						aria-haspopup="true" aria-expanded="false"> 아동 센터 </a>
 					
 						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-							<a class="dropdown-item" href="#">아동 센터 찾기</a> 
-							<a class="dropdown-item" href="#">아동 센터 공지</a> 
-							<a class="dropdown-item" href="#">아동 센터 후원 요청</a> 
-							<a class="dropdown-item" href="#">아동 센터 후원 사용 내역</a> 
-							<a class="dropdown-item" href="#">아동 센터 활동 사진</a> 
+							<a class="dropdown-item" href="/Center_Location">아동 센터 찾기</a> 
+							<a class="dropdown-item" href="/Center_Notice">아동 센터 공지</a> 
+							<a class="dropdown-item" href="/Center_Help">아동 센터 후원 요청</a> 
+							<a class="dropdown-item" href="/Center_Thk">아동 센터 후원 사용 내역</a> 
+							<a class="dropdown-item" href="/Center_Image">아동 센터 활동 사진</a> 
 						</div>
 					</li>
 						
