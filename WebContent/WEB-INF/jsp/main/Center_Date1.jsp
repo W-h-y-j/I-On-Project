@@ -42,7 +42,7 @@ $(function() {
 			<div class="col-xl-12 col-lg-24 tm-md-24 tm-sm-24 tm-col">
 				<div class="bg-white tm-block h-100">
 					<div class="row">
-						<div class="col-md-24 col-sm-24">
+						<div class="col-md-12 col-sm-12">
 							<h2 class="tm-block-title d-inline-block">센터 일정</h2>
 							<br />
 							<br />
