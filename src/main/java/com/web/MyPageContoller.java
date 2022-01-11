@@ -14,6 +14,13 @@ public class MyPageContoller {
 		return "myPage/Notice";
 	}
 	
+	@RequestMapping(value = "/Notice-View")
+	public String systemNoticeView(Model model) throws Exception {
+		/* String test=mainService.selectTest(); */
+		/* model.addAttribute("selectTableList", test); */
+		return "myPage/Notice-View";
+	}
+	
 	@RequestMapping(value = "/Notice-Add")
 	public String systemNoticeAdd(Model model) throws Exception {
 		/* String test=mainService.selectTest(); */

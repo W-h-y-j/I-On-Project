@@ -23,6 +23,7 @@
 							<div class="col-md-4 col-sm-24 text-right">
 								<a href="/Notice-Add" class="btn btn-small btn-primary">등록</a>
 								<a href="/Notice-Mod" class="btn btn-small btn-primary">수정</a>
+								<a href="/Notice-Del" class="btn btn-small btn-primary">삭제</a>
 							</div>
 						</div>
 						<div class="table-responsive">
@@ -41,7 +42,7 @@
 									<tr class>
 										<th scope="row"><input type="checkbox"
 											aria-label="Checkbox"></th>
-										<td class="tm-product-name"> In malesuada placerat (hover)</td>
+										<td onclick="/Notice-View" class="tm-product-name"> In malesuada placerat (hover)</td>
 										<td class="text-center">시스템 관리자</td>
 										<!-- <td class="text-center">255</td> -->
 										<td>2018-10-28</td>
@@ -83,7 +84,7 @@
 									<tr>
 										<th scope="row"><input type="checkbox"
 											aria-label="Checkbox"></th>
-										<td class="tm-product-name"> Donec semper massa eget</td>
+										<td  class="tm-product-name"> Donec semper massa eget</td>
 										<td class="text-center">시스템 관리자</td>
 										<!-- <td class="text-center">655</td> -->
 										<td>2019-03-22</td>

@@ -4,7 +4,6 @@
 <script
 	src="https://uicdn.toast.com/editor/latest/toastui-editor-all.min.js"></script>
 
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,14 +23,15 @@
 					<div class="bg-white tm-block">
 						<div class="row">
 							<div class="col-12">
-								<h2 class="tm-block-title d-inline-block">공지사항 수정</h2>
+								<h2 class="tm-block-title d-inline-block">공지사항 조회</h2>
 							</div>
 						</div>
 						<div class="row mt-4 tm-edit-product-row">
-							<div id="editor" class="col"></div>
+							<div id="viewer" class="col"></div>
 							<div
-								class="ml-auto col-xl-8 col-lg-8 col-md-8 col-sm-7 pl-0 text-right">
-								<button type="submit" class="btn mx-auto btn-primary">저장</button>
+								class="ml-auto col-xl-8 col-lg-8 col-md-8 col-sm-7 pl-0 text-right"
+								style="padding-top: 10px;">
+								<a href="/Notice" class="btn btn-small btn-primary">목록</a>
 							</div>
 						</div>
 					</div>
@@ -41,14 +41,10 @@
 		</div>
 	</div>
 	<script>
-	
-	const editor = new toastui.Editor({
-        el: document.querySelector('#editor'),
-        previewStyle: 'tab', //'tab'
-        height: '500px',
-        initialValue: ' ' //content
-      });
+		const viewer = new toastui.Editor({
+			el : document.querySelector('#viewer'),
+			initialValue : content
+		});
 	</script>
-
 </body>
 </html>
