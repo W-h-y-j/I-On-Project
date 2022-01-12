@@ -21,6 +21,11 @@ public class BlogController {
 		return "blog/BlogCenterNotice";
 	}
 	
+	@RequestMapping(value = "/blog/Notice/View")
+	public String BlogNoticeView(Model model) throws Exception {
+		return "blog/view/BlogNoticeView";
+	}
+	
 	@RequestMapping(value = "/blog/Notice/Create")
 	public String BlogCenterNoticeCreate(Model model) throws Exception {
 		return "blog/create/BlogCenterNoticeCreate";
@@ -31,6 +36,11 @@ public class BlogController {
 		return "blog/BlogCenterGallery";
 	}
 	
+	@RequestMapping(value = "/blog/Gallery/View")
+	public String BlogGalleryView(Model model) throws Exception {
+		return "blog/view/BlogGalleryView";
+	}
+	
 	@RequestMapping(value = "/blog/Gallery/Create")
 	public String BlogCenterGalleryCreate(Model model) throws Exception {
 		return "blog/create/BlogCenterGalleryCreate";
@@ -39,6 +49,11 @@ public class BlogController {
 	@RequestMapping(value = "/blog/Help")
 	public String BlogCenterHelp(Model model) throws Exception {
 		return "blog/BlogCenterHelp";
+	}
+	
+	@RequestMapping(value = "/blog/Help/View")
+	public String BlogHelpView(Model model) throws Exception {
+		return "blog/view/BlogHelpView";
 	}
 	
 	@RequestMapping(value = "/blog/Help/Create")
@@ -61,6 +76,11 @@ public class BlogController {
 		return "blog/BlogCenterThk";
 	}
 	
+	@RequestMapping(value = "/blog/Thk/View")
+	public String BlogThkView(Model model) throws Exception {
+		return "blog/view/BlogThkView";
+	}
+	
 	@RequestMapping(value = "/blog/Thk/Create")
 	public String BlogCenterThkCreate(Model model) throws Exception {
 		return "blog/create/BlogCenterThkCreate";
@@ -76,4 +96,38 @@ public class BlogController {
 		return "blog/create/BlogCenterUseCreate";
 	}
 	
+	@RequestMapping(value = "/blog/CenterProfile")
+	public String BlogProfileChange(Model model) throws Exception {
+		return "blog/pop/BlogProfileChange";
+	}
+	
+	@RequestMapping(value = "/blog/HelpCM")
+	public String BlogHelpCM(Model model) throws Exception {
+		return "blog/pop/BlogHelpCM";
+	}
+	
+	@RequestMapping(value = "/blog/HelpCP")
+	public String BlogHelpCP(Model model) throws Exception {
+		return "blog/pop/BlogHelpCP";
+	}
+	
+	@RequestMapping(value = "/blog/HelpCS")
+	public String BlogHelpCS(Model model) throws Exception {
+		return "blog/pop/BlogHelpCS";
+	}
+	
+	@RequestMapping(value = "/blog/HelpRM")
+	public String BlogHelpRM(Model model) throws Exception {
+		return "blog/pop/BlogHelpRM";
+	}
+	
+	@RequestMapping(value = "/blog/HelpRS")
+	public String BlogHelpRS(Model model) throws Exception {
+		return "blog/pop/BlogHelpRS";
+	}
+	
+	@RequestMapping(value = "/blog/HelpRP")
+	public String BlogHelpRP(Model model) throws Exception {
+		return "blog/pop/BlogHelpRP";
+	}
 }

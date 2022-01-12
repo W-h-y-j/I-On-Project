@@ -58,7 +58,7 @@
                         <tr>
                             <td>8</td>
                             <td>프로그램</td>
-                            <td><a href="#" style="text-decoration: none; color:black"> 크리스마스 기념</a></td>
+                            <td><a href="/blog/Notice/View" style="text-decoration: none; color:black"> 크리스마스 기념</a></td>
                             <td>시설관리자</td>
                             <td>2021-12-24</td>
                             <td>23</td>

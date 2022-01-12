@@ -60,7 +60,7 @@
                         <tr>
                             <td>8</td>
                             <td>후원</td>
-                            <td><a href="#" style="text-decoration: none; color:black">크리스마스 행사 모금</a></td>
+                            <td><a href="/blog/Thk/View" style="text-decoration: none; color:black">크리스마스 행사 모금</a></td>
                             <td>시설관리자</td>
                             <td>진행중</td>
                             <td>2021-12-24</td>
@@ -69,7 +69,7 @@
                         <tr>
                             <td>7</td>
                             <td>자원봉사</td>
-                            <td><a href="#" style="text-decoration: none; color:black">크리스마스 행사 자원봉사 인원모집</a></td>
+                            <td><a href="/blog/Thk/View" style="text-decoration: none; color:black">크리스마스 행사 자원봉사 인원모집</a></td>
                             <td>시설관리자</td>
                             <td>완료</td>
                             <td>2021-12-24</td>
@@ -78,7 +78,7 @@
                         <tr>
                             <td>6</td>
                             <td>물품</td>
-                            <td><a href="#" style="text-decoration: none; color:black">세탁기/건조기 노후로 인한 교체지원</a></td>
+                            <td><a href="/blog/Thk/View" style="text-decoration: none; color:black">세탁기/건조기 노후로 인한 교체지원</a></td>
                             <td>시설관리자</td>
                             <td>완료</td>
                             <td>2021-09-07</td>
@@ -87,7 +87,7 @@
                         <tr>
                             <td>5</td>
                             <td>물품</td>
-                            <td><a href="#" style="text-decoration: none; color:black">냉장고가 부족해요!</a></td>
+                            <td><a href="/blog/Thk/View" style="text-decoration: none; color:black">냉장고가 부족해요!</a></td>
                             <td>시설관리자</td>
                             <td>완료</td>
                             <td>2021-08-20</td>
@@ -96,7 +96,7 @@
                         <tr>
                             <td>4</td>
                             <td>후원</td>
-                            <td><a href="#" style="text-decoration: none; color:black">시설노후로 인한 교체 자금 모금</a></td>
+                            <td><a href="/blog/Thk/View" style="text-decoration: none; color:black">시설노후로 인한 교체 자금 모금</a></td>
                             <td>시설관리자</td>
                             <td>완료</td>
                             <td>2021-06-25</td>
@@ -105,7 +105,7 @@
                         <tr>
                             <td>3</td>
                             <td>자원봉사</td>
-                            <td><a href="#" style="text-decoration: none; color:black">아이들과 함께하는 정서발달</a></td>
+                            <td><a href="/blog/Thk/View" style="text-decoration: none; color:black">아이들과 함께하는 정서발달</a></td>
                             <td>시설관리자</td>
                             <td>완료</td>
                             <td>2021-06-17</td>
@@ -114,7 +114,7 @@
                         <tr>
                             <td>2</td>
                             <td>자원봉사</td>
-                            <td><a href="#" style="text-decoration: none; color:black">정규 봉사활동 인원 모집</a></td>
+                            <td><a href="/blog/Thk/View" style="text-decoration: none; color:black">정규 봉사활동 인원 모집</a></td>
                             <td>시설관리자</td>
                             <td>완료</td>
                             <td>2021-05-07</td>
@@ -123,7 +123,7 @@
                         <tr>
                             <td>1</td>
                             <td>후원</td>
-                            <td><a href="#" style="text-decoration: none; color:black">새해 자금 운용을 위한 모금</a></td>
+                            <td><a href="/blog/Thk/View" style="text-decoration: none; color:black">새해 자금 운용을 위한 모금</a></td>
                             <td>시설관리자</td>
                             <td>완료</td>
                             <td>2021-01-07</td>

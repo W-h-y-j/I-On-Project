@@ -38,19 +38,19 @@
                     <tbody>
                         <tr>
                             <td>
-                                <a href="#" style="text-decoration: none; color:black">
+                                <a href="/blog/Gallery/View" style="text-decoration: none; color:black">
                                     <img src="../../../Resources/img/blog/b2.JPG" class="img-thumbnail" alt="" style="width: 21vw; height: 21vh;">
                                     <span>2020-01-07</span>
                                 </a>
                             </td>
                             <td>
-                                <a href="#" style="text-decoration: none; color:black">
+                                <a href="/blog/Gallery/View" style="text-decoration: none; color:black">
                                     <img src="../../../Resources/img/blog/b2.JPG" class="img-thumbnail" alt="" style="width: 21vw; height: 21vh;">
                                     <span>2020-01-07</span>
                                 </a>
                             </td>
                             <td>
-                                <a href="#" style="text-decoration: none; color:black">
+                                <a href="/blog/Gallery/View" style="text-decoration: none; color:black">
                                     <img src="../../../Resources/img/blog/bb8.jpeg" class="img-thumbnail" alt="" style="width: 21vw; height: 21vh;">
                                     <span>2020-01-07</span>
                                 </a>
@@ -58,19 +58,19 @@
                         </tr>
                         <tr>
                             <td>
-                                <a href="#" style="text-decoration: none; color:black">
+                                <a href="/blog/Gallery/View" style="text-decoration: none; color:black">
                                     <img src="../../../Resources/img/blog/b2.JPG" class="img-thumbnail" alt="" style="width: 21vw; height: 21vh;">
                                     <span>2020-01-07</span>
                                 </a>
                             </td>
                             <td>
-                                <a href="#" style="text-decoration: none; color:black">
+                                <a href="/blog/Gallery/View" style="text-decoration: none; color:black">
                                     <img src="../../../Resources/img/blog/b2.JPG" class="img-thumbnail" alt="" style="width: 21vw; height: 21vh;">
                                     <span>2020-01-07</span>
                                 </a>
                             </td>
                             <td>
-                                <a href="#" style="text-decoration: none; color:black">
+                                <a href="/blog/Gallery/View" style="text-decoration: none; color:black">
                                     <img src="../../../Resources/img/blog/b2.JPG" class="img-thumbnail" alt="" style="width: 21vw; height: 21vh;">
                                     <span>2020-01-07</span>
                                 </a>
