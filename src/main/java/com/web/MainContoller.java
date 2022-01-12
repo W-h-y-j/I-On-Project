@@ -63,6 +63,13 @@ public class MainContoller {
 		/* model.addAttribute("selectTableList", test); */
 		return "main/Center_Help";
 	}
+	
+	@RequestMapping(value = "/Center_Date1")
+	public String Center_Date1(Model model) throws Exception {
+		/* String test=mainService.selectTest(); */
+		/* model.addAttribute("selectTableList", test); */
+		return "main/Center_Date1";
+	}
 
 	
 }
