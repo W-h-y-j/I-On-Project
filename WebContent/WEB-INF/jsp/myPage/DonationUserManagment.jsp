@@ -31,67 +31,60 @@
 							<thead>
 								<tr class="tm-bg-gray text-center">
 									<th scope="col">&nbsp;</th>
-									<th scope="col" class="text-center">센터명</th>
 									<th scope="col" class="text-center">ID</th>
+									<th scope="col" class="text-center">가입SNS</th>
 									<th scope="col">마지막 로그인 시간</th>
 									<th scope="col">가입 일자</th>
-									<th scope="col">지역</th>
 								</tr>
 							</thead>
 							<tbody>
 								<tr class="">
 									<th scope="row"><input type="checkbox"
 										aria-label="Checkbox"></th>
-									<td class="text-center">상도동지역아동센터</td>
 									<td class="tm-product-name">sangdochild2018</td>
+									<td class="text-center">kakao</td>
 									<td class="text-center">2022-01-05 15:31</td>
 									<td class="text-center">2018-10-28</td>
-									<td class="text-center">동작구</td>
 								</tr>
 								<tr class="">
 									<th scope="row"><input type="checkbox"
 										aria-label="Checkbox"></th>
-									<td class="text-center">아이사랑공부방</td>
 									<td class="tm-product-name">loveyoujongro</td>
+									<td class="text-center">Naver</td>
 									<td class="text-center">2021-12-25 18:31</td>
 									<td class="text-center">2019-12-28</td>
-									<td class="text-center">종로구</td>
 								</tr>
 								<tr class="">
 									<th scope="row"><input type="checkbox"
 										aria-label="Checkbox"></th>
-									<td class="text-center">신길동지역센터</td>
 									<td class="tm-product-name">happychildren</td>
+									<td class="text-center">Kakao</td>
 									<td class="text-center">2022-01-08 10:19</td>
 									<td class="text-center">2019-02-28</td>
-									<td class="text-center">영등포구</td>
 								</tr>
 								<tr class="">
 									<th scope="row"><input type="checkbox"
 										aria-label="Checkbox"></th>
-									<td class="text-center">아이들을위한집</td>
 									<td class="tm-product-name">childrenhome</td>
+									<td class="text-center">Naver</td>
 									<td class="text-center">2022-01-06 19:55</td>
 									<td class="text-center">2015-07-10</td>
-									<td class="text-center">강서구</td>
 								</tr>
 								<tr class="">
 									<th scope="row"><input type="checkbox"
 										aria-label="Checkbox"></th>
-									<td class="text-center">옥수동아이모임</td>
 									<td class="tm-product-name">morelove</td>
+									<td class="text-center">Naver</td>
 									<td class="text-center">2022-01-06 12:12</td>
 									<td class="text-center">2022-01-02</td>
-									<td class="text-center">성동구</td>
 								</tr>
 								<tr class="">
 									<th scope="row"><input type="checkbox"
 										aria-label="Checkbox"></th>
-									<td class="text-center">불광아이센터</td>
 									<td class="tm-product-name">bulgwangcenter</td>
+									<td class="text-center">Kakao</td>
 									<td class="text-center">2021-11-30 14:17</td>
 									<td class="text-center">2018-10-28</td>
-									<td class="text-center">은평구</td>
 								</tr>
 							</tbody>
 						</table>

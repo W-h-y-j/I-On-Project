@@ -90,12 +90,6 @@
 							<button type="button" class="btn btn-primary w-100"
 								onclick="location.href='/LoginForm'">로그인하고 후원하기</button>
 						</div>
-						<div class="row mt-2">
-							<div class="col-12 text-right">
-								<a href="/CenterUserInsert" class="tm-link-black"
-									style="padding-right: 50px;">회원가입</a>
-							</div>
-						</div>
 					</div>
 
 					<div class="tm-col tm-block">

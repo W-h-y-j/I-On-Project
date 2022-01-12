@@ -26,9 +26,9 @@
 					<div class="row mt-2">
 						<div class="col-12">
 							<form action="" mothod="post" class="tm-login-form">
-                                <jsp:include page="naverlogin.jsp"></jsp:include>
+								<jsp:include page="naverlogin.jsp"></jsp:include>
 								<jsp:include page="kakaologin.jsp"></jsp:include>
-								
+
 							</form>
 						</div>
 					</div>
@@ -60,7 +60,7 @@
 										required>
 								</div>
 								<div class="row mt-2">
-									<div class="col-12 col-12 text-center">
+									<div class="col-12  text-center">
 										<a href="/CenterUserInsert" class="tm-link-black"
 											style="padding-right: 50px;">센터 운영자 회원가입</a>
 									</div>
