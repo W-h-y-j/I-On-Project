@@ -41,32 +41,4 @@ public class MyPageContoller {
 		/* model.addAttribute("selectTableList", test); */
 		return "myPage/DonationHistory";
 	}
-	
-	@RequestMapping(value = "/CenterUserManagment")
-	public String CenterUserConfirm(Model model) throws Exception {
-		/* String test=mainService.selectTest(); */
-		/* model.addAttribute("selectTableList", test); */
-		return "myPage/CenterUserManagment";
-	}
-	
-	@RequestMapping(value = "/DonationUserManagment")
-	public String DonationUserManagment(Model model) throws Exception {
-		/* String test=mainService.selectTest(); */
-		/* model.addAttribute("selectTableList", test); */
-		return "myPage/DonationUserManagment";
-	}
-	
-	@RequestMapping(value = "/MyPageSecurity")
-	public String MyPageSecurity(Model model) throws Exception {
-		/* String test=mainService.selectTest(); */
-		/* model.addAttribute("selectTableList", test); */
-		return "myPage/MyPageSecurity";
-	}
-	
-	@RequestMapping(value = "/UserInfo")
-	public String UserInfo(Model model) throws Exception {
-		/* String test=mainService.selectTest(); */
-		/* model.addAttribute("selectTableList", test); */
-		return "myPage//UserInfo";
-	}
 }

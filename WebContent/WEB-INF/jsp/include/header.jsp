@@ -44,10 +44,10 @@
 						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 							<a class="dropdown-item" href="/Notice">공지 사항</a> <a
 								class="dropdown-item" href="/DonationHistory">나의 후원 내역</a> <a
-								class="dropdown-item" href="/blog">우리 센터 블로그</a> <a
-								class="dropdown-item" href="/DonationUserManagment">후원자 관리</a> <a
-								class="dropdown-item" href="/CenterUserManagment">센터 운영자 관리</a> <a
-								class="dropdown-item" href="/MyPageSecurity">회원 정보 변경</a>
+								class="dropdown-item" href="#">우리 센터 블로그</a> <a
+								class="dropdown-item" href="#">후원자 관리</a> <a
+								class="dropdown-item" href="#">센터 운영자 관리</a> <a
+								class="dropdown-item" href="#">회원 정보 변경</a>
 						</div>
 					</li>
 					
