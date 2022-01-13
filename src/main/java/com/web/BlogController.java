@@ -130,4 +130,9 @@ public class BlogController {
 	public String BlogHelpRP(Model model) throws Exception {
 		return "blog/pop/BlogHelpRP";
 	}
+	
+	@RequestMapping(value = "/blog/Calendar")
+	public String BlogCalendar(Model model) throws Exception {
+		return "blog/BlogCenterCalendar";
+	}
 }

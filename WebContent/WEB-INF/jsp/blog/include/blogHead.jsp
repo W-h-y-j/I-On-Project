@@ -29,7 +29,7 @@
                         <a class="nav-link" href="/blog/Gallery">활동사진</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">운영일정</a>
+                        <a class="nav-link" href="/blog/Calendar">운영일정</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/blog/Help">필요해요!</a>

@@ -10,37 +10,20 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">	
     <title>아동센터 공지</title>
     <jsp:include page="../include/base.jsp" />
+    <style>
+.searchArea {
+ text-align: right;
+ margin: 0px 0px 0px 50px;
+}
+    </style>
   </head>
 <body id="reportsPage" class="white">
     <div class="container">
     <jsp:include page="../include/header.jsp" />
-    
-    <nav class="navbar navbar-expand-lg navbar-light bg-light" style="width:1600px; margin:auto">
-  <a class="navbar-brand" href="#">아동센터 공지</a>
+    </div>
+   
+  <a class="navbar-brand" href="#" style="width:1600px; margin:auto">아동센터 공지</a>
   
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-</nav>
-
-<ul class="nav justify-content-center">
-  <li class="nav-item">
-    <a class="nav-link active" href="/Center_Location">아동 센터 찾기</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link active" href="/Center_Notice">아동 센터 공지</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link active" href="/Center_Help">아동 센터 후원요청</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link active" href="/Center_Thk">아동 센터 후원 사용 내역</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link active" href="/Center_Image">아동 센터 활동 사진</a>
-  </li>
-</ul>
-    
 
     <img src="Resources/img/Center/now_img.png" class="rounded mx-auto d-block" alt="..."  style="width:1600px; margin:auto">
     
@@ -138,6 +121,7 @@
 </table>
 </div>
  
+
  <nav aria-label="Page navigation example">
   <ul class="pagination justify-content-center">
     <li class="page-item disabled">
@@ -153,11 +137,14 @@
   </ul>
 </nav>
  
+
+
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+  <div class="container">
   <jsp:include page="../include/footer.jsp" />
   </div>
   

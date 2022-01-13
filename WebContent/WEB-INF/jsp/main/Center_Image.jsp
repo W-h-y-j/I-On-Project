@@ -17,30 +17,12 @@
   <div class="container">
   <jsp:include page="../include/header.jsp"  />
   
-   <nav class="navbar navbar-expand-lg navbar-light bg-light" style="width:1600px; margin:auto">
-  <a class="navbar-brand" href="#">아동 센터 활동 사진</a>
+  <a class="navbar-brand" href="#" style="width:1600px; margin:auto">아동 센터 활동 사진</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 </nav>
   
-  <ul class="nav justify-content-center">
-  <li class="nav-item">
-    <a class="nav-link active" href="/Center_Location">아동 센터 찾기</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link active" href="/Center_Notice">아동 센터 공지</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link active" href="/Center_Help">아동 센터 후원요청</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link active" href="/Center_Thk">아동 센터 후원 사용 내역</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link active" href="/Center_Image">아동 센터 활동 사진</a>
-  </li>
-</ul>
   
 <table border="1">
  <tr>
