@@ -17,12 +17,18 @@
 
 					<div class="row">
 						<div class="col-md-8 col-sm-24">
-							<h2 class="tm-block-title d-inline-block">후원자 관리</h2>
+							<h2 class="tm-block-title d-inline-block">센터 운영자 관리</h2>
 						</div>
 						<div class="col-md-4 col-sm-24 text-right">
-							<a href="/CenterUserInsert" class="btn btn-small btn-primary">등록</a> <a
-								href="/CenterUser-Mod" class="btn btn-small btn-primary">수정</a> <a
-								href="/CenterUser-Del" class="btn btn-small btn-primary">삭제</a>
+							<a href="/CenterUserInsert" class="btn btn-small btn-primary">등록</a>
+							<a href="javascript:openWindowPop('/popup/CenterUser-Mod', 'popup');" class="btn btn-small btn-primary">수정</a>
+							<script>
+								function popup(url, name) {
+									var option = "width = 500, height = 700, top = 100, left = 200, location = no"
+									window.open(url, name, option);
+								}
+							</script>
+							<a href="/CenterUser-Del" class="btn btn-small btn-primary">삭제</a>
 						</div>
 					</div>
 					<div class="table-responsive">
