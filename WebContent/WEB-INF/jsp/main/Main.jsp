@@ -26,13 +26,13 @@
 					</div>
 					<ol
 						class="tm-list-group tm-list-group-alternate-color tm-list-group-pad-big">
-						<li class="tm-list-group-item">Donec eget libero</li>
-						<li class="tm-list-group-item">Nunc luctus suscipit elementum</li>
-						<li class="tm-list-group-item">Maecenas eu justo maximus</li>
-						<li class="tm-list-group-item">Maecenas eu justo maximus</li>
-						<li class="tm-list-group-item">Nunc luctus suscipit elementum</li>
-						<li class="tm-list-group-item">Nunc luctus suscipit elementum</li>
-						<li class="tm-list-group-item">Maecenas eu justo maximus</li>
+						<li class="tm-list-group-item">시스템 점검이 완료되었습니다. </li>
+						<li class="tm-list-group-item">시스템 점검 예정 입니다.</li>
+						<li class="tm-list-group-item">센터 블로그 관련 공지사항</li>
+						<li class="tm-list-group-item">SNS계정으로 로그인이 가능합니다.</li>
+						<li class="tm-list-group-item">시스템 점검 예정 입니다.</li>
+						<li class="tm-list-group-item">기능이 추가되었습니다. </li>
+						<li class="tm-list-group-item">시스템 점검 예정 입니다.</li>
 					</ol>
 				</div>
 
@@ -85,15 +85,15 @@
 				</div>
 
 				<div class="tm-col tm-col-small">
-					<div class="bg-white tm-block border border-secondary">
+					<div class="bg-white tm-block border border-secondary" style= "padding-top: 30px; padding-bottom: 30px; margin-top: 50px; margin-bottom:50px">
 						<div class="col-12">
 							<button type="button" class="btn btn-primary w-100"
 								onclick="location.href='/LoginForm'">로그인하고 후원하기</button>
 						</div>
 					</div>
-
-					<div class="tm-col tm-block">
-						<div class="bg-white tm-block h-100">
+					<!-- <div class="tm-col tm-block"> -->
+					<div class="tm-col tm-block border border-secondary" style=" margin-top: 20px; padding-bottom: 30px;">
+						<div class="bg-white tm-block h-100" >
 							<h2 class="tm-block-title">센터 찾기</h2>
 							<input type="button" class="btn btn-primary d-block mx-auto"
 								value="센터 찾으러 가기" onclick="location.href='Center_Location'">
@@ -144,7 +144,7 @@
 								봉사자를 구합니다.</li>
 							<li class="tm-list-group-item">「관악아동복지센터」 세탁기가 고장나 수리가 불가하여
 								새로운 제품을</li>
-							<li class="tm-list-group-item">「강서아동복지센터」 11월 후원금이 부족해 간식지급에
+							<li class="tm-list-group-item">「강서아동복지센터 11월 후원금이 부족해 간식지급에
 								어려움이</li>
 							<li class="tm-list-group-item">「안암칠드런센터」 12월 참여 활동지원 요청
 								드립니다.</li>
@@ -166,18 +166,13 @@
 
 						<ol
 							class="tm-list-group tm-list-group-alternate-color tm-list-group-pad-big">
-							<li class="tm-list-group-item">Donec eget libero</li>
-							<li class="tm-list-group-item">Nunc luctus suscipit
-								elementum</li>
-							<li class="tm-list-group-item">Maecenas eu justo maximus</li>
-							<li class="tm-list-group-item">Pellentesque auctor urna nunc
-							</li>
-							<li class="tm-list-group-item">Sit amet aliquam lorem
-								efficitur</li>
-							<li class="tm-list-group-item">Pellentesque auctor urna nunc
-							</li>
-							<li class="tm-list-group-item">Sit amet aliquam lorem
-								efficitur</li>
+							<li class="tm-list-group-item">「원효로3가청소년공부방」 지원 감사합니다.</li>
+							<li class="tm-list-group-item">「안암칠드런센터」 12월 참여 활동사진 입니다.</li>
+							<li class="tm-list-group-item">「관악아동복지센터」 세탁기 감사합니다 ~~</li>
+							<li class="tm-list-group-item">「강서아동복지센터」공부방 인테리어 완료</li>
+							<li class="tm-list-group-item">「신대방삼거리복지센터」 자원봉사자들과 봉사 활동 완료</li>
+							<li class="tm-list-group-item">「원효로3가청소년공부방」책상을 변경하였습니다.</li>
+							<li class="tm-list-group-item">「성수비젼공부방」 마스크 구비 완료</li>
 						</ol>
 					</div>
 				</div>

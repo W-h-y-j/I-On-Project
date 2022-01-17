@@ -22,12 +22,11 @@
 					<div class="form-row">
 						<label for="password" class="col-sm-1 col-form-label">비밀번호</label>
 						<div class="col-sm-4">
-							<input placeholder="******" id="password" name="password"
-								type="password" class="form-control validate">
+							<input placeholder="******" id="password" name="password" type="password" class="form-control validate">
 						</div>
 						<div class="col-auto">
 							<button id="UserMod" type="submit"
-								class="btn btn-primary btn-small" href="/UserInfo">저장</button>
+								class="btn btn-primary btn-small" href="/UserInfo">확인</button>
 						</div>
 					</div>
 				</div>
