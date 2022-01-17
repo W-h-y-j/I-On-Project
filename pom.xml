@@ -66,10 +66,64 @@
 			<artifactId>logback-core</artifactId>
 			<version>1.2.10</version>
         </dependency>
+        
+        <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-dbcp2 -->        
+		<!-- mybatis 라이브러리 -->    
+		<dependency>
+    		<groupId>commons-dbcp</groupId>
+    		<artifactId>commons-dbcp</artifactId>
+    		<version>1.4</version>
+		</dependency>
+		<dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
+            <version>5.2.3.RELEASE</version>
+        </dependency>
+ 
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-jdbc</artifactId>
+            <version>5.2.3.RELEASE</version>
+        </dependency>
+         
+        <dependency>
+    		<groupId>org.mybatis</groupId>
+    		<artifactId>mybatis</artifactId>
+    		<version>3.5.9</version>
+		</dependency>
+		<dependency>
+    		<groupId>org.mybatis</groupId>
+    		<artifactId>mybatis-spring</artifactId>
+    		<version>2.0.3</version>
+		</dependency>
+		<dependency>
+    		<groupId>com.oracle.database.jdbc</groupId>
+    		<artifactId>ojdbc8</artifactId>
+    		<version>21.4.0.0.1</version>
+		</dependency>
+		<!-- Test -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+            <scope>test</scope>
+        </dependency>
 	</dependencies>
+	<properties>
+        <java-version>1.8</java-version>
+        <org.springframework-version>5.2.3.RELEASE</org.springframework-version>
+        <org.aspectj-version>1.8.10</org.aspectj-version>
+        <org.slf4j-version>1.7.25</org.slf4j-version>
+    </properties>
+	
 
 	<!-- https://mvnrepository.com/artifact/javax.annotation/javax.annotation-api -->
-
+	
+	
+	
+	
+	
+		
 
 	<build>
 		<sourceDirectory>src/main/java</sourceDirectory>
