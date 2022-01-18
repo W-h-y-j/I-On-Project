@@ -15,7 +15,7 @@ import java.sql.DatabaseMetaData;
 public class DataSourceSample {  
   // The recommended format of a connection URL is the long format with the
   // connection descriptor.
-  final static String DB_URL= "jdbc:oracle:thin:@IONPROJECTDB_medium?TNS_ADMIN=C://DBC/Wallet_IONPROJECTDB/";
+  final static String DB_URL= "jdbc:oracle:thin:@ionprojectdb_medium?TNS_ADMIN=C://DBC/Wallet_IONPROJECTDB/";
   // For ATP and ADW - use the TNS Alias name along with the TNS_ADMIN when using 18.3 JDBC driver
   // final static String DB_URL="jdbc:oracle:thin:@wallet_dbname?TNS_ADMIN=/Users/test/wallet_dbname";
   // In case of windows, use the following URL 
