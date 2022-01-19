@@ -19,9 +19,9 @@ public class JdbcConnection {
 	private static final String USER="ADMIN";
 	private static final String PW="Test123123!@#";
 	
-	public static Connection getConnection() {
+	public static void getConnection() {
 		
-		Connection con = null;
+		
 		//드라이버 로드한거고
 		try {
 			Class.forName(DRIVER);
@@ -29,13 +29,13 @@ public class JdbcConnection {
 			e1.printStackTrace();
 		}
 		//url,id,pw입력해서 들어간거임
-		try {
-			con = DriverManager.getConnection(URL, USER, PW);
+		try(Connection con = DriverManager.getConnection(URL, USER, PW)){
+			
 			logger.info("오라클 연동 완료");
 		}catch(SQLException e) {
 			e.printStackTrace();
 		}
 		
-		return con;
+		
 	}
 }
