@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- <!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN" "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd"> -->
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--  sql문을 작성한 mapper와 namespace로 등록한 인터페이스를 연동한다는 의미이다. -->
+<mapper namespace="com.ion.mapper.MainMapper">
+
+	<!-- id는 호출을 하기 위한 이름  -->
+	<!-- resultType은 결과값을 받을 타입을 지정한 것 알리아스를 이용해도 되나 일단 패키지명+vo명까지 다 적음 (회의때 알리아스 설정)  -->
+	
+	<select id="view_system_notice" resultType="com.ion.vo.MainVO">
+		SELECT * FROM SYSTEM_NOTICE ORDER BY INSERT_DT DESC
+	</select>
+
+
+</mapper>

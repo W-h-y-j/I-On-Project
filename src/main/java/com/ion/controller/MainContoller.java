@@ -1,12 +1,14 @@
-package com.web;
+package com.ion.controller;
 
 import javax.annotation.Resource;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.service.MainService;
+import com.ion.service.MainService;
+import com.ion.service.impl.MainServiceImpl;
 
 @Controller
 public class MainContoller {
@@ -14,12 +16,16 @@ public class MainContoller {
 	 * @Resource(name="mainService") private MainService mainService;
 	 */
 
+	@Autowired
+	private MainService mainService;
+	// mainService변수가 MainService객체를 주입받아 MainServiceImpl에서 작성한 기능을 사용 할 수 있음
+	
 	@RequestMapping(value = "/")
 	public String main(Model model) throws Exception {
-		/* String test=mainService.selectTest(); */
-		/* model.addAttribute("selectTableList", test); */
+		model.addAttribute("systemNotice", mainService.view_system_notice());
 		return "main/Main";
 	}
+	
 
 	@RequestMapping(value="/Center_Location")
 	public String searchCenter(Model model) throws Exception {

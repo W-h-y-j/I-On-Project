@@ -1,4 +1,4 @@
-package com.web;
+package com.ion.controller;
 
 import javax.annotation.Resource;
 
@@ -6,7 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.service.MainService;
+import com.ion.service.MainService;
 
 @Controller
 public class BlogController {

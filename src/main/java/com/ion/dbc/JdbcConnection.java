@@ -1,4 +1,4 @@
-package com.service.dbc;
+package com.ion.dbc;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

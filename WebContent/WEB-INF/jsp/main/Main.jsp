@@ -1,4 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!DOCTYPE html>
 <html>
@@ -24,7 +25,7 @@
 							<a href="/Notice" class="tm-link-black"> 전체 보기</a>
 						</div>
 					</div>
-					<ol
+					<!-- <ol
 						class="tm-list-group tm-list-group-alternate-color tm-list-group-pad-big">
 						<li class="tm-list-group-item">시스템 점검이 완료되었습니다. </li>
 						<li class="tm-list-group-item">시스템 점검 예정 입니다.</li>
@@ -33,7 +34,12 @@
 						<li class="tm-list-group-item">시스템 점검 예정 입니다.</li>
 						<li class="tm-list-group-item">기능이 추가되었습니다. </li>
 						<li class="tm-list-group-item">시스템 점검 예정 입니다.</li>
-					</ol>
+					</ol> -->
+					<c:forEach items="${systemNotice}" var="system_notice_list">
+						<ol class="tm-list-group tm-list-group-alternate-color tm-list-group-pad-big">
+							<li>${system_notice_list.title }</li>
+						</ol>
+					</c:forEach>
 				</div>
 
 				<div class="tm-col tm-col-big">
