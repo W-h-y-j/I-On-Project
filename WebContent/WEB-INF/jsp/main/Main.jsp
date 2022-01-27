@@ -35,11 +35,11 @@
 						<li class="tm-list-group-item">기능이 추가되었습니다. </li>
 						<li class="tm-list-group-item">시스템 점검 예정 입니다.</li>
 					</ol> -->
-					<c:forEach items="${systemNotice}" var="system_notice_list">
-						<ol class="tm-list-group tm-list-group-alternate-color tm-list-group-pad-big">
-							<li>${system_notice_list.title }</li>
-						</ol>
-					</c:forEach>
+					<ol class="tm-list-group tm-list-group-alternate-color tm-list-group-pad-big">
+						<c:forEach items="${systemNotice}" var="system_notice_list">
+							<li class="tm-list-group-item">${system_notice_list.title}</li>
+						</c:forEach>
+					</ol>
 				</div>
 
 				<div class="tm-col tm-col-big">
