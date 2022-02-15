@@ -1,8 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
-<link rel="stylesheet"
-	href="https://uicdn.toast.com/editor/latest/toastui-editor.min.css" />
-<script
-	src="https://uicdn.toast.com/editor/latest/toastui-editor-all.min.js"></script>
+<link rel="stylesheet" 	href="https://uicdn.toast.com/editor/latest/toastui-editor.min.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.4/codemirror.min.css"/>
 
 <!DOCTYPE html>
 <html>
@@ -26,14 +24,41 @@
 								<h2 class="tm-block-title d-inline-block">공지사항 등록</h2>
 							</div>
 						</div>
-						<div class="row mt-4 tm-edit-product-row">
-							<div id="editor" class="col"></div>
-							<div
-								class="ml-auto col-xl-8 col-lg-8 col-md-8 col-sm-7 pl-0 text-right"
-								style="padding-top: 10px;">
-								<button type="submit" class="btn btn-small btn-primary">저장</button>
+						<form name="noticeAddForm" method="post" class="tm-signup-form">
+							<div class="form-row">
+								<label for="title" class="col-form-label" style="margin-left: 50px; margin-right: 50px;">제목</label>
+								<div class="col">
+									<input placeholder="" id="title" name="title" type="text" class="form-control validate">
+								</div>
 							</div>
-						</div>
+							<div class="form-row"> <%--row mt-6 --%>
+								<div id="editor" class="col"></div>
+								<script src="https://uicdn.toast.com/editor/latest/toastui-editor-all.min.js"></script>
+								<!-- <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mt-3 text-right">
+									<div class ="col">
+										<input type="text" class="col-md-12 col-sm-8 form-control validate" id="fileArea" name="fileArea">
+										<input type="button" class="btn btn-small btn-primary" value="첨부파일" onclick="document.getElementById('fileInput').click();" />
+									</div>
+								</div> -->
+							</div>
+							<div class="form-row mt-3">
+								<div class="col">
+									<div class="input-group">
+	  									<input type="text" class="form-control" placeholder="첨부파일" aria-label="fileArea" id="fileArea" name="fileArea" aria-describedby="button-addon2">
+										<div class="input-group-append">
+	  										<input id="fileInput" type="file" style="display: none;" /> 
+	    									<button class="btn btn-small btn-primary" type="button" id="fileInputButton" onclick="document.getElementById('fileInput').click();">파일 첨부</button>
+	  									</div>
+									</div>
+								</div> 
+							</div>
+							<div class="form-row mt-3">
+								<div class="col-12 text-right" >
+									<button id="btnSave" type="button" class="btn btn-primary" >저장</button>
+									<!-- <a href="#none" class="btn btn-primary" id="btnSave">저장</a> -->
+								</div>
+							</div>
+						</form>
 					</div>
 				</div>
 			</div>
@@ -41,13 +66,52 @@
 		</div>
 	</div>
 	<script>
+		function insert_check() {
+			if($.trim($("#title").val())==""){
+				alert("제목을 입력하세요!");
+				$("#title").val("").focus();
+				return false;
+			}
+		}
 		
-		const editor = new toastui.Editor({
-	        el: document.querySelector('#editor'),
-	        previewStyle: 'tab', //'tab'
-	        height: '500px',
-	        initialValue: ' ' //content
-	      });
+		$(document).ready(function() {
+			const editor = new toastui.Editor({
+				el : document.querySelector('#editor'),
+				previewStyle : 'tab', //'tab'
+				height : '500px',
+				initialEditType : "wysiwyg",
+				toolbarItems : [
+						[ 'heading', 'bold', 'italic', 'strike' ],
+						[ 'hr', 'quote' ],
+						[ 'ul', 'ol', 'task', 'indent', 'outdent' ],
+						[ 'table' ] ],
+				hideModeSwitch : true,
+				initialValue : ' ' //cont
+			});
+			
+			$("#btnSave").click(function() {
+				insert_check();
+				var noticeJson = {
+					title : $("#title").val(),
+					content : editor.getHTML(),
+					insert_id: "test"
+				}
+				console.log(noticeJson); 
+
+				$.ajax({
+					type : 'POST',
+					url : '/Notice-Add',
+					data : noticeJson,
+					success : function(res) {
+						alert("등록 되었습니다.");
+						location.replace("/Notice");
+					}
+
+				}); // end ajax
+
+			});
+		});
+
 	</script>
 </body>
 </html>

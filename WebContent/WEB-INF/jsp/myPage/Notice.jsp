@@ -1,4 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 
 <head>
@@ -34,87 +35,25 @@
 										<th scope="col">&nbsp;</th>
 										<th scope="col">제목</th>
 										<th scope="col" class="text-center">작성자</th>
-										<!-- <th scope="col" class="text-center"></th> -->
 										<th scope="col">작성일</th>
 									</tr>
 								</thead>
 								<tbody>
-									<tr class>
-										<th scope="row"><input type="checkbox"
-											aria-label="Checkbox"></th>
-										<td onclick="/Notice-View" class="tm-product-name"> In malesuada placerat (hover)</td>
-										<td class="text-center">시스템 관리자</td>
-										<!-- <td class="text-center">255</td> -->
-										<td>2018-10-28</td>
-									</tr>
-									<tr>
-										<th scope="row"><input type="checkbox"
-											aria-label="Checkbox"></th>
-										<td class="tm-product-name"> Aenean eget urna enim. Sed
-											enim</td>
-										<td class="text-center">시스템 관리자</td>
-										<!-- <td class="text-center">260</td> -->
-										<td>2018-10-24</td>
-									</tr>
-									<tr>
-										<th scope="row"><input type="checkbox"
-											aria-label="Checkbox"></th>
-										<td class="tm-product-name"> Vivamus convallis
-											tincidunt nisi</td>
-										<td class="text-center">시스템 관리자</td>
-										<!-- <td class="text-center">440</td> -->
-										<td>2019-02-14</td>
-									</tr>
-									<tr>
-										<th scope="row"><input type="checkbox"
-											aria-label="Checkbox"></th>
-										<td class="tm-product-name"> Donec semper massa eget</td>
-										<td class="text-center">시스템 관리자</td>
-										<!-- <td class="text-center">655</td> -->
-										<td>2019-03-22</td>
-									</tr>
-									<tr>
-										<th scope="row"><input type="checkbox"
-											aria-label="Checkbox"></th>
-										<td class="tm-product-name">Donec semper massa eget</td>
-										<td class="text-center">시스템 관리자</td>
-										<!-- <td class="text-center">655</td> -->
-										<td>2019-03-22</td>
-									</tr>
-									<tr>
-										<th scope="row"><input type="checkbox"
-											aria-label="Checkbox"></th>
-										<td  class="tm-product-name"> Donec semper massa eget</td>
-										<td class="text-center">시스템 관리자</td>
-										<!-- <td class="text-center">655</td> -->
-										<td>2019-03-22</td>
-									</tr>
-									<tr>
-										<th scope="row"><input type="checkbox"
-											aria-label="Checkbox"></th>
-										<td class="tm-product-name"> Donec semper massa eget</td>
-										<td class="text-center">시스템 관리자</td>
-										<!-- <td class="text-center">655</td> -->
-										<td>2019-03-22</td>
-									</tr>
-									<tr>
-										<th scope="row"><input type="checkbox"
-											aria-label="Checkbox"></th>
-										<td class="tm-product-name"> Donec semper massa eget</td>
-										<td class="text-center">시스템 관리자</td>
-										<!-- <td class="text-center">655</td> -->
-										<td>2019-03-22</td>
-									</tr>
+									<c:forEach items="${notice_list}" var="notice_list">
+										<tr>
+											<th scope="row">
+												<input type="checkbox" aria-label="Checkbox">
+											</th>
+												<td class="tm-product-name">${notice_list.title}</td>
+												<td class="text-center">${notice_list.insert_id}</td>
+												<td class="text-center">${notice_list.insert_dt}</td>
+										</tr>
+									</c:forEach>
 								</tbody>
 							</table>
 						</div>
-
 						<div class="tm-table-mt tm-table-actions text-center">
-							<!-- <div class="tm-table-actions-col-left">
-								<button class="btn btn-danger">Delete Selected Items</button>
-							</div> -->
-							<!-- <div class="tm-table-actions-col-right"> -->
-								<span class="tm-pagination-label">Page</span>
+							<span class="tm-pagination-label">Page</span>
 								<nav aria-label="Page navigation" class="d-inline-block">
 									<ul class="pagination tm-pagination">
 										<li class="page-item active"><a class="page-link"href="#">1</a></li>
@@ -126,22 +65,19 @@
 										<li class="page-item"><a class="page-link" href="#">14</a></li>
 									</ul>
 								</nav>
-							<!-- </div> -->
 						</div>
 					</div>
 				</div>
 			</div>
 			<jsp:include page="../include/footer.jsp" />
 		</div>
-	<!-- </div> -->
 	<script src="js/jquery-3.3.1.min.js"></script>
-	<!-- https://jquery.com/download/ -->
 	<script src="js/bootstrap.min.js"></script>
-	<!-- https://getbootstrap.com/ -->
 	<script>
+	
 		$(function() {
 			$('.tm-product-name').on('click', function() {
-				window.location.href = "edit-product.html";
+				window.location.href = "mypage/Notice-View";
 			});
 		})
 	</script>

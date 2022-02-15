@@ -12,11 +12,6 @@ import com.ion.vo.MainVO;
 @Service
 public class MainServiceImpl implements MainService {
 
-	/*
-	 * @Override public String selectTest() throws Exception { // TODO
-	 * Auto-generated method stub return null; }
-	 */
-
 	// @Autowired를 이용하여 Spring이 MainMapper를 참조함
 	@Autowired
 	private MainMapper mapper;

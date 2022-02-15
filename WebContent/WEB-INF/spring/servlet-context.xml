@@ -17,7 +17,9 @@
        ">
 	<!-- bean으로 만들 대상 찾는댱 (com.ion.* 인 대상중 에서!) -->
 	<context:component-scan base-package="com.ion"/>
-
+	
+	
+	
 	<annotation-driven />
 	<resources mapping="/Resources/**" location="/Resources/" /> 
 	
@@ -26,5 +28,8 @@
 		<beans:property name="suffix" value=".jsp"/>
 	</beans:bean>
 	
+	<!-- File Upload -->
+	<beans:bean id="multipartResolver" class="org.springframework.web.multipart.support.StandardServletMultipartResolver">
+	</beans:bean>
 	
 </beans:beans>

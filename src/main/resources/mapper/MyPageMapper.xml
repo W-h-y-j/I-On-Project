@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ion.mapper.MyPageMapper">
+	
+	<select id="view_notice_list" resultType="com.ion.vo.MyPageVO">
+		SELECT * FROM SYSTEM_NOTICE ORDER BY INSERT_DT DESC
+	</select>
+	
+	<select id="view_notice_cont" resultType="com.ion.vo.MyPageVO" parameterType="int">
+		SELECT * FROM SYSTEM_NOTICE WHERE system_notice = #{system_notice_no}
+	</select>
+
+	<insert id="insertNotice" parameterType="com.ion.vo.MyPageVO">
+		INSERT INTO SYSTEM_NOTICE (
+		system_notice_no
+		, title 
+		, content
+		, file_name
+		, insert_dt
+		, insert_id
+		, last_change_dt
+		, last_change_id
+		) VALUES (
+		system_notice_seq.nextval
+		, #{title}
+		, #{content}
+		, #{file_name}
+		, sysdate
+		, #{insert_id}
+		, sysdate
+		, #{last_change_id}
+		)
+	</insert>
+</mapper>

@@ -12,9 +12,6 @@ import com.ion.service.impl.MainServiceImpl;
 
 @Controller
 public class MainContoller {
-	/*
-	 * @Resource(name="mainService") private MainService mainService;
-	 */
 
 	@Autowired
 	private MainService mainService;
@@ -75,6 +72,13 @@ public class MainContoller {
 		/* String test=mainService.selectTest(); */
 		/* model.addAttribute("selectTableList", test); */
 		return "main/Center_Date1";
+	}
+	
+	@RequestMapping(value = "/Center_Date2")
+	public String Center_Date2(Model model) throws Exception {
+		/* String test=mainService.selectTest(); */
+		/* model.addAttribute("selectTableList", test); */
+		return "main/Center_Date2";
 	}
 
 	

@@ -12,5 +12,4 @@
 		SELECT * FROM SYSTEM_NOTICE ORDER BY INSERT_DT DESC
 	</select>
 
-
 </mapper>
