@@ -2,14 +2,19 @@ package com.ion.controller;
 
 import javax.annotation.Resource;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.ion.service.MainService;
+import com.ion.service.BlogService;
+
 
 @Controller
 public class BlogController {
+	
+	@Autowired
+	private BlogService blogService;
 	
 	@RequestMapping(value = "/blog")
 	public String BlogMain(Model model) throws Exception {
@@ -18,6 +23,7 @@ public class BlogController {
 	
 	@RequestMapping(value = "/blog/Notice")
 	public String BlogCenterNotice(Model model) throws Exception {
+		model.addAttribute("systemBlog", blogService.view_blog_notice());
 		return "blog/BlogCenterNotice";
 	}
 	

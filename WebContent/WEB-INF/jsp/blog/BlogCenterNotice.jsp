@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,7 +21,7 @@
         </div>
         <div class="row">
             <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
-                <ol class="breadcrumb">
+                <ol class="breadcrumb">						
                     <li class="breadcrumb-item"><a href="/blog" style="text-decoration: none;">홈</a></li>
                     <li class="breadcrumb-item active" aria-current="page">공지사항</li>
                 </ol>
@@ -41,6 +41,7 @@
             </form>
         </div>
         <br/>
+        
         <div class="row" id="CenterNoticeLine">
             <div class="col-md-9 offset-md-2">
                 <table class="table table-striped table-hover" id="CenterNoticeTable">
@@ -55,6 +56,18 @@
                         </tr>
                     </thead>
                     <tbody>
+                    
+                    <c:forEach items="${systemBlog}" var="systemBlog">
+										<tr>
+												<td>${systemBlog.notice_no}</td>
+												<td>${systemBlog.notice_div}</td>
+												<td>${systemBlog.notice_title}</td>
+												<td>${systemBlog.notice_writer}</td>
+												<td>${systemBlog.notice_date}</td>
+												<td>${systemBlog.notice_view}</td>
+										</tr>
+									</c:forEach>
+                    <!--  
                         <tr>
                             <td>8</td>
                             <td>프로그램</td>
@@ -119,8 +132,11 @@
                             <td>2021-01-07</td>
                             <td>52</td>
                         </tr>
+                        -->
                     </tbody>
                 </table>
+                
+                
                 <nav aria-label="Page navigation example" id="CenterNoticePage">
                     <ul class="pagination">
                         <li class="page-item">
