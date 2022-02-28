@@ -40,8 +40,7 @@
 	 
 	<update id="modNotice" parameterType="com.ion.vo.MyPageVO">
 		 UPDATE SYSTEM_NOTICE
-		 SET 
-		 title =  #{title}
+		 SET  title =  #{title}
 		 , content = #{content}
 		 , last_change_dt = sysdate
 		 , last_change_id = #{last_change_id}

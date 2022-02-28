@@ -30,6 +30,13 @@ id="WebApp_ID" version="3.1">
 			<param-value>/WEB-INF/spring/servlet-context.xml</param-value>   
 		</init-param>      
 		<load-on-startup>1</load-on-startup>
+		<!-- File Upload -->
+		<multipart-config>
+			<location>/Users/chars/Documents/TestDir</location><!-- 업로드 파일 저장되는 기본 경로 -->
+			<max-file-size>20971520</max-file-size> <!-- 한파일: 1mb * 20 -->
+			<max-request-size>41943040</max-request-size> <!-- 한번에 여러개올리는데 전체가 40mb -->
+			<file-size-threshold>20971520</file-size-threshold> <!-- 넘으면 temp에 넣고 업로드에 들어가지 않는다 : 20mb -->
+		</multipart-config>
 	</servlet>
 	
 	<servlet-mapping>
