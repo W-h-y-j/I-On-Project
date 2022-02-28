@@ -1,6 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,7 +13,8 @@
 	<div class="" id="home">
 		<div class="container">
 			<jsp:include page="../include/header.jsp" />
-			<!-- row -->
+			<!-- row start! -->
+			<!-- 각 메뉴별 게시글 수는 7개까지만 조회 하도록 함 (시스템 공지사항 쪽 foreach문 참조) -->
 			<div class="row tm-content-row tm-mt-big">
 				<div class="tm-col tm-col-small">
 					<div class="row">
@@ -25,23 +25,12 @@
 							<a href="/Notice" class="tm-link-black"> 전체 보기</a>
 						</div>
 					</div>
-					<!-- <ol
-						class="tm-list-group tm-list-group-alternate-color tm-list-group-pad-big">
-						<li class="tm-list-group-item">시스템 점검이 완료되었습니다. </li>
-						<li class="tm-list-group-item">시스템 점검 예정 입니다.</li>
-						<li class="tm-list-group-item">센터 블로그 관련 공지사항</li>
-						<li class="tm-list-group-item">SNS계정으로 로그인이 가능합니다.</li>
-						<li class="tm-list-group-item">시스템 점검 예정 입니다.</li>
-						<li class="tm-list-group-item">기능이 추가되었습니다. </li>
-						<li class="tm-list-group-item">시스템 점검 예정 입니다.</li>
-					</ol> -->
 					<ol class="tm-list-group tm-list-group-alternate-color tm-list-group-pad-big">
-						<c:forEach items="${systemNotice}" var="system_notice_list">
+						<c:forEach items="${systemNotice}" var="system_notice_list" end="6">
 							<li class="tm-list-group-item">${system_notice_list.title}</li>
 						</c:forEach>
 					</ol>
 				</div>
-
 				<div class="tm-col tm-col-big">
 					<div class="bg-white tm-block h-100 ">
 						<div class="row">

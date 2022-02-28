@@ -2,13 +2,20 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.ion.mapper.MyPageMapper">
-	
+		
+	<select id="totalNoticeCount" resultType="int">
+		select count(*) from SYSTEM_NOTICE
+	</select>
+
 	<select id="view_notice_list" resultType="com.ion.vo.MyPageVO">
-		SELECT * FROM SYSTEM_NOTICE ORDER BY INSERT_DT DESC
+		select * from
+			(select ROWNUM RNUM, system_notice_no, insert_id, title, content, insert_dt
+			from (select * from SYSTEM_NOTICE order by insert_dt desc))
+		where RNUM &gt;=#{startrow} and RNUM &lt;=#{endrow}
 	</select>
 	
 	<select id="view_notice_cont" resultType="com.ion.vo.MyPageVO" parameterType="int">
-		SELECT * FROM SYSTEM_NOTICE WHERE system_notice = #{system_notice_no}
+		SELECT * FROM SYSTEM_NOTICE WHERE system_notice_no = #{system_notice_no}
 	</select>
 
 	<insert id="insertNotice" parameterType="com.ion.vo.MyPageVO">
@@ -16,7 +23,6 @@
 		system_notice_no
 		, title 
 		, content
-		, file_name
 		, insert_dt
 		, insert_id
 		, last_change_dt
@@ -25,11 +31,26 @@
 		system_notice_seq.nextval
 		, #{title}
 		, #{content}
-		, #{file_name}
 		, sysdate
 		, #{insert_id}
 		, sysdate
 		, #{last_change_id}
 		)
 	</insert>
+	 
+	<update id="modNotice" parameterType="com.ion.vo.MyPageVO">
+		 UPDATE SYSTEM_NOTICE
+		 SET 
+		 title =  #{title}
+		 , content = #{content}
+		 , last_change_dt = sysdate
+		 , last_change_id = #{last_change_id}
+		 WHERE system_notice_no = #{system_notice_no}
+	</update>
+	 
+	<delete id="deleteNotice" parameterType="int">
+		delete 
+		from SYSTEM_NOTICE
+		where system_notice_no=#{system_notice_no}
+	</delete>
 </mapper>
