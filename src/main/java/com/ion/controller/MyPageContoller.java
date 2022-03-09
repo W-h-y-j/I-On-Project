@@ -42,7 +42,7 @@ public class MyPageContoller {
 			// get으로 전달된 쪽번호가 있는 경우 실행
 			page=Integer.parseInt(request.getParameter("page")); // 쪽 번호를 정수 숫자로 변경하여 저장시킴
 		}
-		
+		System.out.println("********* mypage: "+mypage);
 		mypage.setStartrow((page -1)*10+1);// 시작번호
 		mypage.setEndrow(mypage.getStartrow()+limit-1);//끝행 번호
 		
@@ -63,8 +63,8 @@ public class MyPageContoller {
 	    
 	    
 	    if(endpage > startpage+10-1) endpage=startpage+10-1;
-	    model.addAttribute("noticeList", noticeList); // blist 속성 키 이름에 blist 목록 저장
-	    model.addAttribute("totalCount", totalCount); // totalCount 속성 키 이름에 총 레코드 개수를 저장
+	    model.addAttribute("noticeList", noticeList); 
+	    model.addAttribute("totalCount", totalCount); 
 	    model.addAttribute("startpage", startpage);
 	    model.addAttribute("endpage", endpage);
 	    model.addAttribute("maxpage", maxpage);

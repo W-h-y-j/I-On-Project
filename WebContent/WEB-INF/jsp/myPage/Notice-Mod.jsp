@@ -33,7 +33,7 @@
 									<input id="title" name="title" value="${myPage.title}" class="form-control validate">
 								</div>
 							</div>
-							<div class="form-row"> <%--row mt-6 --%>
+							<div class="form-row">
 								<div id="editor" class="col">${myPage.content}</div>
 								<textarea style="display:none;" id="viewerEditor">${myPage.content}</textarea>
 							</div>

@@ -78,7 +78,7 @@
 				var noticeJson = {
 					title : $("#title").val(),
 					content : editor.getHTML(),
-					insert_id: "test"
+					insert_id: "test" // 가라데이터
 				}
 				
 				console.log(noticeJson); 
