@@ -8,4 +8,12 @@ import com.ion.vo.BlogVO;
 public interface BlogService {
 	
 	public List<BlogVO> view_blog_notice();
+
+	public List<BlogVO> showSchedule();
+
+	
+	public static  void addSchedule() throws Exception{
+		addSchedule();
+	}
+	
 }

@@ -11,4 +11,8 @@ import com.ion.vo.BlogVO;
 public interface BlogMapper {
 	//MainMapper.xml file의 namespace와 연동
 	public List<BlogVO> view_blog_notice();
+	
+	public List<BlogVO> showSchedule();
+	
+	
 }

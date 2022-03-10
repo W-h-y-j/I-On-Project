@@ -21,4 +21,12 @@ public class BlogServiceImpl implements BlogService {
 		return mapper.view_blog_notice();
 	}
 
+	@Override
+	public List<BlogVO> showSchedule() {
+		// TODO Auto-generated method stub
+		return mapper.showSchedule();
+	}
+
+	
+
 }

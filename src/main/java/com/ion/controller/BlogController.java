@@ -1,18 +1,28 @@
 package com.ion.controller;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import javax.annotation.Resource;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.ion.service.BlogService;
+import com.ion.vo.BlogVO;
 
 
 @Controller
 public class BlogController {
 	
+
+	
+
+
 	@Autowired
 	private BlogService blogService;
 	
@@ -137,8 +147,18 @@ public class BlogController {
 		return "blog/pop/BlogHelpRP";
 	}
 	
+	@RequestMapping(value = "/blog/Calendar",method = RequestMethod.POST)
+	public Map<Object,Object> addSchedule(@RequestBody BlogVO blog) throws Exception {
+		Map<Object,Object>map = new HashMap<Object,Object>();
+		return map;
+	}
+	
 	@RequestMapping(value = "/blog/Calendar")
 	public String BlogCalendar(Model model) throws Exception {
-		return "blog/BlogCenterCalendar";
+		model.addAttribute("showSchedule" , blogService.showSchedule());
+		return "blog/Calendar";
 	}
+
+
+	
 }

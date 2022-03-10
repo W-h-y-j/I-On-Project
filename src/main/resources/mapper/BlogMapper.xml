@@ -12,7 +12,7 @@
 		SELECT * FROM BLOG_NOTICE ORDER BY NOTICE_NO	 DESC
 	</select>	
 	
-	<insert id="insert_blog_notice" parameterType="com.ion.vo.MyPageVO">
+	<insert id="insert_blog_notice" parameterType="com.ion.vo.BlogVO">
 		INSERT INTO BLOG_NOTICE (
 		notice_no
 		, notice_div
@@ -32,6 +32,20 @@
 		)
 	</insert>
 	
-
-
-</mapper>
+    	<select id="showSchedule" resultType = "com.ion.vo.BlogVO">
+    		SELECT
+    			subject,startDate,endDate,memo
+    		FROM
+    			schedule
+    		ORDER BY
+    			num
+    		DESC
+    	</select>
+    	<insert id="addSchedule" parameterType = "com.ion.vo.BlogVO">
+	    	INSERT INTO
+	    		schedule(subject,startDate,endDate,memo)
+	    	VALUES
+	    		(#{subject},#{startDate},#{endDate},#{memo})
+    	</insert>
+    </mapper>
+	

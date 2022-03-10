@@ -14,6 +14,11 @@ public class BlogVO {
 	private String notice_writer;
 	private int notice_view;
 	
+	private String subject;
+	private String startDate;
+	private String endDate;
+	private String memo;
+	
 	
 
 	
