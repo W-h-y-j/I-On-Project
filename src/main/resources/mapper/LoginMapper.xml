@@ -11,7 +11,8 @@
 	<!-- 센터 이름 찾기 -->
 	<select id="center_find" resultType="com.ion.vo.LoginVO">
 		select * from 
-		(select rownum rnum
+		(
+		select rownum rnum
 			, center_name
 			, center_add
 			, center_tel
@@ -19,23 +20,13 @@
 		where
 			1=1
 			and cl.center_name not in (
-			select cu.center_name from center_user cu
+				select cu.center_name from center_user cu
 			)
 			<if test="center_name != null">
 				and center_name like '%'||#{center_name}||'%'
 			</if>
-		) where rnum &gt;=#{startrow} and rnum &lt;=#{endrow}
+		) 
 		
-	</select>
-	
-	<select id="totalCenterCount" parameterType="int">
-		select 
-		count(center_name)
-		from center_location
-		where
-			<if test="center_name != null">
-				and center_name like '%'||#{center_name}||'%'
-			</if>
 	</select>
 	
 	<!-- 센터 회원 추가 -->
@@ -68,6 +59,50 @@
 		 , #{center_name}
 		 , #{center_user_name}
 		 , #{center_id}	
+		)
+	</insert>
+
+	<select id="read" resultType="com.ion.vo.LoginVO"  >
+		select 
+		center_id
+		, password
+		, id_lock
+		, 'CENTER_ROLE' auth
+		from 
+		center_user
+		where center_id=#{center_id}
+	</select>
+
+	<select id="donorRead" resultType="com.ion.vo.LoginVO"  >
+		SELECT 
+			USER_ID
+			,USER_NAME
+			,EMAIL
+			,GENDER
+			,BIRTH
+			,SNS
+			,REGI_DT
+		FROM DONOR_USER
+		WHERE user_id = #{user_id}
+	</select>
+	
+	<!-- 후원자 계정 추가 -->
+	<insert id="insertDonor"   >
+		Insert into DONOR_USER
+		(
+			USER_ID
+			,USER_NAME
+			,EMAIL
+			,SNS
+			,REGI_DT
+		)
+		values 
+		(
+			#{email}
+			,#{name}
+			,#{email}
+			,#{sns}
+			,sysdate		
 		)
 	</insert>
 	

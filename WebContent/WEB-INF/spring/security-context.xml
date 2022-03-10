@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:security="http://www.springframework.org/schema/security"
+	xmlns:oauth="http://www.springframework.org/schema/security/oauth2"
+	xsi:schemaLocation="http://www.springframework.org/schema/security
+   http://www.springframework.org/schema/security/spring-security.xsd
+   http://www.springframework.org/schema/beans  
+   http://www.springframework.org/schema/beans/spring-beans.xsd">
+   
+   	<!-- Bean 생성 -->
+	<bean id="AccessDenied" class="com.ion.security.AccessDeniedHandeler" />
+	<bean id="LoginSuccess" class="com.ion.security.LoginSuccessHandeler" />
+	<bean id="bcryptPasswordEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder" /> 
+	<bean id="UserDetails" class="com.ion.security.UserDetailsService" />
+	
+	<security:http>
+		<security:csrf disabled="true" />
+		<security:intercept-url pattern="/" access="permitAll" />
+		<security:intercept-url pattern="/myPage/DonationHistory" access="hasRole('DONOR_ROLE')"   />
+		<!-- <security:intercept-url	pattern="/blog" access="hasRole('CENTER_ROLE')" /> -->
+		<!-- blog안에서 처리 가능한것들에 대한 권한 설정해야함 -->
+		
+		<security:intercept-url pattern="/myPage/Notice-Add" access="hasRole('ADMIN_ROLE')"/>
+		<security:intercept-url pattern="/myPage/Notice-Mod" access="hasRole('ADMIN_ROLE')"/>
+		<security:intercept-url pattern="/myPage/Notice-Del" access="hasRole('ADMIN_ROLE')"/>
+		
+		<security:access-denied-handler ref="AccessDenied" /> 
+		<!-- security:oauth2-login 는 SNS 로그인을 위해서, form-login은 센터로그인을 위해서 생성 -->
+		<security:oauth2-login  login-page="/LoginForm" user-service-ref="UserDetails"  />
+		<security:form-login login-page="/LoginForm" authentication-success-handler-ref="LoginSuccess"/>
+		
+		<security:logout logout-url="/logout" invalidate-session="true" delete-cookies="remember-me"/>
+	</security:http>
+    
+    <!-- SNS 설정 START -->
+    <security:client-registrations  >
+		<security:client-registration  client-id="n3Z6V0TB4pGpUysgQSwn"  
+			client-secret="1VpipG6tyt"
+			client-name="Naver"
+			provider-id="naver" 
+			registration-id="naver" 
+			scope="name,email"
+			redirect-uri="http://localhost:8062/login/oauth2/code/naver"  
+			authorization-grant-type="authorization_code" 
+		/>
+		<security:client-registration  client-id="e8921c6a0bc6e4b5631c1eaaa695cbb6"  
+			client-secret="4cef9akbOn794x9rGFgvbSZXlwr6iST2"
+			client-name="Kakao"
+			provider-id="kakao" 
+			registration-id="kakao" 
+			scope="profile_nickname,account_email"
+			redirect-uri="http://localhost:8062/login/oauth2/code/kakao"  
+			authorization-grant-type="authorization_code" 
+			client-authentication-method="post"
+		/>
+		<security:provider provider-id="naver"   
+			authorization-uri="https://nid.naver.com/oauth2.0/authorize"
+			token-uri="https://nid.naver.com/oauth2.0/token"
+			user-info-uri="https://openapi.naver.com/v1/nid/me"
+			user-info-user-name-attribute="response"
+		/>
+		<security:provider provider-id="kakao"   
+			authorization-uri="https://kauth.kakao.com/oauth/authorize"
+			token-uri="https://kauth.kakao.com/oauth/token"
+			user-info-uri="https://kapi.kakao.com/v2/user/me"
+			user-info-user-name-attribute="id"
+		/>
+	</security:client-registrations>
+	 <!-- SNS 설정 END -->
+	
+	
+	<security:authentication-manager >
+		<security:authentication-provider user-service-ref="UserDetails"   >
+			<security:password-encoder ref="bcryptPasswordEncoder" />
+		</security:authentication-provider>
+   </security:authentication-manager>
+
+</beans>

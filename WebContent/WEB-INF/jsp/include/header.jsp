@@ -1,4 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
 
 <div class="row">
 	<div class="col-12">
@@ -42,18 +43,25 @@
 						<a class="nav-link dropdown-toggle" href="index.html" id="navbarDropdown" role="button" data-toggle="dropdown"
 						aria-haspopup="true" aria-expanded="false">My Page</a>
 						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-							<a class="dropdown-item" href="/Notice">공지 사항</a> <a
-								class="dropdown-item" href="/DonationHistory">나의 후원 내역</a> <a
-								class="dropdown-item" href="/blog">우리 센터 블로그</a> <a
-								class="dropdown-item" href="/DonationUserManagment">후원자 관리</a> <a
-								class="dropdown-item" href="/CenterUserManagment">센터 운영자 관리</a> <a
-								class="dropdown-item" href="/MyPageSecurity">회원 정보 변경</a>
+							<a class="dropdown-item" href="/Notice">공지 사항</a> 
+							<sec:authorize access="hasAuthority('DONOR_ROLE')">
+								<a class="dropdown-item" href="/DonationHistory">나의 후원 내역</a> 
+							</sec:authorize>
+							<sec:authorize access="hasAuthority('CENTER_ROLE')">
+								<a class="dropdown-item" href="/blog">우리 센터 블로그</a>
+							</sec:authorize>
+							<sec:authorize access="hasAuthority('ADMIN_ROLE')">
+								<a class="dropdown-item" href="/DonationUserManagment">후원자 관리</a> 
+								<a class="dropdown-item" href="/CenterUserManagment">센터 운영자 관리</a> 
+							</sec:authorize>
+							<sec:authorize access="isAuthenticated()">
+								<a class="dropdown-item" href="/MyPageSecurity">회원 정보 변경</a>
+							</sec:authorize>
 						</div>
 					</li>
 					
 				</ul>
 			</div>
-			
 		</nav>
 	</div>
 </div>

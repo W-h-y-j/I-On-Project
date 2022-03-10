@@ -1,5 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <html>
 <head>
 <meta charset="UTF-8">
@@ -24,7 +25,9 @@
 					<%-- List --%>
 					<div class="table-responsive">
 						<div class="col text-right">
+							<sec:authorize access="hasRole('ADMIN')">
 							<a href="/Notice-Add" class="btn btn-small btn-primary">등록</a> 
+							</sec:authorize>
 						</div>
 						total: <span>${totalCount}</span>
 						<table

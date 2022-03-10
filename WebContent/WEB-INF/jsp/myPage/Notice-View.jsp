@@ -1,4 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,8 +24,10 @@
 								<h2 class="tm-block-title d-inline-block">공지사항 조회</h2>
 							</div>
 							<div class="col text-right mb-3">
-								<a href="/Notice-Mod?system_notice_no=${myPage.system_notice_no}&page=${page}" class="btn btn-small btn-primary">수정</a>
-								<a href="/Notice-Del?system_notice_no=${myPage.system_notice_no}&page=${page}" class="btn btn-small btn-primary">삭제</a>
+								<sec:authorize access="hasRole('ADMIN')">
+									<a href="/Notice-Mod?system_notice_no=${myPage.system_notice_no}&page=${page}" class="btn btn-small btn-primary">수정</a>
+									<a href="/Notice-Del?system_notice_no=${myPage.system_notice_no}&page=${page}" class="btn btn-small btn-primary">삭제</a>
+								</sec:authorize>
 							</div>
 						</div>
 						<form name="noticeForm" method="post" class="tm-signup-form">

@@ -7,7 +7,7 @@ import lombok.Data;
 @Data
 public class LoginVO {
 
-	// 센터
+	// 센터계정
 	private String center_id;
 	private String password;
 	private String befor_password;
@@ -25,8 +25,8 @@ public class LoginVO {
 	private String last_change_id;
 	private String last_change_dt;
 	private String center_tel;
-
-	// 후원 계정
+	
+	// 후원계정
 	private String user_id;
 	private String user_name;
 	private String email;

@@ -1,5 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
-<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<!-- <script src="https://developers.kakao.com/sdk/js/kakao.js"></script> -->
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,16 +26,13 @@
 					</div>
 					<div class="row mt-2">
 						<div class="col-12">
-							<form action="" mothod="post" class="tm-login-form">
+							<form name="login-sns" action="" method="post" class="tm-login-form">
 								<jsp:include page="naverlogin.jsp"></jsp:include>
 								<jsp:include page="kakaologin.jsp"></jsp:include>
-
 							</form>
 						</div>
 					</div>
 				</div>
-
-
 				<div class="bg-white tm-block" style="float: left; width: 50%;">
 					<div class="row">
 						<div class="col-12 text-center">
@@ -44,30 +42,26 @@
 					</div>
 					<div class="row mt-2">
 						<div class="col-12">
-							<form action="index.html" method="post" class="tm-login-form">
-								<div class="input-group">
+							<form action="/login" method="post" class="tm-login-form">
+								<div class="input-group mt-3">
 									<label for="username"
-										class="col-xl-4 col-lg-4 col-md-4 col-sm-5 col-form-label">Username</label>
+										class="col-xl-4 col-lg-4 col-md-4 col-sm-5 col-form-label">센터ID</label>
 									<input name="username" type="text"
-										class="form-control validate col-xl-9 col-lg-8 col-md-8 col-sm-7"
-										id="username" value="admin" required>
+										class="form-control validate col-xl-9 col-lg-8 col-md-8 col-sm-7" id="center_id" required>
 								</div>
 								<div class="input-group mt-3">
 									<label for="password"
 										class="col-xl-4 col-lg-4 col-md-4 col-sm-5 col-form-label">Password</label>
 									<input name="password" type="password"
-										class="form-control validate" id="password" value="1234"
-										required>
+										class="form-control validate" id="password" required>
 								</div>
 								<div class="row mt-2">
 									<div class="col-12  text-center">
-										<a href="/CenterUserInsert" class="tm-link-black"
-											style="padding-right: 50px;">센터 운영자 회원가입</a>
+										<a href="/CenterUserInsert" class="tm-link-black" style="padding-right: 50px;">센터 운영자 회원가입</a>
 									</div>
 								</div>
 								<div class="input-group mt-3">
-									<button type="submit"
-										class="btn btn-primary d-inline-block mx-auto">Login</button>
+									<button type="submit" class="btn btn-primary d-inline-block mx-auto">Login</button>
 								</div>
 							</form>
 						</div>
@@ -75,7 +69,6 @@
 				</div>
 			</div>
 		</div>
-		<%-- 	<jsp:include page="../include/footer.jsp" /> --%>
 	</div>
 </body>
 </html>

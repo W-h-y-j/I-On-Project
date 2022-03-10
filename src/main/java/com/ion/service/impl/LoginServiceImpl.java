@@ -20,10 +20,10 @@ public class LoginServiceImpl implements LoginService {
 		this.loginMapper.insertCenterUser(loginVo);
 	}
 
-	@Override
-	public LoginVO loginUser(String login_id) {
-		return this.loginMapper.loginUser(login_id);
-	}
+	/*
+	 * @Override public LoginVO loginUser(String login_id) { return
+	 * this.loginMapper.loginUser(login_id); }
+	 */
 
 	@Override
 	public LoginVO idCheck(String center_id) {
