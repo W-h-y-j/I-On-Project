@@ -17,7 +17,6 @@
 	<security:http>
 		<security:csrf disabled="true" />
 		<security:intercept-url pattern="/" access="permitAll" />
-		<security:intercept-url pattern="/main" access="permitAll" />
 		<security:intercept-url pattern="/myPage/DonationHistory" access="hasRole('DONOR_ROLE')"   />
 		<!-- <security:intercept-url	pattern="/blog" access="hasRole('CENTER_ROLE')" /> -->
 		<!-- blog안에서 처리 가능한것들에 대한 권한 설정해야함 -->

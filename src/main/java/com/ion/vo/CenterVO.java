@@ -17,5 +17,5 @@ public class CenterVO {
     //검색기능
     private String find_name;//검색어
     private String find_field;//검색필드
-    
+
 }

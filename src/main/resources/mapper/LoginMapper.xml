@@ -72,17 +72,6 @@
 		center_user
 		where center_id=#{center_id}
 	</select>
-	
-	<select id="Adminread" resultType="com.ion.vo.LoginVO"  >
-		select 
-		center_id
-		, password
-		, id_lock
-		, 'ADMIN_ROLE' auth
-		from 
-		center_user
-		where center_id=#{center_id}
-	</select>
 
 	<select id="donorRead" resultType="com.ion.vo.LoginVO"  >
 		SELECT 

@@ -1,6 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <div class="row">
 	<div class="col-12">
@@ -9,8 +8,6 @@
 				class="fas fa-3x fa-tachometer-alt tm-site-icon"></i>
 				<h1 class="tm-site-title mb-0">I-ON: 아이 온 희망나눔 서비스</h1>
 			</a>
-			<%-- <sec:authentication property="principal" var="user"/> 
-			${user.username} --%>
 			<button class="navbar-toggler ml-auto mr-0" type="button"
 				data-toggle="collapse" data-target="#navbarSupportedContent"
 				aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -55,7 +52,7 @@
 							</sec:authorize>
 							<sec:authorize access="hasAuthority('ADMIN_ROLE')">
 								<a class="dropdown-item" href="/DonationUserManagment">후원자 관리</a> 
-								<a class="dropdown-item" href="/CenterUserManagment">센터 운영자 관리</a>
+								<a class="dropdown-item" href="/CenterUserManagment">센터 운영자 관리</a> 
 							</sec:authorize>
 							<sec:authorize access="isAuthenticated()">
 								<a class="dropdown-item" href="/MyPageSecurity">회원 정보 변경</a>

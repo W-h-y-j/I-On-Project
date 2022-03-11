@@ -12,11 +12,9 @@
 <jsp:include page="../include/base.jsp" />
 </head>
 <body id="reportsPage">
- 	<%-- <sec:authentication property="principal" var="user"/> --%>
- 	
- 	<%-- 로그인한 계정의 정보를 알고 싶으면 주석을 해지 하시오~~ --%> 
- 	<sec:authentication property="principal" var="user"/> 
+ 	<sec:authentication property="principal" var="user"/>
  	<%-- ${user}  --%>
+ 	<%-- 로그인한 계정의 정보를 알고 싶으면 주석을 해지 하시오~~ --%> 
 	<div class="" id="home">
 		<div class="container">
 			<jsp:include page="../include/header.jsp" />
@@ -96,7 +94,7 @@
 							<%-- 센터 계정 --%>
 							<sec:authorize access='hasAuthority("CENTER_ROLE")'>
 								<!-- 블로그 URL 작성해줄것 -->
-									<button type="button" class="btn btn-primary w-100" onclick="location.href='/blog?pr_id=${user.username}'">우리 센터 블로그</button>
+								<button type="button" class="btn btn-primary w-100" onclick="location.href='/blog'">우리 센터 블로그</button>
 							</sec:authorize>
 							<%-- 후원 계정 --%>
 							<sec:authorize access="hasAuthority('DONOR_ROLE')">
@@ -199,6 +197,5 @@
 	</div>
 	<jsp:include page="../include/chartThings.jsp" />
 </body>
-
 </html>
 

@@ -23,7 +23,5 @@ public interface LoginMapper {
 	
 	void insertDonor(Map<String, Object> param);
 
-	LoginVO Adminread(String center_id);
-
 	
 }

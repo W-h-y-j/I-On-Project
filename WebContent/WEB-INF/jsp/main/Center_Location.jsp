@@ -30,6 +30,7 @@
 					<div class="row">
 						<div class="col-md-8 col-sm-24">
 							<h2 class="tm-block-title d-inline-block">센터 찾기</h2>
+
 							<!-- Map 그려 줘요  -->
 
 
@@ -307,7 +308,6 @@ function removeAllChildNods(el) {
 									</tr>
 								</thead>
 								<tbody>
-								
 								<c:if test="${!empty blist}">
 								  <c:forEach var="b" items="${blist}">
 									<tr>
