@@ -29,7 +29,13 @@ public class UserDetailsService extends DefaultOAuth2UserService implements org.
 	public UserDetails loadUserByUsername(String center_id) throws UsernameNotFoundException {
 		
 		System.out.println("Load User id : " + center_id);
-		LoginVO vo = loginMapper.read(center_id);
+		
+		if(center_id.equals("ADMIN")) {
+			LoginVO vo = loginMapper.Adminread(center_id);
+		} else {
+			LoginVO vo = loginMapper.read(center_id);
+		}
+		
 		
 		System.out.println("query by member: " + vo);
 		
