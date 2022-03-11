@@ -94,7 +94,7 @@
 							<%-- 센터 계정 --%>
 							<sec:authorize access='hasAuthority("CENTER_ROLE")'>
 								<!-- 블로그 URL 작성해줄것 -->
-								<button type="button" class="btn btn-primary w-100" onclick="location.href='/blog'">우리 센터 블로그</button>
+								<button type="button" class="btn btn-primary w-100" onclick="location.href='/blog?pr_id=${user.username}'">우리 센터 블로그</button>
 							</sec:authorize>
 							<%-- 후원 계정 --%>
 							<sec:authorize access="hasAuthority('DONOR_ROLE')">
