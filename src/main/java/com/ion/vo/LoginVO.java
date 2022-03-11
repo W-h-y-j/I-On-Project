@@ -36,8 +36,6 @@ public class LoginVO {
 	private String sns;
 	private String auth;
 
-	private List<AuthVO> authList;
-
 	// 페이징 처리
 	private int startrow;
 	private int endrow;
