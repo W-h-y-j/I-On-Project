@@ -11,6 +11,46 @@
 	<select id="view_system_notice" resultType="com.ion.vo.MainVO">
 		SELECT * FROM SYSTEM_NOTICE ORDER BY INSERT_DT DESC
 	</select>
+	
+	<select id="getCenterList" resultType="com.ion.vo.MainVO" parameterType="com.ion.vo.MainVO">
+	  select * from 
+     (select rowNum rNum, center_name, center_add, center_tel     
+     from (select * from center_location     
+     <where>
+     <if test="find_field == ''">
+      <!-- 검색조건이 없어서 총레코드 개수 -->
+     </if>
+     <if test="find_field == 'center_name'">
+      <!-- 검색 조건이 제목인 경우 -->
+      center_name like #{find_name} <!-- like는 오라클 검색
+      연산자 -->
+     </if>
+     <if test="find_field == 'center_add'">
+      center_add like #{find_name}
+     </if>
+     </where>     
+      )) 
+     where rNum &gt;= #{startrow} and rNum &lt;= #{endrow}
+<!-- &gt;은 ~보다 크다(>), &lt;은 ~보다 작다(<) -->
+	</select>
+	
+	<!-- 검색 전후 레코드 개수 -->
+    <select id="getListCount" parameterType="com.ion.vo.MainVO" resultType="int">
+     select count(center_name) from center_location
+     <where>
+     <if test="find_field == ''">
+      <!-- 검색조건이 없어서 총레코드 개수 -->
+     </if>
+     <if test="find_field == 'center_name'">
+      <!-- 검색 조건이 제목인 경우 -->
+      center_name like #{find_name} <!-- like는 오라클 검색
+      연산자 -->
+     </if>
+     <if test="find_field == 'center_add'">
+      center_add like #{find_name}
+     </if>
+     </where>
+    </select>
 
 
 </mapper>
