@@ -16,10 +16,7 @@ public class BlogController {
 	@Autowired
 	private BlogService blogService;
 	
-	@RequestMapping(value = "/blog")
-	public String BlogMain(Model model) throws Exception {
-		return "blog/BlogMain";
-	}
+	
 	
 	@RequestMapping(value = "/blog/Notice")
 	public String BlogCenterNotice(Model model) throws Exception {
@@ -37,15 +34,9 @@ public class BlogController {
 		return "blog/create/BlogCenterNoticeCreate";
 	}
 	
-	@RequestMapping(value = "/blog/Gallery")
-	public String BlogCenterGallery(Model model) throws Exception {
-		return "blog/BlogCenterGallery";
-	}
 	
-	@RequestMapping(value = "/blog/Gallery/View")
-	public String BlogGalleryView(Model model) throws Exception {
-		return "blog/view/BlogGalleryView";
-	}
+	
+	
 	
 	@RequestMapping(value = "/blog/Gallery/Create")
 	public String BlogCenterGalleryCreate(Model model) throws Exception {
@@ -67,10 +58,6 @@ public class BlogController {
 		return "blog/create/BlogCenterHelpCreate";
 	}
 	
-	@RequestMapping(value = "/blog/Info")
-	public String BlogCenterInfo(Model model) throws Exception {
-		return "blog/BlogCenterInfo";
-	}
 	
 	@RequestMapping(value = "/blog/Info/Change")
 	public String BlogCenterInfoChange(Model model) throws Exception {

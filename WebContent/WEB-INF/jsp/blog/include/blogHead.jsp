@@ -1,9 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
+<% String pr_id = request.getParameter("pr_id");
+	
+%>
     <nav class="navbar navbar-expand-lg navbar-light"style="background-color: #e3f2fd;">
         <div class="container-fluid">
-            <a class="navbar-brand" href="/blog"><b>I-ON: 아이 온 희망나눔</b></a>
+            <a class="navbar-brand" href="/blog?pr_id=<%= pr_id %>" ><b><!--I-ON: 아이 온 희망나눔 --></b></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -11,37 +13,32 @@
             </button>
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-automb-2 mb-lg-0">
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false">
-                            시설 소개
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="/blog/Info">시설 소개</a></li>
-                            <li><a class="dropdown-item" href="/blog/Info">센터장 인사말</a></li>
-                        </ul>
+                <ul class="navbar-nav me-automb-10 mb-lg-1">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/blog/Info?pr_id=<%=pr_id%>">시설소개</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/blog/Notice">공지사항</a>
+                        <a class="nav-link" href="/blog/Notice?pr_id=<%=pr_id%>">공지사항</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/blog/Gallery">활동사진</a>
+                        <a class="nav-link" href="/blog/Gallery?pr_id=<%=pr_id%>">활동사진</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/blog/Calendar">운영일정</a>
+                        <a class="nav-link" href="/blog/Calendar?pr_id=<%=pr_id%>">운영일정</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/blog/Help">필요해요!</a>
+                        <a class="nav-link" href="/blog/Help?pr_id=<%=pr_id%>">필요해요!</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/blog/Thk">감사해요!</a>
+                        <a class="nav-link" href="/blog/Thk?pr_id=<%=pr_id%>">감사해요!</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/blog/Use">후원금 내역</a>
-                    </li>
+                    
                 </ul>
+                <div style="margin-left:15vw;">
+                	<a href="/" style="text-decoration: none; color:black;"><h> I-ON : 희망 나눔 서비스</h></a>
+                </div>
             </div>
+			
         </div>
     </nav>
     <br/><br/>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Info">
+
+	<!--  시설소개 저장 -->
+	<insert id="info_in">
+		insert into BLOG_INFO(IV_CENTERID,IV_IMG,IV_CONT)
+		values(#{iv_centerid},#{iv_img},#{iv_cont})
+	</insert>
+	
+	<!--  소개 삭제 -->
+	<delete id="dinfo">
+		delete from BLOG_INFO where iv_centerid=#{iv_centerid}
+	</delete>
+	
+	<!-- 프로필 불러오기 -->
+	<select id="im" resultType="Info">
+		select * from BLOG_INFO where iv_centerid=#{pr_id}
+	</select>
+	
+	<!-- 기존 파일 삭제를 위한 기존파일 경로 가져오기 -->
+	<select id="idf" resultType="string">
+		select IV_IMG from BLOG_INFO where iv_centerid=#{iv_centerid}
+	</select>
+	
+	<!-- 정보없을떄 -->
+	<select id="sam2" resultType="Info">
+		select * from BLOG_INFO where iv_centerid=#{sampleid}
+	</select>
+</mapper>

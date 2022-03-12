@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Profile">
+
+	<!-- 프로필 저장 -->
+	<insert id="profile_in">
+		insert into BLOGCENTERPROFILE(PR_ID,PR_CENTERNAME,PR_TELL,PR_ADDRESS,PR_IMG,PR_CONT)
+		values(#{pr_id},#{pr_centername},#{pr_tell},#{pr_address},#{pr_img},#{pr_cont})
+	</insert>
+	
+	<!-- 프로필 불러오기 -->
+	<select id="bm" resultType="Profile">
+		select * from BLOGCENTERPROFILE where pr_id=#{pr_id}
+	</select>
+	
+	<!-- 프로필 삭제 -->
+	<delete id="dp">
+		delete from BLOGCENTERPROFILE where pr_id=#{pr_id}
+	</delete>
+	
+	<!-- 기존 파일 삭제를 위한 기존파일 경로 가져오기 -->
+	<select id="bdf" resultType="string">
+		select PR_IMG from BLOGCENTERPROFILE where pr_id=#{pr_id}
+	</select>
+	
+	<!--  기본 예시 -->
+	<select id="sam" resultType="Profile">
+		select * from BLOGCENTERPROFILE where pr_id=#{sampleid}
+	</select>
+</mapper>

@@ -3,7 +3,10 @@
 PUBLIC "-//mybatis.org//DTD Config 3.0//EN" 
 "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
-	<settings>
-		<setting name="jdbcTypeForNull" value="NULL"/>
-	</settings>
+	<typeAliases>
+		<typeAlias alias="Profile" type="com.ion.vo.BlogProfileVO"/>
+		<typeAlias alias="Info" type="com.ion.vo.BlogInfoVO"/>
+		<typeAlias alias="Gallery" type="com.ion.vo.BlogGalleryVO"/>
+	</typeAliases>
+	
 </configuration>

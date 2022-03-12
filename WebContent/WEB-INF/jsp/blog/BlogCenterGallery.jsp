@@ -1,4 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 <!DOCTYPE html>
 <html>
@@ -11,6 +13,7 @@
     <link href="../../../Resources/css/blog/blogM.css" rel="stylesheet">
     <link href="../../../Resources/css/blog/CenterGallery.css" rel="stylesheet">
 </head>
+<% String ag_centerid = request.getParameter("pr_id"); %>
 <body>
     <jsp:include page="include/blogHead.jsp" />
     <div class = "container-fluid">
@@ -36,68 +39,84 @@
                         <th>활동사진</th>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>
-                                <a href="/blog/Gallery/View" style="text-decoration: none; color:black">
-                                    <img src="../../../Resources/img/blog/b2.JPG" class="img-thumbnail" alt="" style="width: 21vw; height: 21vh;">
-                                    <span>2020-01-07</span>
-                                </a>
-                            </td>
-                            <td>
-                                <a href="/blog/Gallery/View" style="text-decoration: none; color:black">
-                                    <img src="../../../Resources/img/blog/b2.JPG" class="img-thumbnail" alt="" style="width: 21vw; height: 21vh;">
-                                    <span>2020-01-07</span>
-                                </a>
-                            </td>
-                            <td>
-                                <a href="/blog/Gallery/View" style="text-decoration: none; color:black">
-                                    <img src="../../../Resources/img/blog/bb8.jpeg" class="img-thumbnail" alt="" style="width: 21vw; height: 21vh;">
-                                    <span>2020-01-07</span>
-                                </a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <a href="/blog/Gallery/View" style="text-decoration: none; color:black">
-                                    <img src="../../../Resources/img/blog/b2.JPG" class="img-thumbnail" alt="" style="width: 21vw; height: 21vh;">
-                                    <span>2020-01-07</span>
-                                </a>
-                            </td>
-                            <td>
-                                <a href="/blog/Gallery/View" style="text-decoration: none; color:black">
-                                    <img src="../../../Resources/img/blog/b2.JPG" class="img-thumbnail" alt="" style="width: 21vw; height: 21vh;">
-                                    <span>2020-01-07</span>
-                                </a>
-                            </td>
-                            <td>
-                                <a href="/blog/Gallery/View" style="text-decoration: none; color:black">
-                                    <img src="../../../Resources/img/blog/b2.JPG" class="img-thumbnail" alt="" style="width: 21vw; height: 21vh;">
-                                    <span>2020-01-07</span>
-                                </a>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-                <nav aria-label="Page navigation example" id="CenterGalleryPage">
-                    <ul class="pagination">
-                        <li class="page-item">
-                            <a class="page-link" href="#" aria-label="Previous">
-                                <span aria-hidden="true">&laquo;</span>
-                            </a>
-                        </li>
-                        <li class="page-item"><a class="page-link" href="#">1</a></li>
-                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                        <li class="page-item">
-                            <a class="page-link" href="#" aria-label="Next">
-                                <span aria-hidden="true">&raquo;</span>
-                            </a>
-                        </li>
-                        <li>
-                            <button type="button" class="btn btn-primary" id="CenterGalleryBtn" onclick="location.href='/blog/Gallery/Create'">글작성</button>
-                        </li>
-                    </ul>
-                </nav>      
+                    <%-- 만약에 제목이나 넘버가 같으면 스탑시키면 되지않나 ?.. 아마두 ?... --%>
+                    <c:set var="i" value="0" />
+                    <c:set var="j" value="3" />
+                    	<c:if test="${!empty aglist }">
+                    		<c:set var="i" value="0" /> 
+                    		<c:set var="j" value="3" /> 
+                    		<c:forEach items="${aglist}" var="a"> 
+                    			<c:if test="${i%j == 0 }">
+                    				<tr> 
+                    			</c:if> 
+                    				<td align="Gallery">
+                    						
+                                		<a href="/blog/Gallery/View?pr_id=${a.ag_centerid}&ag_no=${a.ag_no}&state=view&page=${page}" style="text-decoration: none; color:black">
+                                    		<img src="../../../Resources/upload${a.ag_img}" class="img-thumbnail" alt="" style="width: 21vw; height: 21vh;">
+                                    		<span>${fn:substring(a.ag_write_date,0,10)}</span>
+                                		</a>
+                           			</td>
+                    			<c:if test="${i%j == j-1 }"> 
+                    				</tr> 
+                    			</c:if> 
+                    			<c:set var="i" value="${i+1}" /> 
+                    		</c:forEach>
+                    	</c:if>
+                    	
+                    	<c:if test="${empty aglist}">
+                    		<tr>
+                    			<th colspan="3"> 목록이 없습니다.</th>
+                    		</tr>
+                    	</c:if>
+                    	</tbody>
+                    </table>	
+                    <nav aria-label="Page navigation example" id="CenterGalleryPage">
+                    	<ul class="pagination">
+                        	
+                            <c:choose>
+                            	<c:when test="${page < 1}">
+                            		<a class="page-link"  aria-label="Previous">
+                                		<span aria-hidden="true">&laquo;</span>
+                            		</a>
+                            	</c:when>
+                            	<c:when test="${page > 1}">
+                            		<a class="page-link"  href="/blog/Gallery?pr_id=<%=ag_centerid%>&page=${page-1} "aria-label="Previous">
+                                		<span aria-hidden="true">&laquo;</span>
+                            		</a>
+                            	</c:when>
+                            </c:choose>
+                            	
+                        	</li>
+                        	<c:forEach var="a" begin="${startpage}" end="${endpage}" step="1">
+                    			<c:if test="${a == page}">
+                    				<li class="page-item"><a class="page-link" href="#">[${a}]</a></li>
+                    			</c:if> <%-- 현재쪽 선택 --%>
+                    			
+                    			<c:if test="${a != page}"> <%-- 현재쪽 비선택 --%>
+                    				<li class="page-item"><a class="page-link" href="/blog/Gallery?pr_id=<%= ag_centerid %>&page=${a}">[${a}]</a></li>
+                    			</c:if>
+                    		</c:forEach>
+                        	<c:if test="${page >= maxpage}">
+                        		<li class="page-item">
+                            		<a class="page-link"  aria-label="Next">
+                                		<span aria-hidden="true">&raquo;</span>
+                            		</a>
+                        		</li>
+                        	</c:if>
+                    		<c:if test="${page < maxpage}" >
+                    			
+                    			<li class="page-item">
+                            		<a class="page-link" href="/blog/Gallery?pr_id=<%= ag_centerid %>&page=${page+1}" aria-label="Next">
+                                		<span aria-hidden="true">&raquo;</span>
+                            		</a>
+                        		</li>
+                    		</c:if>
+                        	
+                        	<li>
+                            	<button type="button" class="btn btn-primary" id="CenterGalleryBtn" onclick="location.href='/blog/Gallery/Create?pr_id=<%=ag_centerid%>'">글작성</button>
+                        	</li>
+                    	</ul>
+                	</nav>      			
             </div>
         </div>
     </div>

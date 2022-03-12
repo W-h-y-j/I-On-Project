@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 
@@ -20,7 +21,7 @@
 
 	    var popUrl = "/blog/CenterProfile";	//팝업창에 출력될 페이지 URL
 
-	    var popOption = "width=500, height=502, resizable=no, scrollbars=no, status=no;";    //팝업창 옵션(optoin)
+	    var popOption = "width=510, height=700, resizable=no, scrollbars=no, status=no;";    //팝업창 옵션(optoin)
 
 		    window.open(popUrl,"",popOption);
 		}
@@ -30,13 +31,35 @@
         <div class = "row">
             <div class = "col-md-3">
                 <div class="card">
-                    <img src="../../../Resources/img/blog/B1.JPG" class="card-img-top" alt="시설사진">
+                	<c:choose>
+                		<c:when test="${!empty bp.pr_img}">
+                			<img src="../../../Resources/upload${bp.pr_img}" height="250" class="card-img-top" alt="시설사진">
+                		</c:when>
+                		<c:otherwise>
+                			<img src="../../../Resources/img/blog/B1.JPG" height="250" class="card-img-top" alt="시설사진">
+                		</c:otherwise>
+                	</c:choose>
+                    
                     <div class="card-body">
                       <p class="card-text">
-                          <b>행복한지역아동센터</b><br/>
-                          서울특별시 은평구 연서로 39 2층 역촌동 <br/>
+                      	  <!--<c:choose>
+                      	  	<c:when test="${!empty bp.pr_centername}">
+                      	  		<b>${bp.pr_centername}</b><br/>
+                          		   ${bp.pr_address} <br/>
+                          		<b>연락처</b><br/>
+                          		   ${bp.pr_tell}
+                      	  	</c:when>
+                      	  	<c:otherwise>
+                      	  		<b>센터명</b><br/>
+                          		   센터주소 <br/>
+                          		<b>연락처</b><br/>
+                          		   센터번호
+                      	  	</c:otherwise>
+                      	  </c:choose>-->
+                          <b><!--행복한지역아동센터-->${bp.pr_centername}</b><br/>
+                          	<!--서울특별시 은평구 연서로 39 2층 역촌동-->${bp.pr_address} <br/>
                           <b>연락처</b><br/>
-                          02-386-3246
+                          <!--02-386-3246-->${bp.pr_tell}
                           <a href="javascript:popupOpen();"><button class="btn btn-primary" type="submit">수정</button></a>
                       </p>
                     </div>
