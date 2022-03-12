@@ -1,5 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 
 <!DOCTYPE html>
 <html>
@@ -11,10 +12,14 @@
 <jsp:include page="../include/base.jsp" />
 </head>
 <body id="reportsPage">
+ 	<sec:authentication property="principal" var="user"/>
+ 	<%-- ${user}  --%>
+ 	<%-- 로그인한 계정의 정보를 알고 싶으면 주석을 해지 하시오~~ --%> 
 	<div class="" id="home">
 		<div class="container">
 			<jsp:include page="../include/header.jsp" />
-			<!-- row -->
+			<!-- row start! -->
+			<!-- 각 메뉴별 게시글 수는 7개까지만 조회 하도록 함 (시스템 공지사항 쪽 foreach문 참조) -->
 			<div class="row tm-content-row tm-mt-big">
 				<div class="tm-col tm-col-small">
 					<div class="row">
@@ -25,23 +30,12 @@
 							<a href="/Notice" class="tm-link-black"> 전체 보기</a>
 						</div>
 					</div>
-					<!-- <ol
-						class="tm-list-group tm-list-group-alternate-color tm-list-group-pad-big">
-						<li class="tm-list-group-item">시스템 점검이 완료되었습니다. </li>
-						<li class="tm-list-group-item">시스템 점검 예정 입니다.</li>
-						<li class="tm-list-group-item">센터 블로그 관련 공지사항</li>
-						<li class="tm-list-group-item">SNS계정으로 로그인이 가능합니다.</li>
-						<li class="tm-list-group-item">시스템 점검 예정 입니다.</li>
-						<li class="tm-list-group-item">기능이 추가되었습니다. </li>
-						<li class="tm-list-group-item">시스템 점검 예정 입니다.</li>
-					</ol> -->
 					<ol class="tm-list-group tm-list-group-alternate-color tm-list-group-pad-big">
-						<c:forEach items="${systemNotice}" var="system_notice_list">
+						<c:forEach items="${systemNotice}" var="system_notice_list" end="6">
 							<li class="tm-list-group-item">${system_notice_list.title}</li>
 						</c:forEach>
 					</ol>
 				</div>
-
 				<div class="tm-col tm-col-big">
 					<div class="bg-white tm-block h-100 ">
 						<div class="row">
@@ -93,9 +87,24 @@
 				<div class="tm-col tm-col-small">
 					<div class="bg-white tm-block border border-secondary" style= "padding-top: 30px; padding-bottom: 30px; margin-top: 50px; margin-bottom:50px">
 						<div class="col-12">
-							<button type="button" class="btn btn-primary w-100"
-								onclick="location.href='/LoginForm'">로그인하고 후원하기</button>
+							<%-- 로그인 전 --%>
+							<sec:authorize access="isAnonymous()">
+								<button type="button" class="btn btn-primary w-100" onclick="location.href='/LoginForm'">로그인하고 후원하기</button>
+							</sec:authorize>
+							<%-- 센터 계정 --%>
+							<sec:authorize access='hasAuthority("CENTER_ROLE")'>
+								<!-- 블로그 URL 작성해줄것 -->
+								<button type="button" class="btn btn-primary w-100" onclick="location.href='/blog?pr_id=${user.username}'">우리 센터 블로그</button>
+							</sec:authorize>
+							<%-- 후원 계정 --%>
+							<sec:authorize access="hasAuthority('DONOR_ROLE')">
+								<button type="button" class="btn btn-primary w-100" onclick="location.href='/DonationHistory'">나의 후원 내역</button>
+							</sec:authorize>
+							<sec:authorize access="isAuthenticated()">
+								<button type="button" class="btn btn-primary w-100" onclick="location.href='/logout'" style="margin-top: 10px;">로그아웃하기</button>
+							</sec:authorize>
 						</div>
+						
 					</div>
 					<!-- <div class="tm-col tm-block"> -->
 					<div class="tm-col tm-block border border-secondary" style=" margin-top: 20px; padding-bottom: 30px;">

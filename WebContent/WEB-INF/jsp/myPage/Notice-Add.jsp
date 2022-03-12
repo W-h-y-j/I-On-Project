@@ -1,16 +1,16 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
-<link rel="stylesheet" 	href="https://uicdn.toast.com/editor/latest/toastui-editor.min.css" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.4/codemirror.min.css"/>
-
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="X-UA-Compatible" content="ie=edge">
-<title></title>
-<jsp:include page="../include/base.jsp" />
-</head>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title></title>
+		<link rel="stylesheet" 	href="https://uicdn.toast.com/editor/latest/toastui-editor.min.css" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.4/codemirror.min.css"/>
+		<script src="https://uicdn.toast.com/editor/latest/toastui-editor-all.min.js"></script>
+		<jsp:include page="../include/base.jsp" />
+	</head>
 <body id="reportsPage">
 	<div class="" id="bg02">
 		<div class="container">
@@ -24,38 +24,19 @@
 								<h2 class="tm-block-title d-inline-block">공지사항 등록</h2>
 							</div>
 						</div>
-						<form name="noticeAddForm" method="post" class="tm-signup-form">
+						<form name="noticeAddForm" class="tm-signup-form" method="post"> <%-- enctype="multipart/form-data"  --%>
 							<div class="form-row">
 								<label for="title" class="col-form-label" style="margin-left: 50px; margin-right: 50px;">제목</label>
 								<div class="col">
-									<input placeholder="" id="title" name="title" type="text" class="form-control validate">
+									<input id="title" name="title" type="text" class="form-control validate">
 								</div>
 							</div>
 							<div class="form-row"> <%--row mt-6 --%>
-								<div id="editor" class="col"></div>
-								<script src="https://uicdn.toast.com/editor/latest/toastui-editor-all.min.js"></script>
-								<!-- <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mt-3 text-right">
-									<div class ="col">
-										<input type="text" class="col-md-12 col-sm-8 form-control validate" id="fileArea" name="fileArea">
-										<input type="button" class="btn btn-small btn-primary" value="첨부파일" onclick="document.getElementById('fileInput').click();" />
-									</div>
-								</div> -->
-							</div>
-							<div class="form-row mt-3">
-								<div class="col">
-									<div class="input-group">
-	  									<input type="text" class="form-control" placeholder="첨부파일" aria-label="fileArea" id="fileArea" name="fileArea" aria-describedby="button-addon2">
-										<div class="input-group-append">
-	  										<input id="fileInput" type="file" style="display: none;" /> 
-	    									<button class="btn btn-small btn-primary" type="button" id="fileInputButton" onclick="document.getElementById('fileInput').click();">파일 첨부</button>
-	  									</div>
-									</div>
-								</div> 
+								<div id="editor" name="editor" class="col"></div>
 							</div>
 							<div class="form-row mt-3">
 								<div class="col-12 text-right" >
 									<button id="btnSave" type="button" class="btn btn-primary" >저장</button>
-									<!-- <a href="#none" class="btn btn-primary" id="btnSave">저장</a> -->
 								</div>
 							</div>
 						</form>
@@ -77,6 +58,7 @@
 		$(document).ready(function() {
 			const editor = new toastui.Editor({
 				el : document.querySelector('#editor'),
+				language: 'ko',
 				previewStyle : 'tab', //'tab'
 				height : '500px',
 				initialEditType : "wysiwyg",
@@ -84,18 +66,21 @@
 						[ 'heading', 'bold', 'italic', 'strike' ],
 						[ 'hr', 'quote' ],
 						[ 'ul', 'ol', 'task', 'indent', 'outdent' ],
-						[ 'table' ] ],
+						[ 'table' , 'image', 'link' ] ],
 				hideModeSwitch : true,
 				initialValue : ' ' //cont
 			});
 			
+			
 			$("#btnSave").click(function() {
 				insert_check();
+				
 				var noticeJson = {
 					title : $("#title").val(),
 					content : editor.getHTML(),
-					insert_id: "test"
+					insert_id: "test" // 가라데이터
 				}
+				
 				console.log(noticeJson); 
 
 				$.ajax({
@@ -108,7 +93,7 @@
 					}
 
 				}); // end ajax
-
+				
 			});
 		});
 

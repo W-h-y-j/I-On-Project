@@ -20,9 +20,8 @@
 							<h2 class="tm-block-title d-inline-block">후원자 관리</h2>
 						</div>
 						<div class="col-md-4 col-sm-24 text-right">
-							<a href="/CenterUserInsert" class="btn btn-small btn-primary">등록</a> <a
-								href="/CenterUser-Mod" class="btn btn-small btn-primary">수정</a> <a
-								href="/CenterUser-Del" class="btn btn-small btn-primary">삭제</a>
+							<a href="#" class="btn btn-small btn-primary">수정</a> 
+							<a href="#" class="btn btn-small btn-primary">삭제</a>
 						</div>
 					</div>
 					<div class="table-responsive">

@@ -29,78 +29,57 @@
 													disabled="disabled">
 											</div>
 											<div class="col-auto">
-												<button id="searchCenter" type="submit"
-													class="btn btn-primary btn-small" href="/centerSearch">센터검색</button>
+												<button id="searchCenter" type="submit" class="btn btn-primary btn-small" href="/centerSearch">센터검색</button>
 											</div>
 										</div>
 										<div class="form-row">
 											<label for="id" class="col-sm-1 col-form-label">ID</label>
 											<div class="col-sm-4">
-												<input placeholder="ID를 입력하세요" id="id" name="id" type="text"
-													class="form-control validate">
+												<input placeholder="ID를 입력하세요" id="id" name="id" type="text" class="form-control validate">
 											</div>
 											<div class="col-auto">
-												<button type="submit" class="btn btn-primary btn-small">ID
-													중복확인</button>
+												<button type="submit" class="btn btn-primary btn-small">ID중복확인</button>
 											</div>
 											<div class="col-auto">
-												<a
-													style="color: #F4511E; font-size: 12px; margin-top: 50px; margin-left: 20px;">입력하신
-													ID는 센터 블로그의 도메인이 됩니다. 센터를 대표하는 ID로 작성해 주세요.</a>
+												<a style="color: #F4511E; font-size: 12px; margin-top: 50px; margin-left: 20px;">
+												입력하신 ID는 센터 블로그의 도메인이 됩니다. 센터를 대표하는 ID로 작성해 주세요.</a>
 											</div>
 										</div>
 										<div class="form-row">
 											<label for="password" class="col-sm-1 col-form-label">비밀번호</label>
 											<div class="col-sm-4">
-												<input placeholder="******" id="password" name="password"
-													type="password" class="form-control validate">
+												<input placeholder="******" id="password" name="password" type="password" class="form-control validate">
 											</div>
-											<label for="password2" class="col-sm-1 col-form-label">비밀번호
-												확인</label>
+											<label for="password2" class="col-sm-1 col-form-label">비밀번호 확인</label>
 											<div class="col-sm-4">
-												<input placeholder="******" id="password2" name="password2"
-													type="password" class="form-control validate">
+												<input placeholder="******" id="password2" name="password2" type="password" class="form-control validate">
 											</div>
 										</div>
 										<div class="form-row">
-											<a
-												style="color: #F4511E; font-size: 12px; margin-bottom: 20px; margin-left: 20px;">
+											<a style="color: #F4511E; font-size: 12px; margin-bottom: 20px; margin-left: 20px;">
 												센터 검색시 자동으로 추가 됩니다. </a>
 										</div>
 										<div class="form-row">
-											<label for="center_addr" class="col-sm-1 col-form-label">센터
-												주소</label>
+											<label for="center_addr" class="col-sm-1 col-form-label">센터 주소</label>
 											<div class="col-sm-9">
-												<input placeholder="" id="center_addr" name="center_addr"
-													type="text" class="form-control validate"
-													disabled="disabled">
+												<input placeholder="" id="center_addr" name="center_addr" type="text" class="form-control validate" disabled="disabled">
 											</div>
 										</div>
 
 										<div class="form-row">
-											<label for="center_tel" class="col-sm-1 col-form-label">센터
-												연락처</label>
+											<label for="center_tel" class="col-sm-1 col-form-label">센터 연락처</label>
 											<div class="col-sm-4">
-												<input placeholder="" id="center_tel" name="center_tel"
-													type="tel" class="form-control validate"
-													disabled="disabled">
+												<input placeholder="" id="center_tel" name="center_tel" type="tel" class="form-control validate" disabled="disabled">
 											</div>
-											<label for="phone" class="col-sm-1 col-form-label">담당자
-												연락처</label>
+											<label for="phone" class="col-sm-1 col-form-label">담당자 연락처</label>
 											<div class="col-sm-4">
-												<input placeholder="010-030-0440" id="phone" name="phone"
-													type="tel" class="form-control validate"
-													disabled="disabled">
+												<input placeholder="010-030-0440" id="phone" name="phone" type="tel" class="form-control validate" disabled="disabled">
 											</div>
-
 										</div>
 										<div class="form-row">
-											<label for="email" class="col-sm-1 col-form-label">대표
-												이메일</label>
+											<label for="email" class="col-sm-1 col-form-label">대표 이메일</label>
 											<div class="col-sm-4">
-												<input placeholder="vulputate@eleifend.co" id="email"
-													name="email" type="email" class="form-control validate"
-													disabled="disabled">
+												<input placeholder="example@test.co.kr" id="email" name="email" type="email" class="form-control validate" disabled="disabled">
 											</div>
 										</div>
 										<div class="row">

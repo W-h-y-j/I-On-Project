@@ -1,17 +1,15 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
-<link rel="stylesheet"
-	href="https://uicdn.toast.com/editor/latest/toastui-editor.min.css" />
-<script
-	src="https://uicdn.toast.com/editor/latest/toastui-editor-all.min.js"></script>
-
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="X-UA-Compatible" content="ie=edge">
-<title></title>
-<jsp:include page="../include/base.jsp" />
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title></title>
+	<link rel="stylesheet" href="https://uicdn.toast.com/editor/latest/toastui-editor-viewer.min.css" />
+	<script src="https://uicdn.toast.com/editor/latest/toastui-editor-viewer.js"></script>
+	<jsp:include page="../include/base.jsp" />
 </head>
 <body id="reportsPage">
 	<div class="" id="bg02">
@@ -25,15 +23,29 @@
 							<div class="col-12">
 								<h2 class="tm-block-title d-inline-block">공지사항 조회</h2>
 							</div>
-						</div>
-						<div class="row mt-4 tm-edit-product-row">
-							<div id="viewer" class="col"></div>
-							<div
-								class="ml-auto col-xl-8 col-lg-8 col-md-8 col-sm-7 pl-0 text-right"
-								style="padding-top: 10px;">
-								<a href="/Notice" class="btn btn-small btn-primary">목록</a>
+							<div class="col text-right mb-3">
+								<sec:authorize access="hasRole('ADMIN')">
+									<a href="/Notice-Mod?system_notice_no=${myPage.system_notice_no}&page=${page}" class="btn btn-small btn-primary">수정</a>
+									<a href="/Notice-Del?system_notice_no=${myPage.system_notice_no}&page=${page}" class="btn btn-small btn-primary">삭제</a>
+								</sec:authorize>
 							</div>
 						</div>
+						<form name="noticeForm" method="post" class="tm-signup-form">
+							<div class="form-row">
+								<label for="title" class="col-form-label" style="margin-left: 50px; margin-right: 50px;">제목</label>
+								<div class="col">
+									<input id="title" name="title" value="${myPage.title}" class="form-control validate" readonly="readonly">
+								</div>
+							</div>
+							<div class="form-row"> <%--row mt-6 --%>
+								<div id="viewer" class="col" style="">${myPage.content}</div>
+							</div>
+							<div class="form-row mt-3">
+								<div class="col-12 text-right" >
+									<a href="/Notice" class="btn btn-small btn-primary">목록</a>
+								</div>
+							</div>
+						</form>
 					</div>
 				</div>
 			</div>
@@ -41,10 +53,13 @@
 		</div>
 	</div>
 	<script>
-		const viewer = new toastui.Editor({
-			el : document.querySelector('#viewer'),
-			initialValue : content
+	var viewer;
+	$(document).ready(function(){
+		viewer = new toastui.Editor({
+			el: document.querySelector('#viewer'),
+			initialEditType : "wysiwyg"
 		});
+	});
 	</script>
 </body>
 </html>
