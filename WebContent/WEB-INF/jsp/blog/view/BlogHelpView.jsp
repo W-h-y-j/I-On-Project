@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -37,16 +38,28 @@
                     <thead>
                         <tr style="background-color: rgb(233, 232, 232); border-top:2px solid black">
                             <th style="width: 30vw; font-size: 2rem; text-align: center;">
-                                정서발달 훈련을 위한 모금 모집
+                            	${hp.hp_title}
                             </th>
                             <td>
-                                작성자: CenterID
+                                작성자:${hp.hp_centername}
                             </td>
                             <td>
-                                작성일: 2021-12-24 17:30
+                                작성일: ${fn:substring(hp.hp_write_date,0,10)}
                             </td>
+                            
+                            <c:if test="${hp.hp_state == '진행중'}">
+                            	<td style="color:blue;">
+                            		${hp.hp_state}
+                            	</td>
+                            </c:if>
+                            <c:if test="${hp.hp_state == '완료' }">
+                            	<td style="color:red;">
+                            		${hp.hp_state}
+                            	</td>
+                            </c:if>
+                            
                             <td>
-                                조회수: 230
+                                조회수: ${hp.hp_hit}
                             </td>
                         </tr>
                     </thead>
@@ -55,7 +68,7 @@
                     <script type="text/javascript">
                         function HelpCheckOpen(){
     
-                        var popUrl = "/blog/HelpCM";	//팝업창에 출력될 페이지 URL
+                        var popUrl = "/blog/HelpCS?hp_no=${hp_no}";	//팝업창에 출력될 페이지 URL
     
                         var popOption = "width=510, height=610, resizable=no, scrollbars=no, status=no;";    //팝업창 옵션(optoin)
     
@@ -67,7 +80,7 @@
                     <script type="text/javascript">
                         function HelpRequestOpen(){
     
-                        var popUrl2 = "/blog/HelpRM";	//팝업창에 출력될 페이지 URL
+                        var popUrl2 = "/blog/HelpRS?hp_no=${hp.hp_no}";	//팝업창에 출력될 페이지 URL
     
                         var popOption2 = "width=510, height=610, resizable=no, scrollbars=no, status=no;";    //팝업창 옵션(optoin)
     
@@ -79,25 +92,39 @@
                         <tr style="border-bottom: 2px solid black;">
                             
                             <td colspan="4" style="padding-top:5vh; padding-left: 3vw; height: 30vh;">
-                                <p>*모금 안내*</p>
-                                <p>아이들 정서발달 훈련을 위한 모금을 합니다.</p>
-                                <p>블록, 놀이기구, 수채화 등등 구매예정</p>
-                                <p>많은 관심 부탁드립니다. </p>
-                                <!-- 태그에 따른 확인과 신청 눌렀을때 팝업 다르게 정보 제공 나중에 수정해야함 db연결하고 나서 .-->
+                            	
+                                <p style="min-height:42vh;">${hp_cont}</p>
+                                <table border="3">
+                                	<thead>
+                                		<tr>
+                                			<th colspan="2" style="border:2px solid black;"> 모집 기간 </th>  <th style="border:2px solid black;">모집 인원</th>
+                                		</tr>
+                                	</thead>
+                                	<tbody>
+                                		<tr>
+                                			<td colspan="2" > ${fn:substring(hp.hp_stdate,0,10)} ~ ${fn:substring(hp.hp_endate,0,10)}</td>
+                                			<td style="text-align:center; border:2px solid black;"> ${hp.hp_pe} </td>
+                                		</tr>
+                                	</tbody>
+                                </table>
+                                <br/>
                                 <a href="javascript:HelpCheckOpen()"><input class="btn btn-primary" type="button" value="신청확인" ></a>
+                                <a href="/blog/Help/Finish_OK?pr_id=${hp.hp_centerid}&page=${page}&hp_no=${hp.hp_no}"><input class="btn btn-primary" type="button" value="완료 전환" ></a>
                                 <a href="javascript:HelpRequestOpen()"><input class="btn btn-primary" type="button" value="신청" ></a>
-                            </td>
+                            	
+                           </td>
                         </tr>
                         
                     </tbody>
                 </table>
-                <input class="btn btn-primary" type="button" value="수정" >
-                <input class="btn btn-primary" type="button" value="목록으로" style="float: right;" onclick="location.href='/blog/Help'">
+                <input class="btn btn-primary" type="button" value="수정" onclick="location.href='/blog/Help/View?pr_id=${hp.hp_centerid}&page=${page}&hp_no=${hp.hp_no}&state=edit'" >
+                <input class="btn btn-primary" type="button" value="목록으로" style="float: right;" onclick="location.href='/blog/Help?pr_id=${hp.hp_centerid}$page=${page}'">
                 
                 
             </div>
         </div>
     </div>
+    <br/><br/><br/><br/>
     <jsp:include page="../include/blogFooter.jsp" />
 </body>
 </html>

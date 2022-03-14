@@ -7,6 +7,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 		<typeAlias alias="Profile" type="com.ion.vo.BlogProfileVO"/>
 		<typeAlias alias="Info" type="com.ion.vo.BlogInfoVO"/>
 		<typeAlias alias="Gallery" type="com.ion.vo.BlogGalleryVO"/>
+		<typeAlias alias="Help" type="com.ion.vo.BlogHelpVO" />
 	</typeAliases>
 	
 </configuration>

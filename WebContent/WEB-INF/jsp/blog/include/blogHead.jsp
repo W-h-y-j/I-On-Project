@@ -27,11 +27,9 @@
                         <a class="nav-link" href="/blog/Calendar?pr_id=<%=pr_id%>">운영일정</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/blog/Help?pr_id=<%=pr_id%>">필요해요!</a>
+                        <a class="nav-link" href="/blog/Help?pr_id=<%=pr_id%>">봉사모집</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/blog/Thk?pr_id=<%=pr_id%>">감사해요!</a>
-                    </li>
+                    
                     
                 </ul>
                 <div style="margin-left:15vw;">

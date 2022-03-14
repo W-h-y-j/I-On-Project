@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Help">
+	<insert id="hp_ins">
+		insert into BLOG_HELP (HP_NO,HP_TITLE, HP_CONT, HP_CENTERID, HP_STDATE, HP_ENDATE, HP_CENTERNAME, HP_PE)
+		values (BLOG_HELP_SEQ.NEXTVAL,#{hp_title}, #{hp_cont}, #{hp_centerid}, #{hp_stdate}, #{hp_endate}, #{hp_centername}, #{hp_pe})
+	</insert>
+	
+	<!-- 레코드 수 -->
+	<select id="hp_count" resultType="int">
+		select count(hp_no) from BLOG_HELP where HP_CENTERID=#{hp_centerid}
+	</select>
+	
+	<!--  게시글 목록 리스트 -->
+	<select id="hp_list" resultType="Help" parameterType="Help">
+		select * from(select ROWNUM RN, A.* FROM (select * from BLOG_HELP where hp_centerid=#{hp_centerid})A)where RN BETWEEN #{startrow} AND #{endrow} order by HP_NO desc 
+	</select>
+	
+	<!-- 조회수 증가 시키기 -->
+	<update id="hp_hit_up">
+		update BLOG_HELP set HP_HIT = HP_HIT + 1 where hp_no=#{hp_no}
+	</update>
+	
+	<!--  상세보기 내용 가져오기 -->
+	<select id="hp_view" resultType="Help" >
+		SELECT * FROM BLOG_HELP where HP_NO=#{hp_no} 
+	</select>
+	
+	<!-- 게시글 수정 -->
+	<update id="hp_up1">
+		update BLOG_HELP set HP_TITLE=#{hp_title}, HP_PE=#{hp_pe}, HP_STDATE=#{hp_stdate}, HP_ENDATE=#{hp_endate}, HP_CONT=#{hp_cont} where HP_NO=#{hp_no}
+	</update>
+	
+	<!--  봉사 일정 가져오기  -->
+	<select id="hp_cal" resultType="Help" parameterType="Help">
+		select * from BLOG_HELP where HP_NO=#{hp_no}
+	</select>
+	
+	<!--  신청 명단 넣기 -->
+	<insert id="rs_in">
+		 insert into BLOG_HELP_RS (HP_NO, HP_USER_ID, HP_USER_TIME, HP_USER_TELL)
+		 values (#{hp_no}, #{hp_user_id}, #{hp_user_time}, #{hp_user_tell})
+	</insert>
+	
+	<!--  신청 명단 가져오기  -->
+	<select id="ge_rslist" resultType="Help" parameterType="Help">
+		select * from BLOG_HELP_RS where HP_NO=#{hp_no}
+	</select>
+	
+	<!--  신청 반영하기  -->
+	<update id="rs_up">
+		update BLOG_HELP_RS set HP_USER_REAL_TIME=#{hp_user_real_time}, HP_REFLECT=#{hp_reflect} where HP_NO=#{hp_no}
+	</update>
+	
+	<!--  모집 완료 전환  -->
+	<update id="hp_up4">
+		update BLOG_HELP set HP_STATE=#{hp_state} where HP_NO=#{hp_no}
+	</update>
+</mapper>

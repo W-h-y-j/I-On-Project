@@ -74,7 +74,7 @@
                             <tr>
                                 <td colspan="2" >
                                     <input class="form-control" type="file" name="file" id="formFileMultiple"  multiple>
-                                    <input type="hidden" name="fileQuantity" value="${fileQuantity}">
+                                    
                                     <input type="hidden" name="ag_no" value="${ag_no}">
                                     <input type="hidden" name="page" value="${page}">
                                     <input type="hidden" name="state" value="edit">

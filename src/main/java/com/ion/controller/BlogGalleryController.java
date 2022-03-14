@@ -52,14 +52,11 @@ public class BlogGalleryController {
 		
 		List<BlogGalleryVO> aglist = this.blogGalleryService.getAgList(ag);
 		
-		for(int i=0; i<aglist.size(); i++) {
-			for(int k=i+1; k<aglist.size(); k++) {
-				if(aglist.get(i).getAg_no() == (aglist.get(k).getAg_no())) {
-					aglist.remove(k);
-				}
-			}
-		}//한 게시글에 파일이 2개부터는 2번 불려와져서 그거 다시 거르는작업. 
-
+		/*
+		 * for(int i=0; i<aglist.size(); i++) { for(int k=i+1; k<aglist.size(); k++) {
+		 * if(aglist.get(i).getAg_no() == (aglist.get(k).getAg_no())) {
+		 * aglist.remove(k); } } }//쿼리에서 처리
+		 */
 		
 		int maxpage = (int)((double)totalCount/limit+0.95); //총 페이지 
 		int startpage = (((int)((double)page/6+0.9))-1)*6+1;

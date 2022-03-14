@@ -1,4 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 <!DOCTYPE html>
 <html lang>
@@ -15,13 +17,14 @@
             height:600px;
         }
     </style>
+    
 </head>
 <body>
     <div class="HelpRequestArea">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-4">
-                    <form>
+                    <form action="/HelpRS_OK" method="post">
                         <table class="table">
                             <thead>
                                 <th colspan="2">자원봉사 신청하기</th>
@@ -32,15 +35,25 @@
                                     
                                         <input class="form-control" type="text" value="UserID" aria-label="Disabled input example" disabled readonly>
                                     </td>
-                                    <td style="width: 80vw;">
-                                        <label for="inputPassword2" class="visually-hidden">Password</label>
-                                        <input type="password" class="form-control" id="inputPassword2" placeholder="Password">
-                                    </td>
+                                    <td>
+                                    	<input class="form-control" type="text" placeholder="아이디를 입력해주세요." name="user_id" aria-label="default input example" >
+                            		</td>
                                 </tr>
+                                <tr>
+                                	<td style="width:23vw">
+                                    
+                                        <input class="form-control" type="text" value="Pssword" aria-label="Disabled input example" disabled readonly>
+                                    </td>
+                                	<td>
+                                    	<label for="inputPassword2" class="visually-hidden">Password</label>
+                                    	<input type="password" class="form-control" id="inputPassword2" name="centerpwd" placeholder="Password" >
+                                	</td>
+                            	</tr>
                                 <tr>
                                     <tr>
                                         <td colspan="2">
-                                            <input class="form-control" type="text" value="봉사일정 : 2021-12-25" aria-label="Disabled input example" disabled readonly>
+                                            <input class="form-control" type="text" value="봉사일정 : ${fn:substring(hp_stdate,0,10)} ~ ${fn:substring(hp_endate,0,10)}" name="cal" aria-label="Disabled input example" disabled readonly>
+                                        	<input type="hidden" name="hp_no" value="${hp_no}">
                                         </td>
                                     </tr>
                                 </tr>
@@ -50,16 +63,17 @@
                                         <input class="form-control" type="text" value="연락처" aria-label="Disabled input example" disabled readonly>
                                     </td>
                                     <td style="width: 80vw;">
-                                        <input class="form-control" type="text" placeholder="연락처 입력" aria-label="default input example">
+                                        <input class="form-control" type="text" placeholder="연락처 입력"  name="user_tell"aria-label="default input example">
+                                        
                                     </td>
                                 </tr>
                                 <tr>
                                     <td style="width:23vw">
                                     
-                                        <input class="form-control" type="text" value="희망시간대" aria-label="Disabled input example" disabled readonly>
+                                        <input class="form-control" type="text" value="희망시간" aria-label="Disabled input example" disabled readonly>
                                     </td>
                                     <td style="width: 80vw;">
-                                        <input class="form-control" type="text" placeholder="시간 입력" aria-label="default input example">
+                                        <input class="form-control" type="text" placeholder="시간 입력(시간단위로 입력해주세요.)" name="user_time" aria-label="default input example">
                                     </td>
                                 </tr>
                                 <tr>

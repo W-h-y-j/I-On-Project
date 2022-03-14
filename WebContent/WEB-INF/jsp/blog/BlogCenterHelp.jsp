@@ -1,4 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 <!DOCTYPE html>
 <html>
@@ -33,9 +35,8 @@
             <form class="d-flex">
                 <select class="form-select form-select-sm" aria-label=".form-select-sm example" style="width: 5vw;">
                     <option  selected>구분</option>
-                    <option value="1">후원</option>
-                    <option value="2">자원봉사</option>
-                    <option value="3">물품</option>
+                    <option value="1">제목</option>
+                    <option value="2">작성일</option>
                 </select>
                 <input class="form-control me-2" type="search" placeholder="검색어 입력" aria-label="Search" style="width:15vw; margin-left:1vw;">
                 <button class="btn btn-outline-primary" type="submit">Search</button>
@@ -48,7 +49,6 @@
                     <thead>
                         <tr>
                             <th>No</th>
-                            <th>구분</th>
                             <th>제목</th>
                             <th>작성자</th>
                             <th>완료상태</th>
@@ -57,96 +57,65 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>8</td>
-                            <td>후원</td>
-                            <td><a href="/blog/Help/View" style="text-decoration: none; color:black">크리스마스 행사 모금</a></td>
-                            <td>시설관리자</td>
-                            <td>진행중</td>
-                            <td>2021-12-24</td>
-                            <td>23</td>
-                        </tr>
-                        <tr>
-                            <td>7</td>
-                            <td>자원봉사</td>
-                            <td><a href="/blog/Help/View" style="text-decoration: none; color:black">크리스마스 행사 자원봉사 인원모집</a></td>
-                            <td>시설관리자</td>
-                            <td>완료</td>
-                            <td>2021-12-24</td>
-                            <td>150</td>
-                        </tr>
-                        <tr>
-                            <td>6</td>
-                            <td>물품</td>
-                            <td><a href="/blog/Help/View" style="text-decoration: none; color:black">세탁기/건조기 노후로 인한 교체지원</a></td>
-                            <td>시설관리자</td>
-                            <td>완료</td>
-                            <td>2021-09-07</td>
-                            <td>45</td>
-                        </tr>
-                        <tr>
-                            <td>5</td>
-                            <td>물품</td>
-                            <td><a href="/blog/Help/View" style="text-decoration: none; color:black">냉장고가 부족해요!</a></td>
-                            <td>시설관리자</td>
-                            <td>완료</td>
-                            <td>2021-08-20</td>
-                            <td>63</td>
-                        </tr>
-                        <tr>
-                            <td>4</td>
-                            <td>후원</td>
-                            <td><a href="/blog/Help/View" style="text-decoration: none; color:black">시설노후로 인한 교체 자금 모금</a></td>
-                            <td>시설관리자</td>
-                            <td>완료</td>
-                            <td>2021-06-25</td>
-                            <td>77</td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>자원봉사</td>
-                            <td><a href="/blog/Help/View" style="text-decoration: none; color:black">아이들과 함께하는 정서발달</a></td>
-                            <td>시설관리자</td>
-                            <td>완료</td>
-                            <td>2021-06-17</td>
-                            <td>95</td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>자원봉사</td>
-                            <td><a href="/blog/Help/View" style="text-decoration: none; color:black">정규 봉사활동 인원 모집</a></td>
-                            <td>시설관리자</td>
-                            <td>완료</td>
-                            <td>2021-05-07</td>
-                            <td>3</td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>후원</td>
-                            <td><a href="/blog/Help/View" style="text-decoration: none; color:black">새해 자금 운용을 위한 모금</a></td>
-                            <td>시설관리자</td>
-                            <td>완료</td>
-                            <td>2021-01-07</td>
-                            <td>52</td>
-                        </tr>
+                    	<c:if test="${!empty hplist}">
+                    		<c:forEach items="${hplist}" var="a" varStatus="status">
+                    			<tr>
+                    				<td>${status.count}</td>
+                    				<td style="width:60vw;"><a href="/blog/Help/View?pr_id=${a.hp_centerid}&page=${page}&hp_no=${a.hp_no}&state=view" style="text-decoration:none; color:black">${a.hp_title}</a></td>
+                    				<td>${a.hp_centername}</td>
+                    				<td>${a.hp_state}</td>
+                    				<td>${fn:substring(a.hp_write_date,0,10)}</td>
+                    				<td>${a.hp_hit}</td>
+                    			</tr>
+                    		</c:forEach>
+                    	</c:if>
+                    	<c:if test="${empty hplist}">
+                    		<tr>
+                    			<th colspan="6"> 목록이 없습니다.</th>
+                    		</tr>
+                    	</c:if>
                     </tbody>
                 </table>
                 
                 <nav aria-label="Page navigation example" id="CenterHelpPage">
                     <ul class="pagination">
-                        <li class="page-item">
-                            <a class="page-link" href="#" aria-label="Previous">
-                                <span aria-hidden="true">&laquo;</span>
-                            </a>
-                        </li>
-                        <li class="page-item"><a class="page-link" href="#">1</a></li>
-                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                        <li class="page-item">
-                            <a class="page-link" href="#" aria-label="Next">
-                                <span aria-hidden="true">&raquo;</span>
-                            </a>
-                        </li>
+                        <c:choose>
+                			<c:when test="${page < 1}">
+                    			<a class="page-link"  aria-label="Previous">
+                        			<span aria-hidden="true">&laquo;</span>
+                        		</a>
+                    		</c:when>
+                    		<c:when test="${page > 1}">
+                    			<a class="page-link"  href=""aria-label="Previous">
+                        			<span aria-hidden="true">&laquo;</span>
+                        		</a>
+                    		</c:when>
+                		</c:choose>
+                            	
+                        	
+                		<c:forEach var="a" begin="${startpage}" end="${endpage}" step="1">
+                			<c:if test="${a == page}">
+                    			<li class="page-item"><a class="page-link" href="#">[${a}]</a></li>
+                    		</c:if> <%-- 현재쪽 선택 --%>
+                    			
+                    		<c:if test="${a != page}"> <%-- 현재쪽 비선택 --%>
+                    			<li class="page-item"><a class="page-link" href="">[${a}]</a></li>
+                    		</c:if>
+                		</c:forEach>
+                		<c:if test="${page >= maxpage}">
+                			<li class="page-item">
+                    			<a class="page-link"  aria-label="Next">
+                        			<span aria-hidden="true">&raquo;</span>
+                        		</a>
+                    		</li>
+                		</c:if>
+                		<c:if test="${page < maxpage}" >		
+                			<li class="page-item">
+                    			<a class="page-link" href="" aria-label="Next">
+                        			<span aria-hidden="true">&raquo;</span>
+                        		</a>
+                    		</li>
+                		</c:if>
                         <li>
                             <button type="button" class="btn btn-primary" id="CenterHelpBtn" onclick="location.href='/blog/Help/Create'">글작성</button>
                         </li>
