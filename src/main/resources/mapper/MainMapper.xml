@@ -11,6 +11,14 @@
 	<select id="view_system_notice" resultType="com.ion.vo.MainVO">
 		SELECT * FROM SYSTEM_NOTICE ORDER BY INSERT_DT DESC
 	</select>
+	<!--  센터 공지사항 -->
+	<select id="view_blog_notice" resultType="com.ion.vo.MainVO">
+		SELECT * FROM BLOG_NOTICE ORDER BY NOTICE_NO DESC
+	</select>	
+	<!--  센터 필요해요 목록 -->
+	<select id="view_blog_help" resultType="com.ion.vo.MainVO">
+		SELECT * FROM BLOG_HELP ORDER BY HP_NO DESC
+	</select>	
 	
 	<select id="getCenterList" resultType="com.ion.vo.MainVO" parameterType="com.ion.vo.MainVO">
 	  select * from 

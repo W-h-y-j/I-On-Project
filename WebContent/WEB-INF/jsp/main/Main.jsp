@@ -127,16 +127,11 @@
 								<a href="/Center_Notice" class="tm-link-black">전체 보기</a>
 							</div>
 						</div>
-						<ol
-							class="tm-list-group tm-list-group-alternate-color tm-list-group-pad-big">
-							<li class="tm-list-group-item">「용산비젼공부방」 12월 급식표 안내</li>
-							<li class="tm-list-group-item">「성수비젼공부방」 12월 급식표 안내</li>
-							<li class="tm-list-group-item">「신대방삼거리복지센터」 보육 교사 긴급 충원 0인</li>
-							<li class="tm-list-group-item">「관악아동복지센터」 12월 운영일정 및 행사 안내</li>
-							<li class="tm-list-group-item">「강서아동복지센터」 12월 공부방 운영시간 공지</li>
-							<li class="tm-list-group-item">「안암칠드런센터」 12월 참여 공지사항 안내</li>
-							<li class="tm-list-group-item">「원효로3가청소년공부방」 12월 급식표 알림</li>
-						</ol>
+						<ol class="tm-list-group tm-list-group-alternate-color tm-list-group-pad-big">
+						<c:forEach items="${systemBlog}" var="systemBlog" end="6">
+										<li class="tm-list-group-item">${systemBlog.notice_title}</li>
+									</c:forEach>
+									</ol>
 					</div>
 				</div>
 				<div class="tm-col tm-col-big">
@@ -150,51 +145,19 @@
 							</div>
 						</div>
 
-						<ol
-							class="tm-list-group tm-list-group-alternate-color tm-list-group-pad-big">
-							<li class="tm-list-group-item">「용산비젼공부방」 12월 운영비 사용 부족으로 인한
-								긴급 지원 요청</li>
-							<li class="tm-list-group-item">「성수비젼공부방」 12월 후원비 요청 드립니다.</li>
-							<li class="tm-list-group-item">「신대방삼거리복지센터」 14시 부터 19시까지
-								봉사자를 구합니다.</li>
-							<li class="tm-list-group-item">「관악아동복지센터」 세탁기가 고장나 수리가 불가하여
-								새로운 제품을</li>
-							<li class="tm-list-group-item">「강서아동복지센터 11월 후원금이 부족해 간식지급에
-								어려움이</li>
-							<li class="tm-list-group-item">「안암칠드런센터」 12월 참여 활동지원 요청
-								드립니다.</li>
-							<li class="tm-list-group-item">「원효로3가청소년공부방」 책상이 너무 낡아서 다
-								부서지려고 합니다.</li>
-						</ol>
+						<ol class="tm-list-group tm-list-group-alternate-color tm-list-group-pad-big">
+						<c:forEach items="${Blog_help}" var="Blog_help" end="6">
+										<li class="tm-list-group-item">${Blog_help.hp_title}</li>
+									</c:forEach>
+									</ol>
 					</div>
 				</div>
-				<div class="tm-col tm-col-small">
-					<div class="bg-white tm-block h-100">
-						<div class="row">
-							<div class="col-8">
-								<h2 class="tm-block-title d-inline-block">센터 사용 내역</h2>
-							</div>
-							<div class="col-4 text-right">
-								<a href="/Center_Thk" class="tm-link-black">전체 보기</a>
-							</div>
-						</div>
-
-						<ol
-							class="tm-list-group tm-list-group-alternate-color tm-list-group-pad-big">
-							<li class="tm-list-group-item">「원효로3가청소년공부방」 지원 감사합니다.</li>
-							<li class="tm-list-group-item">「안암칠드런센터」 12월 참여 활동사진 입니다.</li>
-							<li class="tm-list-group-item">「관악아동복지센터」 세탁기 감사합니다 ~~</li>
-							<li class="tm-list-group-item">「강서아동복지센터」공부방 인테리어 완료</li>
-							<li class="tm-list-group-item">「신대방삼거리복지센터」 자원봉사자들과 봉사 활동 완료</li>
-							<li class="tm-list-group-item">「원효로3가청소년공부방」책상을 변경하였습니다.</li>
-							<li class="tm-list-group-item">「성수비젼공부방」 마스크 구비 완료</li>
-						</ol>
+				
 					</div>
 				</div>
 			</div>
 			<jsp:include page="../include/footer.jsp" />
-		</div>
-	</div>
+		
 	<jsp:include page="../include/chartThings.jsp" />
 </body>
 </html>
