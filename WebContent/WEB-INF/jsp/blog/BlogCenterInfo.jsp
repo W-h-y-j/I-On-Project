@@ -45,10 +45,16 @@
             </div>
             <br/><br/>
             <div class="row">
-                <div class="col-md-8 offset-md-2" id="CenterInfoTextLine">
-                    시설소개 안내문입니다.
-                    ${iv.iv_cont}
-                </div>    
+            	<c:if test="${iv.iv_cont != null }">
+            		<div class="col-md-8 offset-md-2" id="CenterInfoTextLine">
+                    	${iv.iv_cont}
+                	</div>
+            	</c:if>
+                <c:if test="${iv.iv_cont == null }">
+                	<div class="col-md-8 offset-md-2" id="CenterInfoTextLine">
+                    	시설안내문을 입력해주세요.
+                	</div>
+                </c:if>
             </div>
         </div>
         <br/>

@@ -28,6 +28,8 @@ public interface BlogHelpDAO {
 
 	void finish(BlogHelpVO hp);
 
+	List<BlogHelpVO> main(BlogHelpVO hp);
+
 	
 	
 

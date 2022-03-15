@@ -58,6 +58,10 @@ public class BlogHelpController {
 		hp.setStartrow((page-1)*limit+1);//시작행
 		hp.setEndrow(hp.getStartrow()+limit-1);//끝행
 		
+		
+		
+		
+		
 		int totalCount = this.blogHelpService.getTotalCount(hp);//총 레코드 수 
 		System.out.println(totalCount);
 		
@@ -75,6 +79,7 @@ public class BlogHelpController {
 		list.addAttribute("endpage", endpage);
 		list.addAttribute("maxpage", maxpage);
 		list.addAttribute("totalCount", totalCount);
+		
 		return "/blog/BlogCenterHelp";
 	}
 	

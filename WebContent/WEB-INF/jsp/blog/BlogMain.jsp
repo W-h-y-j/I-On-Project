@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html>
 
@@ -56,10 +57,16 @@
                           		   센터번호
                       	  	</c:otherwise>
                       	  </c:choose>-->
-                          <b><!--행복한지역아동센터-->${bp.pr_centername}</b><br/>
-                          	<!--서울특별시 은평구 연서로 39 2층 역촌동-->${bp.pr_address} <br/>
+                      	  <c:if test="${bp.pr_centername != null }">
+                      	  	<b>${bp.pr_centername}</b><br/>
+                          	${bp.pr_address} <br/>
                           <b>연락처</b><br/>
-                          <!--02-386-3246-->${bp.pr_tell}
+                          	${bp.pr_tell}
+                      	  </c:if>
+                      	  <c:if test="${bp.pr_centername == null }">
+                      	   <b>프로필을 등록해주세요.</b>
+                      	  </c:if>
+                          
                           <a href="javascript:popupOpen();"><button class="btn btn-primary" type="submit">수정</button></a>
                       </p>
                     </div>
@@ -68,11 +75,24 @@
             
             <div class="col-md-8" id="gall">
                 <table class = "border-main">
-                    <th class = "border-main-title" colspan="3"> <a href="/blog/Gallery">&#9776; 최근 활동</a></th>
+                    <th class = "border-main-title" colspan="3"> <a href="/blog/Gallery?pr_id=${bp.pr_id}">&#9776; 최근 활동</a></th>
+                    <c:if test="${empty mainAGlist}">
                     <tr>
-                        <td class = "border-main-img"><a href="/blog/Gallery/View"><img src="../../../Resources/img/blog/bb8.jpeg" class="img-thumbnail" alt="..."></a></td>
-                        <td class = "border-main-img"><a href="/blog/Gallery/View"><img src="../../../Resources/img/blog/bb8.jpeg" class="img-thumbnail" alt="..."></a></td>
-                        <td class = "border-main-img"><a href="/blog/Gallery/View"><img src="../../../Resources/img/blog/bb8.jpeg" class="img-thumbnail" alt="..."></a></td>
+                        <td class = "border-main-img"><img src="../../../Resources/img/blog/b2.JPG" class="img-thumbnail" alt="..."></a></td>
+                        <td class = "border-main-img"><img src="../../../Resources/img/blog/b2.JPG" class="img-thumbnail" alt="..."></a></td>
+                        <td class = "border-main-img"><img src="../../../Resources/img/blog/b2.JPG" class="img-thumbnail" alt="..."></a></td>
+                    </tr>
+                   	</c:if>
+                   	<tr>
+                   	<c:if test="${!empty mainAGlist}">
+                   		<c:forEach items="${mainAGlist}" var="b">
+                   		<td class = "border-main-img">				
+                            <a href="/blog/Gallery/View?pr_id=${b.ag_centerid}&ag_no=${b.ag_no}&state=view&page=1" style="text-decoration: none; color:black">
+                            	<img src="../../../Resources/upload${b.ag_img}"  style="width:20vw; height:30vh;">
+                        	</a>
+                        </td>
+                        </c:forEach>
+                   	</c:if>
                     </tr>
                 </table>   
             </div>
@@ -82,11 +102,11 @@
     <!-- 2단-->
     <div class="container-fluid">
         <div class="row" id="blog-main-two">
-            <div class="col-md-3">
+            <div class="col-md-5">
                 <table class="table table-hover">
                     <thead>
                         <tr>
-                            <th scope="col" id="main-tie"><a href="/blog/Notice">&#9776; 공지사항</a></th>
+                            <th scope="col" id="main-tie"><a href="/blog/Notice?pr_id=${bp.pr_id}">&#9776; 공지사항</a></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -105,49 +125,27 @@
                     </tbody>
                 </table>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-5">
                 <table class="table table-hover">
                     <thead>
                         <tr>
-                            <th scope="col" id="main-tie"><a href="/blog/Help">&#9776; 필요해요!</a></th>
+                            <th scope="col" id="main-tie" colspan="2"><a href="/blog/Help?pr_id=${bp.pr_id}">&#9776; 봉사모집</a></th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td scope="row"><a href="/blog/Help/View">[후원]신년 아이들을 위한 모금</a></td>
-                        </tr>
-                        <tr>
-                            <td scope="row"><a href="/blog/Help/View">[자원봉사]신년맞이 행사 인원 모집</a></td>
-                        </tr>
-                        <tr>
-                            <td scope="row"><a href="/blog/Help/View">[물품]세탁기, 가전제품 교체 필요</a></td>
-                        </tr>
-                        <tr>
-                            <td scope="row"><a href="/blog/Help/View">[후원]12월 행사를 위한 모금</a></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <div class="col-md-3">
-                <table class="table table-hover">
-                    <thead>
-                        <tr>
-                            <th scope="col" id="main-tie"><a href="/blog/Thk">&#9776; 감사해요!</a></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td scope="row"><a href="/blog/Thk/View">[후원]신년 아이들을 위한 모금 감사</a></td>
-                        </tr>
-                        <tr>
-                            <td scope="row"><a href="/blog/Thk/View">[자원봉사]신년맞이 행사 인원 모집 감사</a></td>
-                        </tr>
-                        <tr>
-                            <td scope="row"><a href="/blog/Thk/View">[물품]세탁기, 가전제품 교체 필요 감사</a></td>
-                        </tr>
-                        <tr>
-                            <td scope="row"><a href="/blog/Thk/View">[후원]12월 행사를 위한 모금 감사</a></td>
-                        </tr>
+                    <c:if test="${empty mainHPlist}">
+                    	<tr>
+                    		<td><b>작성된 글이 없습니다.</b><td>
+                    	</tr>
+                    </c:if>
+                    <c:if test="${!empty mainHPlist}">
+                    	<c:forEach items="${mainHPlist}" var="f">
+                    	<tr>
+                    		<td scope="row"><a href="/blog/Help/View?pr_id=${f.hp_centerid}&page=1&hp_no=${f.hp_no}&state=view" style="text-decoration:none; color:black">${f.hp_title}</a></td>
+                    		<td>${fn:substring(f.hp_stdate,0,10)} ~ ${fn:substring(f.hp_endate,0,10)}</td>
+                    	</tr>
+                    	</c:forEach>
+                    </c:if>
                     </tbody>
                 </table>
             </div>

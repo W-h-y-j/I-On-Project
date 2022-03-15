@@ -12,6 +12,8 @@ public interface BlogProfileDAO {
 
 	String delfile(String pr_id);
 
-	BlogProfileVO sample(String sampleid);
+	BlogProfileVO getidinfo(String pr_id);
+
+	
 
 }

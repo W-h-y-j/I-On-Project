@@ -31,6 +31,14 @@ public interface BlogGalleryService {
 
 	void replydelete(int rno);
 
+	List<BlogGalleryVO> getMain(BlogGalleryVO ag, String pr_id);
+
+	
+
+	
+
+	
+
 	
 
 	

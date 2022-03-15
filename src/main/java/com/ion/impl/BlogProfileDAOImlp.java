@@ -36,7 +36,9 @@ public class BlogProfileDAOImlp implements BlogProfileDAO{
 	}
 
 	@Override
-	public BlogProfileVO sample(String sampleid) {
-		return this.sqlSession.selectOne("sam",sampleid);
+	public BlogProfileVO getidinfo(String pr_id) {
+		return this.sqlSession.selectOne("blog_pro", pr_id);
 	}
+
+	
 }

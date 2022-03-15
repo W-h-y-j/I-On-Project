@@ -109,6 +109,20 @@ public class BlogGalleryServiceImpl implements BlogGalleryService{
 		blogGalleryDao.deletereply(rno);
 		
 	}
+	@Override
+	public List<BlogGalleryVO> getMain(BlogGalleryVO ag, String pr_id) {
+		int page=1;
+		int limit=3;
+		
+		ag.setStartrow((page-1)*3+1);
+		ag.setEndrow(ag.getStartrow()+limit-1);
+		ag.setAg_centerid(pr_id);
+		return blogGalleryDao.getMain(ag);
+	}
+	
+	
+	
+	
 	
 
 	

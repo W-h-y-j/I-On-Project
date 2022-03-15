@@ -25,20 +25,21 @@
             <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="/blog" style="text-decoration: none;">홈</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">필요해요!</li>
+                    <li class="breadcrumb-item active" aria-current="page">자원봉사</li>
                 </ol>
             </nav>
             <br/>
         </div>
         <br/>
-        <div class="col-md-5 offset-md-7">
+        
+       <div class="col-md-5 offset-md-7">
             <form class="d-flex">
-                <select class="form-select form-select-sm" aria-label=".form-select-sm example" style="width: 5vw;">
+                <select class="form-select form-select-sm" aria-label=".form-select-sm example" name="find_field" style="width: 5vw;">
                     <option  selected>구분</option>
-                    <option value="1">제목</option>
-                    <option value="2">작성일</option>
+                    <option value="hp_title"<c:if test="${find_field == 'hp_title'}">${'selected'}</c:if>>제목</option>
+                    <option value="hp_cont"<c:if test="${find_field == 'hp_cont'}">${'selected'}</c:if>>내용</option>
                 </select>
-                <input class="form-control me-2" type="search" placeholder="검색어 입력" aria-label="Search" style="width:15vw; margin-left:1vw;">
+                <input class="form-control me-2" type="search" placeholder="검색어 입력" name="find_name" aria-label="Search" style="width:15vw; margin-left:1vw;">
                 <button class="btn btn-outline-primary" type="submit">Search</button>
             </form>
         </div>
@@ -76,7 +77,6 @@
                     	</c:if>
                     </tbody>
                 </table>
-                
                 <nav aria-label="Page navigation example" id="CenterHelpPage">
                     <ul class="pagination">
                         <c:choose>
@@ -124,7 +124,6 @@
             </div>
         </div>
     </div>
-    
     <jsp:include page="include/blogFooter.jsp" />
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>

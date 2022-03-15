@@ -28,6 +28,8 @@ public interface BlogHelpService {
 
 	void finish(BlogHelpVO hp);
 
+	List<BlogHelpVO> getMain2(BlogHelpVO hp, String pr_id);
+
 	
 
 	

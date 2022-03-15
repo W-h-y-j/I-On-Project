@@ -118,7 +118,7 @@
                     </tbody>
                 </table>
                 <input class="btn btn-primary" type="button" value="수정" onclick="location.href='/blog/Help/View?pr_id=${hp.hp_centerid}&page=${page}&hp_no=${hp.hp_no}&state=edit'" >
-                <input class="btn btn-primary" type="button" value="목록으로" style="float: right;" onclick="location.href='/blog/Help?pr_id=${hp.hp_centerid}$page=${page}'">
+                <input class="btn btn-primary" type="button" value="목록으로" style="float: right;" onclick="location.href='/blog/Help?pr_id=${hp.hp_centerid}&page=${page}'">
                 
                 
             </div>

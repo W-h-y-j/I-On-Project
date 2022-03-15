@@ -69,6 +69,11 @@ public class BlogHelpDAOImpl implements BlogHelpDAO{
 		sqlSession.update("hp_up4",hp);
 	}
 
+	@Override
+	public List<BlogHelpVO> main(BlogHelpVO hp) {
+		return sqlSession.selectList("main_hp", hp);
+	}
+
 	
 	
 

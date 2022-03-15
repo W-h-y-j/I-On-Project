@@ -12,6 +12,8 @@ public interface BlogProfileService {
 
 	String delfile(String pr_id);
 
-	BlogProfileVO getBbsSample(String sampleid);
+	BlogProfileVO getBbsCont2(String pr_id);
+
+	
 
 }

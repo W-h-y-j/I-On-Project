@@ -34,7 +34,9 @@ public class BlogProfileServiceImpl implements BlogProfileService{
 	}
 
 	@Override
-	public BlogProfileVO getBbsSample(String sampleid) {
-		return this.blogProfileDao.sample(sampleid);
+	public BlogProfileVO getBbsCont2(String pr_id) {
+		return this.blogProfileDao.getidinfo(pr_id);
 	}
+
+
 }

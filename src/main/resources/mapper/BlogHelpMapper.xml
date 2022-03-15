@@ -14,7 +14,10 @@
 	
 	<!--  게시글 목록 리스트 -->
 	<select id="hp_list" resultType="Help" parameterType="Help">
-		select * from(select ROWNUM RN, A.* FROM (select * from BLOG_HELP where hp_centerid=#{hp_centerid})A)where RN BETWEEN #{startrow} AND #{endrow} order by HP_NO desc 
+		select * from
+		(select ROWNUM RN, A.* FROM 
+		(select * from BLOG_HELP where hp_centerid=#{hp_centerid})A
+		)where RN BETWEEN #{startrow} AND #{endrow} order by HP_NO desc 
 	</select>
 	
 	<!-- 조회수 증가 시키기 -->
@@ -57,4 +60,12 @@
 	<update id="hp_up4">
 		update BLOG_HELP set HP_STATE=#{hp_state} where HP_NO=#{hp_no}
 	</update>
+	
+	<!--  메인 게시글 목록 리스트 -->
+	<select id="main_hp" resultType="Help" parameterType="Help">
+		select * from
+		(select ROWNUM RN, A.* FROM 
+		(select * from BLOG_HELP where hp_centerid=#{hp_centerid})A
+		)where RN BETWEEN #{startrow} AND #{endrow} order by HP_NO desc 
+	</select>
 </mapper>
