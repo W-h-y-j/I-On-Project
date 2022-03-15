@@ -22,21 +22,38 @@
         </div>
         <div class="row" >
             <div class="col-md-10 offset-md-2">
-                <form>
+                <form action="/blog/Gallery/write_OK"  method="post" accept-charset="UTF-8" enctype="multipart/form-data">
                     <table class="table" style="width: 60vw;">
                         <thead>
                             <th>활동사진 게시글 작성</th> 
                         </thead>
                         <tbody>
-
+							<tr>
+                        		<td>
+                                    <label for="staticEmail2" class="visually-hidden">Email</label>
+                                    <input type="text" readonly class="form-control-plaintext" id="staticEmail2" value="센터 아이디" style="width: 10vw;">
+                            	</td>
+                            	<td>
+                                    <input class="form-control" type="text" placeholder="센터 아이디를 입력해주세요." name="ag_centerid" aria-label="default input example">
+                            	</td>
+                            </tr>
                             <tr>
                                 <td>
                                     <label for="staticEmail2" class="visually-hidden">Email</label>
-                                    <input type="text" readonly class="form-control-plaintext" id="staticEmail2" value="CenterID" style="width: 10vw;">
+                                    <input type="text" readonly class="form-control-plaintext" id="staticEmail2" value="비밀번호" style="width: 10vw;">
                                 </td>
                                 <td>
                                     <label for="inputPassword2" class="visually-hidden">Password</label>
-                                    <input type="password" class="form-control" id="inputPassword2" placeholder="Password" style="width: 43vw;">
+                                    <input type="password" class="form-control" id="inputPassword2" name="centerpwd" placeholder="Password" style="width: 43vw;">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label for="staticEmail2" class="visually-hidden">Email</label>
+                                    <input type="text" readonly class="form-control-plaintext" id="staticEmail2" value="센터 이름" style="width: 10vw;">
+                                </td>
+                                <td>
+                                    <input class="form-control" type="text" placeholder="센터 이름을 입력해주세요." name="ag_centername" aria-label="default input example">
                                 </td>
                             </tr>
                             <tr>
@@ -44,19 +61,19 @@
                                     <label style="width: 20vw;">제목</label>
                                 </td>
                                 <td>
-                                    <input class="form-control" type="text" placeholder="제목을 입력하세요." aria-label="default input example">
+                                    <input class="form-control" type="text" placeholder="제목을 입력하세요." name="ag_title" aria-label="default input example">
                                 </td>
                             </tr>
                             
                             <tr>
                                 <td colspan="2" >
-                                    <input class="form-control" type="file" id="formFileMultiple"  multiple >
+                                    <input class="form-control" type="file" name="file" id="formFileMultiple"  multiple>
                                 </td>
                             </tr>
                             <tr>
                                 <td colspan="2">
                                     <span class="input-group-text">텍스트 입력</span>
-                                    <textarea class="form-control" aria-label="With textarea" style="height: 45vh;"></textarea>
+                                    <textarea class="form-control" aria-label="With textarea" name="ag_cont" style="height: 45vh;"></textarea>
                                 </td>
                             </tr>  
                         </tbody>

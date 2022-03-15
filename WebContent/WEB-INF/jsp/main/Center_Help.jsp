@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!doctype html>
 <html lang="en">
 <head>
@@ -206,7 +207,7 @@
 		<div class="table-responsive">
 			<table class="table table-hover" style="width: 1600px; margin: auto">
 
-				<thead>
+				  <thead>
 					<tr>
 						<th scope="col">번호</th>
 						<th scope="col">센터명</th>
@@ -215,76 +216,18 @@
 						<th scope="col">작성일</th>
 					</tr>
 				</thead>
-				<tbody>
-					<tr>
-						<th scope="row">1</th>
-						<td>예산</td>
-						<td>행복센터</td>
-						<td>예산공지</td>
-						<td>2021-12-26</td>
-					</tr>
-					<tr>
-						<th scope="row">2</th>
-						<td>예산</td>
-						<td>행복센터</td>
-						<td>예산공지</td>
-						<td>2021-12-26</td>
-					</tr>
-					<tr>
-						<th scope="row">3</th>
-						<td>예산</td>
-						<td>행복센터</td>
-						<td>예산공지</td>
-						<td>2021-12-26</td>
-					</tr>
-					<th scope="row">4</th>
-					<td>예산</td>
-					<td>행복센터</td>
-					<td>예산공지</td>
-					<td>2021-12-26</td>
-					<tr>
-						<th scope="row">5</th>
-						<td>예산</td>
-						<td>행복센터</td>
-						<td>예산공지</td>
-						<td>2021-12-26</td>
-					</tr>
-					<tr>
-						<th scope="row">6</th>
-						<td>예산</td>
-						<td>행복센터</td>
-						<td>예산공지</td>
-						<td>2021-12-26</td>
-					</tr>
-					<tr>
-						<th scope="row">7</th>
-						<td>예산</td>
-						<td>행복센터</td>
-						<td>예산공지</td>
-						<td>2021-12-26</td>
-					</tr>
-					<tr>
-						<th scope="row">8</th>
-						<td>예산</td>
-						<td>행복센터</td>
-						<td>예산공지</td>
-						<td>2021-12-26</td>
-					</tr>
-					<tr>
-						<th scope="row">9</th>
-						<td>예산</td>
-						<td>행복센터</td>
-						<td>예산공지</td>
-						<td>2021-12-26</td>
-					</tr>
-					<tr>
-						<th scope="row">10</th>
-						<td>예산</td>
-						<td>행복센터</td>
-						<td>예산공지</td>
-						<td>2021-12-26</td>
-					</tr>
-				</tbody>
+				 <tbody>
+							
+				<c:forEach items="${Blog_help}" var="Blog_help" end="6">
+										<tr>
+												<td>${Blog_help.hp_no}</td>
+												
+												<td>${Blog_help.hp_title}</td>
+												<td>${Blog_help.hp_content}</td>												
+												
+										</tr>
+									</c:forEach>
+					</tbody> 
 			</table>
 		</div>
 		<nav aria-label="Page navigation example">

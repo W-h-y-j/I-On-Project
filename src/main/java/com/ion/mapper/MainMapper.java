@@ -18,4 +18,10 @@ public interface MainMapper {
 	public List<CenterVO> getCenterList(CenterVO b);
 
 	public int getListCount(CenterVO b);
+	
+	public List<MainVO> view_blog_notice();
+	
+	public List<MainVO> view_blog_help();
+	
+
 }

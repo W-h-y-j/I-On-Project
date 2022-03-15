@@ -25,5 +25,20 @@ public class MainVO {
     //검색기능
     private String find_name;//검색어
     private String find_field;//검색필드
+    
+    //center
+private int notice_no;
+	
+	private String notice_div;
+	private String notice_title;
+	private String notice_date;
+	private String notice_writer;
+	private int notice_view;
+	
+	private int hp_no;
+	private String hp_title;
+	private String hp_content;	
 
+	
+	
 }

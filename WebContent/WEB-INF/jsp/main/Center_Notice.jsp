@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!doctype html>
 <html>
 <head>
@@ -54,86 +56,16 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr>
-						<th scope="row">1</th>
-						<td>기타</td>
-						<td style="cursor: pointer; color: #blue;"
-							onClick="location.href='#'">한빛 지역 아동센터</td>
-						<td>신년 감사인사</td>
-						<td>2022-01-06</td>
-					</tr>
-					<tr>
-						<th scope="row">2</th>
-						<td>프로그램</td>
-						<td style="cursor: pointer; color: #blue;"
-							onClick="location.href='#'">빛고을지역 아동센터</td>
-						<td>제1회 아동자치회 개최</td>
-						<td>2022-01-06</td>
-					</tr>
-					<tr>
-						<th scope="row">3</th>
-						<td>센터운영</td>
-						<td style="cursor: pointer; color: #blue;"
-							onClick="location.href='#'">소나무지역 아동센터</td>
-						<td>소나무지역아동센터 소식지 (2022-1호)</td>
-						<td>2022-01-06</td>
-					</tr>
-					<tr>
-						<th scope="row">4</th>
-						<td>센터운영</td>
-						<td style="cursor: pointer; color: #blue;"
-							onClick="location.href='#'">소나무지역 아동센터</td>
-						<td>소나무지역아동센터 1월 일정표 안내</td>
-						<td>2022-01-06</td>
-					</tr>
-					<tr>
-						<th scope="row">5</th>
-						<td>센터운영</td>
-						<td style="cursor: pointer; color: #blue;"
-							onClick="location.href='#'">미리내지역아동센터</td>
-						<td>2021년 1월 월간계획표 & 1월 식단표</td>
-						<td>2022-01-06</td>
-					</tr>
-					<tr>
-						<th scope="row">6</th>
-						<td>예산</td>
-						<td style="cursor: pointer; color: #blue;"
-							onClick="location.href='#'">용호지역아동센터</td>
-						<td>2022년 지역아동센터 세입,세출 예산(안) 공고 및 결과 제출</td>
-						<td>2022-01-05</td>
-					</tr>
-					<tr>
-						<th scope="row">7</th>
-						<td>센터운영</td>
-						<td style="cursor: pointer; color: #blue;"
-							onClick="location.href='#'">주암지역아동센터</td>
-						<td>2021년 12월 후원자 명부 (결연, 운영보조 지원 후원)</td>
-						<td>2022-01-05</td>
-					</tr>
-					<tr>
-						<th scope="row">8</th>
-						<td>센터운영</td>
-						<td style="cursor: pointer; color: #blue;"
-							onClick="location.href='#'">주암지역아동센터</td>
-						<td>1월 센터 일정표</td>
-						<td>2021-01-05</td>
-					</tr>
-					<tr>
-						<th scope="row">9</th>
-						<td>기타</td>
-						<td style="cursor: pointer; color: #blue;"
-							onClick="location.href='#'">주암지역아동센터</td>
-						<td>1월 부모교육칼럼</td>
-						<td>2022-01-05</td>
-					</tr>
-					<tr>
-						<th scope="row">10</th>
-						<td>장위지역아동센터밀알학교</td>
-						<td style="cursor: pointer; color: #blue;"
-							onClick="location.href='#'">장위지역아동센터밀알학교</td>
-						<td>2021년 후원금, 후원물품 수입 및 사용결과보고</td>
-						<td>2022-01-05</td>
-					</tr>
+				<c:forEach items="${systemBlog}" var="systemBlog" end="10">
+										<tr>
+												<td>${systemBlog.notice_no}</td>
+												<td>${systemBlog.notice_div}</td>
+												<td>${systemBlog.notice_title}</td>
+												<td>${systemBlog.notice_writer}</td>
+												<td>${systemBlog.notice_date}</td>
+												<td>${systemBlog.notice_view}</td>
+										</tr>	
+										</c:forEach>
 				</tbody>
 			</table>
 		</div>
