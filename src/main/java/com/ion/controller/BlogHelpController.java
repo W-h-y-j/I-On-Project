@@ -79,7 +79,7 @@ public class BlogHelpController {
 		list.addAttribute("endpage", endpage);
 		list.addAttribute("maxpage", maxpage);
 		list.addAttribute("totalCount", totalCount);
-		
+		list.addAttribute("centerid", centerid);
 		return "/blog/BlogCenterHelp";
 	}
 	
