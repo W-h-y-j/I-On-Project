@@ -118,8 +118,9 @@
                     <c:if test="${!empty mainNOlist}">
                     	<c:forEach items="${mainNOlist}" var="d">
                     	<tr>
-                    		<td scope="row"><a href="/blog/Help/View?pr_id=${d.notice_writer}&page=1&hp_no=${d.notice_no}&state=view" style="text-decoration:none; color:black">${d.notice_title}</a></td>
+                    		<td scope="row"><a href="/blog/Notice/View?pr_id=${d.notice_writer}&notice_no=${d.notice_no}&page=1" style="text-decoration:none; color:black">${d.notice_title}</a></td>
                     	</tr>
+                    	
                     	</c:forEach>
                     </c:if>
                     </tbody>

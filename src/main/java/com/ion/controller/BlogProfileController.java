@@ -38,6 +38,7 @@ public class BlogProfileController {
 	@Autowired
 	private BlogHelpService blogHelpService;
 	//공지사항
+	@Autowired
 	private BlogService blogService;
 	
 	

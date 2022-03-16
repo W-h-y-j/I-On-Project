@@ -84,6 +84,13 @@
 		where notice_no=#{notice_no}
 	</delete>
 	
+	<!--  메인 게시글 목록 리스트 -->
+	<select id="getMain3" resultType="com.ion.vo.BlogVO" parameterType="com.ion.vo.BlogVO">
+		select * from
+		(select ROWNUM RN, A.* FROM 
+		(select * from BLOG_NOTICE where NOTICE_WRITER=#{notice_writer})A
+		)where RN BETWEEN #{startrow} AND #{endrow} order by NOTICE_NO desc 
+	</select>
 	
 </mapper>
 	
