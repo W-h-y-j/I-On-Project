@@ -1,18 +1,12 @@
 package com.ion.controller;
 
-import java.io.File;
-import java.util.Calendar;
-import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
-import java.util.Random;
 
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -22,7 +16,6 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.ion.service.MyPageService;
 import com.ion.vo.MyPageVO;
-import com.oreilly.servlet.MultipartRequest;
 
 
 @Controller
@@ -136,7 +129,7 @@ public class MyPageContoller {
 	
 	
 	// 도네이션 이력 조회
-	@RequestMapping(value = "/DonationHistory")
+	@RequestMapping(value = "/DonationHistory", method=RequestMethod.GET)
 	public String donationHistory(Model model) throws Exception {
 		/* String test=mainService.selectTest(); */
 		/* model.addAttribute("selectTableList", test); */
@@ -170,4 +163,5 @@ public class MyPageContoller {
 		/* model.addAttribute("selectTableList", test); */
 		return "myPage//UserInfo";
 	}
+	
 }

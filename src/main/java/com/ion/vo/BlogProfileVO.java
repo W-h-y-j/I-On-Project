@@ -28,4 +28,9 @@ public class BlogProfileVO {
 	private String hp_centerid;
 	private int hp_no;
 	private String hp_title;
+	
+	//공지사항 받기용
+	private String notice_title;
+	private String notice_writer;
+	private int notice_no;
 }

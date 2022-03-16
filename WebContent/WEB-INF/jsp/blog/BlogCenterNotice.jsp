@@ -22,7 +22,7 @@
         <div class="row">
             <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
                 <ol class="breadcrumb">						
-                    <li class="breadcrumb-item"><a href="/blog" style="text-decoration: none;">홈</a></li>
+                    <li class="breadcrumb-item"><a href="/blog?pr_id=${centerid}" style="text-decoration: none;">홈</a></li>
                     <li class="breadcrumb-item active" aria-current="page">공지사항</li>
                 </ol>
             </nav>
@@ -57,16 +57,15 @@
                     <tbody>
                     
                     <c:forEach items="${blogList}" var="blogList" varStatus="status">
-										<tr>
-												<td>${status.count}</td>												
-												<td><a href="/blog/Notice/View?pr_id=${blogList.notice_writer}&notice_no=${blogList.notice_no}&page=${page}">
-												${blogList.notice_title}</a></td>											
-												<td>${blogList.notice_center}</td>
-												<td>${blogList.notice_date}</td>
-												<td>${blogList.notice_view}</td>
-												
-										</tr>
-									</c:forEach>
+						<tr>
+							<td style="width:10px;">${status.count}</td>												
+							<td style="width:70vw;"><a href="/blog/Notice/View?pr_id=${blogList.notice_writer}&notice_no=${blogList.notice_no}&page=${page}" style="text-decoration: none; color:black">
+									${blogList.notice_title}</a></td>											
+							<td style="width:7vw;">${blogList.notice_center}</td>
+							<td style="width:15vw;">${blogList.notice_date}</td>
+							<td style="width:4vw;">${blogList.notice_view}</td>					
+						</tr>
+					</c:forEach>
                    
                     </tbody>
                 </table>
@@ -75,7 +74,7 @@
                 <nav aria-label="Page navigation example" id="CenterNoticePage">
                     <ul class="pagination">
                         <%-- page --%>
-						<table>
+						<%-- <table>
 							<tr>
 								<th colspan="5">
 								<!-- begin --> 
@@ -96,7 +95,46 @@
 								</c:if>
 								</th>
 							</tr>
-						</table>
+						</table> --%>
+							<li>
+						<c:choose>
+                            	<c:when test="${page < 1}">
+                            		<a class="page-link"  aria-label="Previous">
+                                		<span aria-hidden="true">&laquo;</span>
+                            		</a>
+                            	</c:when>
+                            	<c:when test="${page > 1}">
+                            		<a class="page-link"  href="/blog/Notice?pr_id=${centerid}&page=${page-1} "aria-label="Previous">
+                                		<span aria-hidden="true">&laquo;</span>
+                            		</a>
+                            	</c:when>
+                            </c:choose>
+                            	
+                        	</li>
+                        	<c:forEach var="a" begin="${startpage}" end="${endpage}" step="1">
+                    			<c:if test="${a == page}">
+                    				<li class="page-item"><a class="page-link" href="#">[${a}]</a></li>
+                    			</c:if> <%-- 현재쪽 선택 --%>
+                    			
+                    			<c:if test="${a != page}"> <%-- 현재쪽 비선택 --%>
+                    				<li class="page-item"><a class="page-link" href="/blog/Notice?pr_id=${centerid}&page=${a}">[${a}]</a></li>
+                    			</c:if>
+                    		</c:forEach>
+                        	<c:if test="${page >= maxpage}">
+                        		<li class="page-item">
+                            		<a class="page-link"  aria-label="Next">
+                                		<span aria-hidden="true">&raquo;</span>
+                            		</a>
+                        		</li>
+                        	</c:if>
+                    		<c:if test="${page < maxpage}" >
+                    			
+                    			<li class="page-item">
+                            		<a class="page-link" href="/blog/Notice?pr_id=${centerid}&page=${page+1}" aria-label="Next">
+                                		<span aria-hidden="true">&raquo;</span>
+                            		</a>
+                        		</li>
+                    		</c:if>
 					<!-- page end -->
                         <li>
                             <button type="button" class="btn btn-primary" id="CenterNoticeBtn" onclick="location.href='/blog/Notice/Create'">글작성</button>

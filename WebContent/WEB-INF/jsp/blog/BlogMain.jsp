@@ -110,18 +110,18 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td scope="row"><a href="/blog/Notice/View">[프로그램]새해 행복 나눔 계획</a></td>
-                        </tr>
-                        <tr>
-                            <td scope="row"><a href="/blog/Notice/View">[공지]운영시간 변경 안내</a></td>
-                        </tr>
-                        <tr>
-                            <td scope="row"><a href="/blog/Notice/View">[공지]후원 내역 반영 절차</a></td>
-                        </tr>
-                        <tr>
-                            <td scope="row"><a href="/blog/Notice/View">[공지]코로나로 인한...</a></td>
-                        </tr>
+                       <c:if test="${empty mainNOlist}">
+                    	<tr>
+                    		<td><b>작성된 글이 없습니다.</b><td>
+                    	</tr>
+                    </c:if>
+                    <c:if test="${!empty mainNOlist}">
+                    	<c:forEach items="${mainNOlist}" var="d">
+                    	<tr>
+                    		<td scope="row"><a href="/blog/Help/View?pr_id=${d.notice_writer}&page=1&hp_no=${d.notice_no}&state=view" style="text-decoration:none; color:black">${d.notice_title}</a></td>
+                    	</tr>
+                    	</c:forEach>
+                    </c:if>
                     </tbody>
                 </table>
             </div>

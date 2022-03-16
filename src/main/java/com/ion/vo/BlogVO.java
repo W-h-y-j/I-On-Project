@@ -22,8 +22,8 @@ private String notice_no;
 	
 	
 	//페이징 처리
-		private int startrow;
-		private int endrow;
+	private int startrow;
+	private int endrow;
 
 	
 }

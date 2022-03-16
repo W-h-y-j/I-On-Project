@@ -3,14 +3,14 @@ package com.ion.service;
 import java.util.List;
 
 import com.ion.vo.BlogVO;
-import com.ion.vo.CalVO;
+
 
 
 public interface BlogService {
 	
 	public List<BlogVO> view_blog_notice();
 	
-	public void insertCal(CalVO cal);
+	
 	
 	public void insert_blog_notice(BlogVO blog);
 	
@@ -29,6 +29,10 @@ public interface BlogService {
 	public void viewup(int notice_no);
 
 	public BlogVO getView(int notice_no);
+
+
+
+	public List<BlogVO> getMain3(BlogVO bm, String pr_id);
 
 	
 	

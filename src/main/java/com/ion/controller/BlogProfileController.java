@@ -20,9 +20,11 @@ import org.springframework.web.servlet.ModelAndView;
 import com.ion.service.BlogGalleryService;
 import com.ion.service.BlogHelpService;
 import com.ion.service.BlogProfileService;
+import com.ion.service.BlogService;
 import com.ion.vo.BlogGalleryVO;
 import com.ion.vo.BlogHelpVO;
 import com.ion.vo.BlogProfileVO;
+import com.ion.vo.BlogVO;
 
 @Controller
 public class BlogProfileController {
@@ -32,9 +34,11 @@ public class BlogProfileController {
 	//갤러리
 	@Autowired
 	private BlogGalleryService blogGalleryService;
-	
+	//자원봉사
 	@Autowired
 	private BlogHelpService blogHelpService;
+	//공지사항
+	private BlogService blogService;
 	
 	
 	@PostMapping("/blog/blogProfileChange_OK")
@@ -100,7 +104,7 @@ public class BlogProfileController {
 	
 	//프로필 변경 사진 가져오기
 	@RequestMapping("/blog")
-	public ModelAndView BlogMain(Model model,BlogProfileVO bp, String pr_id, BlogGalleryVO ag, BlogHelpVO hp)throws Exception {
+	public ModelAndView BlogMain(Model model,BlogProfileVO bp, String pr_id, BlogGalleryVO ag, BlogHelpVO hp, BlogVO bm)throws Exception {
 		
 		//프로필
 		try {
@@ -131,6 +135,11 @@ public class BlogProfileController {
 			//최근 봉사 모집 불러오기
 			List<BlogHelpVO> mainHPlist = blogHelpService.getMain2(hp, pr_id);
 			mv.addObject("mainHPlist", mainHPlist);
+			
+			//최근 공지사항 목록 가져오기
+			List<BlogVO> mainNOlist = blogService.getMain3(bm, pr_id);
+			mv.addObject("mainNOlist", mainNOlist);
+			
 		}catch(Exception e){
 			e.printStackTrace();
 		}

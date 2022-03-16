@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import com.ion.mapper.BlogMapper;
 import com.ion.service.BlogService;
 import com.ion.vo.BlogVO;
-import com.ion.vo.CalVO;
+
 
 @Service
 public class BlogServiceImpl implements BlogService {
@@ -16,17 +16,15 @@ public class BlogServiceImpl implements BlogService {
 	@Autowired
 	private BlogMapper mapper;
 	
+	
+	
 	@Override
 	public List<BlogVO> view_blog_notice() {
 		// TODO Auto-generated method stub
 		return mapper.view_blog_notice();
 	}
 
-	@Override
-	public void insertCal(CalVO cal) {
-		// TODO Auto-generated method stub
-		 mapper.insertCal(cal);
-	}
+	
 
 
 	@Override
@@ -87,6 +85,21 @@ public class BlogServiceImpl implements BlogService {
 	public BlogVO getView(int notice_no) {
 		// TODO Auto-generated method stub
 		return mapper.getView(notice_no);
+	}
+
+
+
+
+	@Override
+	public List<BlogVO> getMain3(BlogVO bm, String pr_id) {
+		int page=1;
+		int limit=4;
+		bm.setStartrow((page-1)*4+1);
+		bm.setEndrow(bm.getStartrow()+limit-1);
+		bm.setNotice_writer(pr_id);
+		
+		
+		return mapper.getMain3(bm);
 	}
 
 	

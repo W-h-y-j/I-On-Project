@@ -5,7 +5,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 
 import com.ion.vo.BlogVO;
-import com.ion.vo.CalVO;
+
 
 
 @Mapper
@@ -13,8 +13,7 @@ public interface BlogMapper {
 	//MainMapper.xml file의 namespace와 연동
 	public List<BlogVO> view_blog_notice();
 	
-	public void insertCal(CalVO cal);
-
+	
 	public void insert_blog_notice(BlogVO blog);
 
 	public int listcount(BlogVO blog);
@@ -32,6 +31,12 @@ public interface BlogMapper {
 	public void viewup(int notice_no);
 
 	public BlogVO getView(int notice_no);
+
+
+	public List<BlogVO> getMain3(BlogVO bm);
+
+
+	
 
 
 	

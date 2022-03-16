@@ -72,7 +72,7 @@
                     </table>	
                     <nav aria-label="Page navigation example" id="CenterGalleryPage">
                     	<ul class="pagination">
-                        	
+                        	<li>
                             <c:choose>
                             	<c:when test="${page < 1}">
                             		<a class="page-link"  aria-label="Previous">

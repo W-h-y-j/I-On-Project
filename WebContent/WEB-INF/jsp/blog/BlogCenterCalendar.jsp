@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%
+<%-- <%
 	List<BlogVO> list = (ArrayList<BlogVO>)request.getAttribute("showSchedule");
-%>
+%> --%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', function() {
     navLinks: true, // can click day/week names to navigate views
     businessHours: true, // display business hours
     editable: true,
-    events: [
+ <%--    events: [
 <% 
 	  for (int i = 0; i < list.size(); i++) {
 		  BlogVO blog = (BlogVO)list.get(i);
@@ -50,10 +50,10 @@ document.addEventListener('DOMContentLoaded', function() {
 		  }
     ]
   });
-
+ --%>
   calendar.render();
 });
-</script>
+
    
 </script>
     <title>BlogCenterGallery</title>

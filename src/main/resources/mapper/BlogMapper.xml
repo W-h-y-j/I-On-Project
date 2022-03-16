@@ -59,7 +59,7 @@
 		)
 	</insert>
 	
-    	<insert id="insertCal" parameterType="com.ion.vo.CalVO">
+    <!-- <insert id="insertCal" parameterType="com.ion.vo.CalVO">
 		INSERT INTO CALENDAR (
 		title 
 		, start_date
@@ -69,7 +69,7 @@
 		,#{start}
 		,#{end}		
 		)
-	</insert>
+	</insert> -->
 	
 	<update id="editNotice" parameterType="com.ion.vo.BlogVO">
 		 UPDATE BLOG_NOTICE
@@ -83,5 +83,7 @@
 		from BLOG_NOTICE
 		where notice_no=#{notice_no}
 	</delete>
+	
+	
 </mapper>
 	
