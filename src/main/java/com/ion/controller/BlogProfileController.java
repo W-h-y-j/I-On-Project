@@ -3,6 +3,7 @@ package com.ion.controller;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import java.util.UUID;
 
 import javax.servlet.http.HttpServletResponse;
@@ -16,14 +17,24 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.ion.service.BlogGalleryService;
+import com.ion.service.BlogHelpService;
 import com.ion.service.BlogProfileService;
+import com.ion.vo.BlogGalleryVO;
+import com.ion.vo.BlogHelpVO;
 import com.ion.vo.BlogProfileVO;
 
 @Controller
 public class BlogProfileController {
-	
+	//프로필
 	@Autowired
 	private BlogProfileService blogProfileService;
+	//갤러리
+	@Autowired
+	private BlogGalleryService blogGalleryService;
+	
+	@Autowired
+	private BlogHelpService blogHelpService;
 	
 	
 	@PostMapping("/blog/blogProfileChange_OK")
@@ -89,28 +100,47 @@ public class BlogProfileController {
 	
 	//프로필 변경 사진 가져오기
 	@RequestMapping("/blog")
-	public ModelAndView BlogMain(Model model,BlogProfileVO bp, String pr_id)throws Exception {
+	public ModelAndView BlogMain(Model model,BlogProfileVO bp, String pr_id, BlogGalleryVO ag, BlogHelpVO hp)throws Exception {
 		
-		
-		
+		//프로필
+		try {
 		bp = this.blogProfileService.getBbsCont(pr_id);
-		
-		if(bp == null) {
-			String sampleid = "sample";
-			bp = this.blogProfileService.getBbsSample(sampleid);
-		}else {
-			System.out.println("1234");
+		}catch(Exception e) {
+			
+			bp = this.blogProfileService.getBbsCont2(pr_id);
+			
+			bp.setPr_address(bp.getCenter_add());
+			bp.setPr_centername(bp.getCenter_name());
+			bp.setPr_tell(bp.getCenter_tel());
+			
+			
+			ModelAndView mv = new ModelAndView();
+			mv.addObject("bp",bp);
+			
+			mv.setViewName("/blog/BlogMain");
+			return mv;
+			
+		}
+		ModelAndView mv = new ModelAndView();
+		//try~catch 처리 이유 -> null 값  자료실에 글이 없을때 NullPointerException 방지
+		try{
+			//최근 사진 불러오기. 서비스단에서 처리.
+			List<BlogGalleryVO> mainAGlist = blogGalleryService.getMain(ag, pr_id);
+			mv.addObject("mainAGlist", mainAGlist);
+			
+			//최근 봉사 모집 불러오기
+			List<BlogHelpVO> mainHPlist = blogHelpService.getMain2(hp, pr_id);
+			mv.addObject("mainHPlist", mainHPlist);
+		}catch(Exception e){
+			e.printStackTrace();
 		}
 		
-		String pr_cont = bp.getPr_cont().replace("\n", "<br/>");
+	
 		
-		ModelAndView mv = new ModelAndView();
+		
 		
 		mv.addObject("bp",bp);
 		
-		
-		
-		mv.addObject("pr_cont", pr_cont);
 		
 		mv.setViewName("/blog/BlogMain");
 		
@@ -122,5 +152,7 @@ public class BlogProfileController {
 		
 		
 	}//BlogMain()
+	
+	
 	
 }

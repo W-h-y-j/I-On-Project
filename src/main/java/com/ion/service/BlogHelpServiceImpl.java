@@ -72,6 +72,17 @@ public class BlogHelpServiceImpl implements BlogHelpService{
 		blogHelpDao.finish(hp);
 	}
 
+	@Override
+	public List<BlogHelpVO> getMain2(BlogHelpVO hp, String pr_id) {
+		int page=1;
+		int limit=4;
+		hp.setStartrow((page-1)*4+1);
+		hp.setEndrow(hp.getStartrow()+limit-1);
+		hp.setHp_centerid(pr_id);
+		
+		return blogHelpDao.main(hp);
+	}
+
 	
 
 

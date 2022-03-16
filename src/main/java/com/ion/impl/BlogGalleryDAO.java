@@ -39,6 +39,10 @@ public interface BlogGalleryDAO {
 
 	void deletereply2(int ag_no);
 
+	List<BlogGalleryVO> getMain(BlogGalleryVO ag);
+
+	
+
 	
 
 	

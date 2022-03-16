@@ -102,6 +102,13 @@ public class BlogGalleryDAOImpl implements BlogGalleryDAO{
 		
 	}
 
+	@Override
+	public List<BlogGalleryVO> getMain(BlogGalleryVO ag) {
+		
+		return sqlSession.selectList("get_main", ag);
+	}
+
+	
 	
 
 	

@@ -28,4 +28,9 @@
 	<select id="sam" resultType="Profile">
 		select * from BLOGCENTERPROFILE where pr_id=#{sampleid}
 	</select>
+	
+	<!--  프로필이 없으면  -->
+	<select id="blog_pro" resultType="Profile">
+		select CENTER_NAME, CENTER_TEL, CENTER_ADD from CENTER_USER where CENTER_ID=#{pr_id}
+	</select>
 </mapper>

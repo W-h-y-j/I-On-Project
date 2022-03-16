@@ -25,7 +25,7 @@ public class BlogHelpVO {
 	private int hp_user_real_time;
 	private String hp_reflect;
 	
-	//
+	//페이징
 	private int startrow;
 	private int endrow;
 	

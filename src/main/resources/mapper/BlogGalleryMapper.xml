@@ -92,4 +92,17 @@
 	<delete id="re_del2">
 		delete from BLOG_AG_REPLY where AG_NO=#{ag_no}
 	</delete>
+	
+	
+	<!--  메인 이미지 목록 리스트 -->
+	<select id="get_main" resultType="Gallery" parameterType="Gallery">
+		SELECT*FROM(
+		SELECT ROWNUM RN,A.*
+		FROM(SELECT * FROM BLOG_GALLERY LEFT OUTER JOIN 
+		(SELECT  * FROM(
+		SELECT ROW_NUMBER() OVER(PARTITION BY BLOG_GALLERY_FILE.AG_NO ORDER BY BLOG_GALLERY_FILE.AG_FILE_NO DESC )
+		 AS RNUM, BLOG_GALLERY_FILE.*FROM BLOG_GALLERY_FILE ) TB WHERE RNUM = 1)TB1
+		 ON BLOG_GALLERY.AG_NO = TB1.AG_NO where BLOG_GALLERY.AG_CENTERID=#{ag_centerid} order by BLOG_GALLERY.AG_NO DESC)A )
+		 where RN BETWEEN #{startrow} AND #{endrow}
+	</select>
 </mapper>

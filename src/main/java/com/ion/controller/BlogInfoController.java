@@ -94,19 +94,20 @@ public class BlogInfoController {
 		
 		iv = this.blogInfoService.getInfoCont(pr_id);
 		
-		if(iv == null) {
-			String sampleid = "sampleid";
-			iv = this.blogInfoService.sample2(sampleid);
-		}else {
-			System.out.println("샘플");
-		}
 		
-		String iv_cont = iv.getIv_cont().replace("\n", "<br/>");
+		
+		
 		String iv_centerid = pr_id;
 		
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("iv", iv);
-		mv.addObject("iv_cont", iv_cont);
+		try {
+			String iv_cont = iv.getIv_cont().replace("\n", "<br/>");
+			mv.addObject("iv_cont", iv_cont);
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		
 		mv.addObject("iv_centerid", iv_centerid);
 		
 		mv.setViewName("/blog/BlogCenterInfo");
