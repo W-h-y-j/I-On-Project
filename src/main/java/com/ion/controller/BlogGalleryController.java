@@ -52,11 +52,7 @@ public class BlogGalleryController {
 		
 		List<BlogGalleryVO> aglist = this.blogGalleryService.getAgList(ag);
 		
-		/*
-		 * for(int i=0; i<aglist.size(); i++) { for(int k=i+1; k<aglist.size(); k++) {
-		 * if(aglist.get(i).getAg_no() == (aglist.get(k).getAg_no())) {
-		 * aglist.remove(k); } } }//쿼리에서 처리
-		 */
+		
 		
 		int maxpage = (int)((double)totalCount/limit+0.95); //총 페이지 
 		int startpage = (((int)((double)page/6+0.9))-1)*6+1;
@@ -69,6 +65,7 @@ public class BlogGalleryController {
 		listM.addAttribute("endpage", endpage);
 		listM.addAttribute("maxpage", maxpage);
 		listM.addAttribute("totalCount", totalCount);
+		listM.addAttribute("centerid", ag_centerid2);
 		
 		
 		return "/blog/BlogCenterGallery";

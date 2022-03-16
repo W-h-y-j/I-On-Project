@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,6 +14,7 @@
 </head>
 <body>
     <jsp:include page="../include/blogHead.jsp" />
+    <sec:authentication property="principal" var="user"/>
     <div class = "container-fluid">
         <div class="row">
             <div class="col-md-12">
@@ -60,9 +62,13 @@
                          </tr>
                      </tbody>
                 </table>
-                <input class="btn btn-primary" type="button" value="수정" onclick="location.href='/blog/Notice/Edit?pr_id=${blog.notice_writer}&notice_no=${blog.notice_no}&page=${page}'">
-                <input class="btn btn-primary" type="button" value="삭제" onclick="location.href='/blog/Notice/del?pr_id=${blog.notice_writer}&notice_no=${blog.notice_no}&page=${page}'">
-                <input class="btn btn-primary" type="button" value="목록으로" style="float: right;" onclick="location.href='/blog/Notice'">
+                <sec:authorize access='hasAuthority("CENTER_ROLE")'>
+				<c:if test="${blog.notice_writer == user.username}">
+                	<input class="btn btn-primary" type="button" value="수정" onclick="location.href='/blog/Notice/Edit?pr_id=${blog.notice_writer}&notice_no=${blog.notice_no}&page=${page}'">
+                	<input class="btn btn-primary" type="button" value="삭제" onclick="location.href='/blog/Notice/del?pr_id=${blog.notice_writer}&notice_no=${blog.notice_no}&page=${page}'">
+                </c:if>
+                </sec:authorize>
+                <input class="btn btn-primary" type="button" value="목록으로" style="float: right;" onclick="location.href='/blog/Notice?pr_id=${blog.notice_writer}&page=${page}'">
                 </div>
                 </div>
                 

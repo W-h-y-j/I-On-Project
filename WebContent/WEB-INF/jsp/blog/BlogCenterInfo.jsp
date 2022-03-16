@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,6 +16,7 @@
 <body>
     <body>
         <jsp:include page="include/blogHead.jsp" />
+        <sec:authentication property="principal" var="user"/>
         <div class = "container-fluid">
             <div class="row">
                 <div class="col-md-12">
@@ -61,7 +63,11 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-1 offset-md-9">
+                <sec:authorize access='hasAuthority("CENTER_ROLE")'>
+                <c:if test="${iv.iv_centerid == user.username}">
                     <button id="CenterInfoTextBtn" class="btn btn-primary" type="button" onclick="location.href='/blog/Info/Change?pr_id=${iv.iv_centerid}'">수정</button>
+                </c:if>
+                </sec:authorize>
                 </div>
             </div>
         </div>

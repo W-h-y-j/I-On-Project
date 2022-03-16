@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,6 +14,7 @@
 </head>
 <body>
     <jsp:include page="include/blogHead.jsp" />
+    <sec:authentication property="principal" var="user"/>
     <div class = "container-fluid">
         <div class="row">
             <div class="col-md-12">
@@ -136,9 +138,13 @@
                         		</li>
                     		</c:if>
 					<!-- page end -->
+					<sec:authorize access='hasAuthority("CENTER_ROLE")'>
+					<c:if test="${centerid == user.username}">
                         <li>
                             <button type="button" class="btn btn-primary" id="CenterNoticeBtn" onclick="location.href='/blog/Notice/Create'">글작성</button>
                         </li>
+                    </c:if>
+                    </sec:authorize>
                     </ul>
                 </nav>
             </div>

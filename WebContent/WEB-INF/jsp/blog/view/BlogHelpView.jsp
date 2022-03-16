@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,6 +15,7 @@
 </head>
 <body>
     <jsp:include page="../include/blogHead.jsp" />
+    <sec:authentication property="principal" var="user"/>
     <div class = "container-fluid">
         <div class="row">
             <div class="col-md-12">
@@ -108,16 +110,25 @@
                                 	</tbody>
                                 </table>
                                 <br/>
+                                <sec:authorize access='hasAuthority("CENTER_ROLE")'>
+                				<c:if test="${hp.hp_centerid == user.username}">
                                 <a href="javascript:HelpCheckOpen()"><input class="btn btn-primary" type="button" value="신청확인" ></a>
                                 <a href="/blog/Help/Finish_OK?pr_id=${hp.hp_centerid}&page=${page}&hp_no=${hp.hp_no}"><input class="btn btn-primary" type="button" value="완료 전환" ></a>
+                                </c:if>
+                				</sec:authorize>
+                				<sec:authorize access="hasAuthority('DONOR_ROLE')">
                                 <a href="javascript:HelpRequestOpen()"><input class="btn btn-primary" type="button" value="신청" ></a>
-                            	
+                            	</sec:authorize>
                            </td>
                         </tr>
                         
                     </tbody>
                 </table>
-                <input class="btn btn-primary" type="button" value="수정" onclick="location.href='/blog/Help/View?pr_id=${hp.hp_centerid}&page=${page}&hp_no=${hp.hp_no}&state=edit'" >
+                <sec:authorize access='hasAuthority("CENTER_ROLE")'>
+                <c:if test="${hp.hp_centerid == user.username}">
+                	<input class="btn btn-primary" type="button" value="수정" onclick="location.href='/blog/Help/View?pr_id=${hp.hp_centerid}&page=${page}&hp_no=${hp.hp_no}&state=edit'" >
+                </c:if>
+                </sec:authorize>
                 <input class="btn btn-primary" type="button" value="목록으로" style="float: right;" onclick="location.href='/blog/Help?pr_id=${hp.hp_centerid}&page=${page}'">
                 
                 
