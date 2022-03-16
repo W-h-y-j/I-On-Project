@@ -23,5 +23,8 @@ public class CustomUser extends User{
 		
 		this.loginVo = vo;
 	}
-
+	
+	public LoginVO getLoginVo() {
+		return loginVo;
+	}
 }

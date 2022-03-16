@@ -20,4 +20,11 @@ public class MyPageVO {
 	//페이징 처리
 	private int startrow;
 	private int endrow;
+	
+	//후원이력 
+	private String hp_title;
+	private String hp_user_real_time;
+	private String hp_reflect;
+	private String hp_endate;
+	private String hp_user_id;
 }

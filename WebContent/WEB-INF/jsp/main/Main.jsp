@@ -13,8 +13,7 @@
 </head>
 <body id="reportsPage">
  	<sec:authentication property="principal" var="user"/>
- 	<%-- ${user}  --%>
- 	<%-- 로그인한 계정의 정보를 알고 싶으면 주석을 해지 하시오~~ --%> 
+ 	 <%-- ${user} --%>
 	<div class="" id="home">
 		<div class="container">
 			<jsp:include page="../include/header.jsp" />
@@ -98,7 +97,7 @@
 							</sec:authorize>
 							<%-- 후원 계정 --%>
 							<sec:authorize access="hasAuthority('DONOR_ROLE')">
-								<button type="button" class="btn btn-primary w-100" onclick="location.href='/DonationHistory'">나의 후원 내역</button>
+									<button type="button" class="btn btn-primary w-100" onclick="location.href='/DonationHistory'">나의 후원 내역</button>
 							</sec:authorize>
 							<sec:authorize access="isAuthenticated()">
 								<button type="button" class="btn btn-primary w-100" onclick="location.href='/logout'" style="margin-top: 10px;">로그아웃하기</button>

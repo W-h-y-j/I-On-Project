@@ -18,4 +18,11 @@ public interface MyPageService {
 
 	public void modNotice(MyPageVO myPage);
 
+	public List<MyPageVO> getHP(String userid, MyPageVO mp);
+
+	public int HpTotal(String userid, MyPageVO mp);
+
+	
+	
+
 }

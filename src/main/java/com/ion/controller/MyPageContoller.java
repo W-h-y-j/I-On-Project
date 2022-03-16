@@ -5,6 +5,9 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -14,7 +17,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.ion.security.domain.CustomOauthUser;
+import com.ion.security.domain.CustomUser;
 import com.ion.service.MyPageService;
+import com.ion.vo.LoginVO;
 import com.ion.vo.MyPageVO;
 
 
@@ -130,9 +136,57 @@ public class MyPageContoller {
 	
 	// 도네이션 이력 조회
 	@RequestMapping(value = "/DonationHistory", method=RequestMethod.GET)
-	public String donationHistory(Model model) throws Exception {
+	public String donationHistory(Model model, MyPageVO mp) throws Exception {
 		/* String test=mainService.selectTest(); */
 		/* model.addAttribute("selectTableList", test); */
+		
+		//필요정보 -> 타이틀, 봉사시간, 확인여부, 후원일자(endate기준으로 할 예정) -> vo에 hp_title, hp_real_time, reflect, hp_endate 추가해야함.
+		//검색 수단 -> outer join no가 같으면 묶고 그 밖에 where 로그인 아이디 and REFLECT='Y' 로 리스트 가져오기
+		//그래서 그거 뿌려서 나오게 하기. 페이징 처리까지 6개 제한인거 같음. 
+		LoginVO user= getLogonUser();
+		if(user == null ) {//
+			System.out.println("==============================");
+			System.out.println("미로그인");
+			System.out.println("==============================");
+		} else if(user.getSns() == null ) {// 센터 로그인
+			System.out.println("==============================");
+			System.out.println(user.getCenter_id());
+			System.out.println("==============================");
+		} else { //후원 로그인
+			System.out.println("==============================");
+			System.out.println(user.getEmail());
+			System.out.println("==============================");
+		}
+		
+		String userid = user.getEmail();
+		int page=1;
+		int limit=6;
+		mp.setStartrow((page-1)*limit+1);//시작행
+		mp.setEndrow(mp.getStartrow()+limit-1);//끝행
+		
+		try {
+			int totalCount = mypageService.HpTotal(userid,mp);
+		
+			List<MyPageVO> hpli = mypageService.getHP(userid,mp);
+		
+		
+		
+			int maxpage = (int)((double)totalCount/limit+0.95); //총 페이지 
+			int startpage = (((int)((double)page/limit+0.9))-1)*6+1;
+			int endpage = maxpage;
+			if(endpage > startpage+6-1) endpage = startpage+6-1;
+		
+			model.addAttribute("hpli", hpli);
+			model.addAttribute("maxpage",maxpage);
+			model.addAttribute("startpage",startpage);
+			model.addAttribute("endpage",endpage);
+			model.addAttribute("totalCount",totalCount);
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		model.addAttribute("page",page);
+		
+		
 		return "myPage/DonationHistory";
 	}
 	
@@ -164,4 +218,21 @@ public class MyPageContoller {
 		return "myPage//UserInfo";
 	}
 	
+	
+	public LoginVO getLogonUser() {
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		LoginVO loginVo = null;
+		if(authentication == null) {
+			return loginVo;
+		}
+		if(authentication.getAuthorities().contains(new SimpleGrantedAuthority("CENTER_ROLE"))) { // 센터로그인 
+			CustomUser user = (CustomUser) authentication.getPrincipal();
+			loginVo = user.getLoginVo();
+		} else if(authentication.getAuthorities().contains(new SimpleGrantedAuthority("DONOR_ROLE"))) { // 후원로그인 
+			CustomOauthUser user = (CustomOauthUser) authentication.getPrincipal();
+			loginVo = user.getLoginVo();
+		}
+		
+		return loginVo;
+	}
 }

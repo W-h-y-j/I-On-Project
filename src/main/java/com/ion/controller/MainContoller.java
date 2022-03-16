@@ -5,14 +5,20 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.ion.security.domain.CustomOauthUser;
+import com.ion.security.domain.CustomUser;
 import com.ion.service.MainService;
 import com.ion.vo.CenterVO;
+import com.ion.vo.LoginVO;
 
 @Controller
 public class MainContoller {
@@ -21,8 +27,41 @@ public class MainContoller {
 	private MainService mainService;
 	// mainService변수가 MainService객체를 주입받아 MainServiceImpl에서 작성한 기능을 사용 할 수 있음
 	
+	public LoginVO getLogonUser() {
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		LoginVO loginVo = null;
+		if(authentication == null) {
+			return loginVo;
+		}
+		if(authentication.getAuthorities().contains(new SimpleGrantedAuthority("CENTER_ROLE"))) { // 센터로그인 
+			CustomUser user = (CustomUser) authentication.getPrincipal();
+			loginVo = user.getLoginVo();
+		} else if(authentication.getAuthorities().contains(new SimpleGrantedAuthority("DONOR_ROLE"))) { // 후원로그인 
+			CustomOauthUser user = (CustomOauthUser) authentication.getPrincipal();
+			loginVo = user.getLoginVo();
+		}
+		
+		return loginVo;
+	}
+	
 	@RequestMapping(value = "/")
 	public String main(Model model) throws Exception {
+		
+		LoginVO user= getLogonUser();
+		if(user == null ) {//
+			System.out.println("==============================");
+			System.out.println("미로그인");
+			System.out.println("==============================");
+		} else if(user.getSns() == null ) {// 센터 로그인
+			System.out.println("==============================");
+			System.out.println(user.getCenter_id());
+			System.out.println("==============================");
+		} else { //후원 로그인
+			System.out.println("==============================");
+			System.out.println(user.getEmail());
+			System.out.println("==============================");
+		}
+		
 		model.addAttribute("systemNotice", mainService.view_system_notice());
 		model.addAttribute("systemBlog", mainService.view_blog_notice());
 		model.addAttribute("Blog_help", mainService.view_blog_help());		
