@@ -21,4 +21,8 @@ public interface MyPageMapper {
 
 	public void modNotice(MyPageVO myPage);
 
+	public List<MyPageVO> get_hp(MyPageVO mp);
+
+	public int hp_total(MyPageVO mp);
+
 }

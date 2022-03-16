@@ -35,6 +35,17 @@ public class MainServiceImpl implements MainService {
 	public int getListCount(CenterVO b) {
 		return this.mapper.getListCount(b);
 	}
+	
+	@Override
+	public List<MainVO> view_blog_notice() {		
+		return mapper.view_blog_notice();
+	}
+	
+	@Override
+	public List<MainVO> view_blog_help() {
+		return mapper.view_blog_help();
+	}
+	
 
 	
 	

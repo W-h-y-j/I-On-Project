@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,6 +16,7 @@
 <body>
     <body>
         <jsp:include page="include/blogHead.jsp" />
+        <sec:authentication property="principal" var="user"/>
         <div class = "container-fluid">
             <div class="row">
                 <div class="col-md-12">
@@ -25,7 +27,7 @@
             <div class="row">
                 <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="/blog" style="text-decoration: none;">홈</a></li>
+                        <li class="breadcrumb-item"><a href="/blog?pr_id=${iv.iv_centerid}" style="text-decoration: none;">홈</a></li>
                         <li class="breadcrumb-item active" aria-current="page">시설소개</li>
                     </ol>
                 </nav>
@@ -33,22 +35,39 @@
             </div>
             <div class="row" id="CenterInfoImg">
                 <div class="col-md-8 offset-md-2">
-                    <img src="../../../Resources/img/blog/b2.JPG" class="img-fluid" alt="센터소개사진" id="CenterInfoPhoto">    
+                	<c:choose>
+                		<c:when test="${!empty iv.iv_img}">
+                			<img src="../../../Resources/upload${iv.iv_img}" height="300" class="card-img-top" alt="시설사진">
+                		</c:when>
+                		<c:otherwise>
+                			<img src="../../../Resources/img/blog/b2.JPG" class="img-fluid" alt="센터소개사진" id="CenterInfoPhoto">
+                		</c:otherwise>
+                	</c:choose>    
                 </div>
             </div>
             <br/><br/>
             <div class="row">
-                <div class="col-md-8 offset-md-2" id="CenterInfoTextLine">
-                    시설소개 안내문입니다.
-                    
-                </div>    
+            	<c:if test="${iv.iv_cont != null }">
+            		<div class="col-md-8 offset-md-2" id="CenterInfoTextLine">
+                    	${iv.iv_cont}
+                	</div>
+            	</c:if>
+                <c:if test="${iv.iv_cont == null }">
+                	<div class="col-md-8 offset-md-2" id="CenterInfoTextLine">
+                    	시설안내문을 입력해주세요.
+                	</div>
+                </c:if>
             </div>
         </div>
         <br/>
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-1 offset-md-9">
-                    <button id="CenterInfoTextBtn" class="btn btn-primary" type="button" onclick="location.href='/blog/Info/Change'">수정</button>
+                <sec:authorize access='hasAuthority("CENTER_ROLE")'>
+                <c:if test="${iv.iv_centerid == user.username}">
+                    <button id="CenterInfoTextBtn" class="btn btn-primary" type="button" onclick="location.href='/blog/Info/Change?pr_id=${iv.iv_centerid}'">수정</button>
+                </c:if>
+                </sec:authorize>
                 </div>
             </div>
         </div>

@@ -1,20 +1,60 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-
+<%-- <%
+	List<BlogVO> list = (ArrayList<BlogVO>)request.getAttribute("showSchedule");
+%> --%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
   <head>
     <meta charset='utf-8' />
 <link href='/Resources/fullcalendar-5.10.1/lib/main.css' rel='stylesheet' />
 <script src='/Resources/fullcalendar-5.10.1/lib/main.js'></script>
+ <link rel="stylesheet" href="/resources/demos/style.css">
+ <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+ <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
 <script>
 
-      document.addEventListener('DOMContentLoaded', function() {
-        var calendarEl = document.getElementById('calendar');
-        var calendar = new FullCalendar.Calendar(calendarEl, {
-          initialView: 'dayGridMonth'
-        });
-        calendar.render();
-      });
+document.addEventListener('DOMContentLoaded', function() {
+	 
+  var calendarEl = document.getElementById('calendar');
+	
+  var calendar = new FullCalendar.Calendar(calendarEl, {
+    plugins: [ 'interaction', 'dayGrid', 'timeGrid', 'list' ],
+    header: {
+      left: 'prev,next today',
+      center: 'title',
+      right: 'dayGridMonth,timeGridWeek,timeGridDay,listMonth'
+    },
+    locale : "ko",
+    navLinks: true, // can click day/week names to navigate views
+    businessHours: true, // display business hours
+    editable: true,
+ <%--    events: [
+<% 
+	  for (int i = 0; i < list.size(); i++) {
+		  BlogVO blog = (BlogVO)list.get(i);
+%>	
+	  {
+	   title : '<%= blog.getSubject() %>',
+	   start : '<%= blog.getStartDate() %>',
+	   end : '<%= blog.getEndDate() %>'
+	   },
+<%
+	}
+%>
+		{
+		   title : 'default',
+		   start : "2019-01-01",
+		   end : "2019-01-01"
+		  }
+    ]
+  });
+ --%>
+  calendar.render();
+});
 
+   
 </script>
     <title>BlogCenterGallery</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -38,7 +78,10 @@
             </nav>
             <br/>
         </div>
-    <div id='calendar'></div>
+        <button class = "add-button" type = "button" onclick="click_add();">일정 추가</button>
+    <div id='calendar'>
+    
+    </div>
     <jsp:include page="include/blogFooter.jsp" />
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     </div>

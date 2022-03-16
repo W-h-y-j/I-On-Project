@@ -50,6 +50,22 @@ public class MyPageServiceImpl implements MyPageService {
 	public void modNotice(MyPageVO myPage) {
 		this.myMapper.modNotice(myPage);
 	}
+	//후원이력
+	@Override
+	public List<MyPageVO> getHP(String userid, MyPageVO mp) {
+		
+		mp.setHp_user_id(userid);
+		
+		return this.myMapper.get_hp(mp);
+	}
+
+	@Override
+	public int HpTotal(String userid, MyPageVO mp) {
+		mp.setHp_user_id(userid);
+		return this.myMapper.hp_total(mp);
+	}
+	
+	
 
 
 }

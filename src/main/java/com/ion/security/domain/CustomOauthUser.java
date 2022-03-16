@@ -26,4 +26,7 @@ public class CustomOauthUser extends DefaultOAuth2User{
 		// TODO Auto-generated constructor stub
 	}
 	
+	public LoginVO getLoginVo() {
+		return loginVo;
+	}
 }

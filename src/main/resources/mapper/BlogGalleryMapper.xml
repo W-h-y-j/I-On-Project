@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Gallery">
+	<!-- 정보 업로드 -->
+	<insert id="ag_ti" parameterType="com.ion.vo.BlogGalleryVO" useGeneratedKeys="true" keyProperty="ag_no">
+		<selectKey keyProperty="ag_no" resultType="int" order="BEFORE">
+			SELECT BLOG_GALLERY_SEQ.NEXTVAL FROM DUAL
+		</selectKey>
+		insert into BLOG_GALLERY (AG_NO, AG_CENTERID, AG_CENTERNAME, AG_TITLE, AG_CONT)
+		values (#{ag_no}, #{ag_centerid}, #{ag_centername}, #{ag_title}, #{ag_cont})
+	</insert>
+	
+	<!-- 사진 업로드 -->
+	<insert id="in_gal" parameterType="HashMap">
+		
+			insert into BLOG_GALLERY_FILE (AG_NO, ORG_FILE_NAME, AG_IMG, FILE_SIZE, AG_FILE_NO)
+			values (#{ag_no}, #{ORG_FILE_NAME}, #{ag_img1}, #{FILE_SIZE}, BLOG_FILE_SEQ.NEXTVAL)
+	</insert>
+	
+	<!-- 레코드 수 -->
+	<select id="ag_count" resultType="int">
+		select count(ag_no) from BLOG_GALLERY where AG_CENTERID=#{ag_centerid}
+	</select>
+	
+	
+	
+	
+	<!--  자료실 목록 리스트 -->
+	<select id="ag_list" resultType="Gallery" parameterType="Gallery">
+		SELECT*FROM(
+		SELECT ROWNUM RN,A.*
+		FROM(SELECT * FROM BLOG_GALLERY LEFT OUTER JOIN 
+		(SELECT  * FROM(
+		SELECT ROW_NUMBER() OVER(PARTITION BY BLOG_GALLERY_FILE.AG_NO ORDER BY BLOG_GALLERY_FILE.AG_FILE_NO DESC )
+		 AS RNUM, BLOG_GALLERY_FILE.*FROM BLOG_GALLERY_FILE ) TB WHERE RNUM = 1)TB1
+		 ON BLOG_GALLERY.AG_NO = TB1.AG_NO where BLOG_GALLERY.AG_CENTERID=#{ag_centerid} order by BLOG_GALLERY.AG_NO DESC)A )
+		 where RN BETWEEN #{startrow} AND #{endrow}
+		 
+
+	</select>
+	
+	<!-- 조회수 증가 시키기 -->
+	<update id="uphit">
+		update BLOG_GALLERY set AG_VIEW_COUNT = AG_VIEW_COUNT + 1 where ag_no=#{ag_no}
+	</update>
+	
+	<!--  상세보기 내용 가져오기 -->
+	<select id="getView" resultType="Gallery" >
+		SELECT * FROM BLOG_GALLERY A LEFT OUTER JOIN BLOG_GALLERY_FILE B ON A.AG_NO=B.AG_NO where A.AG_NO=#{ag_no} order by B.AG_FILE_NO asc 
+	</select>
+	
+	<!--  상세내역 수정하기 -->
+	<update id="ag_up0">
+		update BLOG_GALLERY set AG_TITLE=#{ag_title}, AG_CONT=#{ag_cont} where ag_no=#{ag_no}
+	</update>
+	<!-- 업데이트할려고 삭제하든 뭐하든 그냥 함 일단  -->
+	<delete id="ag_updel">
+		delete from BLOG_GALLERY_FILE where AG_NO=#{ag_no}
+	</delete>
+	<!-- 다시 넣넣 -->
+	<insert id="ag_upin" parameterType="HashMap">
+		insert into BLOG_GALLERY_FILE (AG_NO, ORG_FILE_NAME, AG_IMG, FILE_SIZE, AG_FILE_NO)
+		values (#{ag_no},#{ORG_FILE_NAME},#{ag_img1},#{FILE_SIZE},BLOG_FILE_SEQ.NEXTVAL)
+	</insert>
+	<!-- 정보 지우기지우기 -->
+	<delete id="ag_info">
+		delete from BLOG_GALLERY where AG_NO=#{ag_no}
+	</delete>
+	<!-- 파일 리스트 번호기준 가져오기 -->
+	<select id="filelist" resultType="Gallery">
+		SELECT AG_IMG FROM BLOG_GALLERY_FILE where AG_NO=#{ag_no}
+	</select>
+	
+	<!-- 댓글 인 -->
+	<insert id="re_in">
+		insert into BLOG_AG_REPLY (RNO,AG_NO,RE_WRITER,RE_CONT)
+		values (GALLERY_RE_SEQ.NEXTVAL,#{ag_no},#{re_writer},#{re_cont})
+	</insert>
+	
+	<!-- 댓글 목록 가져오기 -->
+	<select id="re_get" resultType="Gallery">
+		select * from BLOG_AG_REPLY where AG_NO=#{ag_no} order by RNO asc
+	</select> 
+	
+	<!--  댓글 삭제 -->
+	<delete id="re_del">
+		delete from BLOG_AG_REPLY where RNO=#{rno}
+	</delete>
+	
+	<!-- 게시글 삭제에 따른 댓글 삭제 -->
+	<delete id="re_del2">
+		delete from BLOG_AG_REPLY where AG_NO=#{ag_no}
+	</delete>
+	
+	
+	<!--  메인 이미지 목록 리스트 -->
+	<select id="get_main" resultType="Gallery" parameterType="Gallery">
+		SELECT*FROM(
+		SELECT ROWNUM RN,A.*
+		FROM(SELECT * FROM BLOG_GALLERY LEFT OUTER JOIN 
+		(SELECT  * FROM(
+		SELECT ROW_NUMBER() OVER(PARTITION BY BLOG_GALLERY_FILE.AG_NO ORDER BY BLOG_GALLERY_FILE.AG_FILE_NO DESC )
+		 AS RNUM, BLOG_GALLERY_FILE.*FROM BLOG_GALLERY_FILE ) TB WHERE RNUM = 1)TB1
+		 ON BLOG_GALLERY.AG_NO = TB1.AG_NO where BLOG_GALLERY.AG_CENTERID=#{ag_centerid} order by BLOG_GALLERY.AG_NO DESC)A )
+		 where RN BETWEEN #{startrow} AND #{endrow}
+	</select>
+</mapper>

@@ -52,4 +52,16 @@
 		from SYSTEM_NOTICE
 		where system_notice_no=#{system_notice_no}
 	</delete>
+	
+	<select id="get_hp" resultType="com.ion.vo.MyPageVO">
+		select * from
+		(select ROWNUM RN, C.* FROM
+		(select * from BLOG_HELP A LEFT OUTER JOIN BLOG_HELP_RS B ON A.HP_NO=B.HP_NO where B.HP_USER_ID=#{hp_user_id} and HP_REFLECT='Y' order by A.HP_ENDATE desc)C)
+		where RN BETWEEN #{startrow} AND #{endrow}
+	</select>
+	
+	<!-- 레코드 수 -->
+	<select id="hp_total" resultType="int">
+		select count(hp_no) from BLOG_HELP_RS where HP_USER_ID=#{hp_user_id} and HP_REFLECT='Y'
+	</select>
 </mapper>
