@@ -8,44 +8,80 @@
 	<!-- id는 호출을 하기 위한 이름  -->
 	<!-- resultType은 결과값을 받을 타입을 지정한 것 알리아스를 이용해도 되나 일단 패키지명+vo명까지 다 적음 (회의때 알리아스 설정)  -->
 	
-	<select id="view_blog_notice" resultType="com.ion.vo.BlogVO">
-		SELECT * FROM BLOG_NOTICE ORDER BY NOTICE_NO	 DESC
+	<select id="listcount" resultType="int">
+		select count(*) from BLOG_NOTICE
+	</select>
+	
+	<select id="view_blog_notice" resultType="com.ion.vo.BlogVO" >
+		SELECT * FROM BLOG_NOTICE ORDER BY NOTICE_DATE	 DESC
 	</select>	
+	
+	<select id="view_notice_list" resultType="com.ion.vo.BlogVO">
+		select * from
+			(select ROWNUM RNUM, notice_no, notice_title, notice_content, notice_date, notice_center , notice_writer
+			from (select * from BLOG_NOTICE WHERE notice_writer = #{notice_writer} order by notice_date desc))
+		where RNUM &gt;=#{startrow} and RNUM &lt;=#{endrow}
+	</select>
+	
+	<select id="view_notice_cont" resultType="com.ion.vo.BlogVO"  parameterType="int">
+		SELECT * FROM BLOG_NOTICE WHERE notice_no = #{notice_no}
+	</select>
+	<!-- 조회수 증가 시키기 -->
+	<update id="viewup">
+		update BLOG_NOTICE set notice_view = notice_view + 1 where notice_no=#{notice_no}
+	</update>
 	
 	<insert id="insert_blog_notice" parameterType="com.ion.vo.BlogVO">
 		INSERT INTO BLOG_NOTICE (
-		notice_no
-		, notice_div
+		notice_no		
 		, notice_title
 		, notice_date
 		, notice_writer
 		, notice_view
 		, notice_content
+		, notice_email
+		, notice_password
+		, notice_center
+		
 		) VALUES (
-		blog_no_seq.nextval
-		, #{notice_div}
+		
+		blog_notice_seq.nextval		
 		, #{notice_title}
 		, sysdate
 		, #{notice_writer}
 		, #{notice_view}
 		, #{notice_content}
+		, #{notice_email}
+		, #{notice_password}
+		, #{notice_center}
+	
+		
 		)
 	</insert>
 	
-    	<select id="showSchedule" resultType = "com.ion.vo.BlogVO">
-    		SELECT
-    			subject,startDate,endDate,memo
-    		FROM
-    			schedule
-    		ORDER BY
-    			num
-    		DESC
-    	</select>
-    	<insert id="addSchedule" parameterType = "com.ion.vo.BlogVO">
-	    	INSERT INTO
-	    		schedule(subject,startDate,endDate,memo)
-	    	VALUES
-	    		(#{subject},#{startDate},#{endDate},#{memo})
-    	</insert>
-    </mapper>
+    	<insert id="insertCal" parameterType="com.ion.vo.CalVO">
+		INSERT INTO CALENDAR (
+		title 
+		, start_date
+		, end_date		
+		) VALUES (		
+		#{title}
+		,#{start}
+		,#{end}		
+		)
+	</insert>
+	
+	<update id="editNotice" parameterType="com.ion.vo.BlogVO">
+		 UPDATE BLOG_NOTICE
+		 SET notice_title =  #{notice_title}
+		 , notice_content = #{notice_content}			
+		 WHERE notice_no = #{notice_no}
+	</update>
+	 
+	<delete id="deleteNotice" parameterType="int">
+		delete 
+		from BLOG_NOTICE
+		where notice_no=#{notice_no}
+	</delete>
+</mapper>
 	
