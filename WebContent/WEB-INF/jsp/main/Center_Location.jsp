@@ -17,11 +17,7 @@
 
 </style>
 </head>
-
-
-
-<body id="reportsPage" class="white">
-  
+<body id="reportsPage" class="white">  
 	<div class="container">
 		<jsp:include page="../include/header.jsp" />
 		<div class="row tm-content-row tm-mt-big">

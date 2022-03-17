@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ion.mapper.DateMapper">
+	
+	<insert id="insertDate" parameterType="com.ion.vo.DateVO">
+	  insert into center_schedule(cno, center_name, center_title ,center_cont, center_date) values (cno_seq.nextval, #{center_name}, #{center_title}, #{center_cont}, sysdate)
+	</insert>
+	
+	
+	<select id="getCenterList" resultType="com.ion.vo.DateVO">
+	  select * from
+	  (select rowNum rNum, cno, center_name, center_title, center_cont, center_date
+	  from (select * from center_schedule order by cno desc))
+	  where rNum &gt;= #{startrow} and rNum &lt;= #{endrow}
+	</select>
+	
+	<select id="getListCount" resultType="int">
+	  select count(cno) from center_schedule
+	  <where>
+     <if test="find_field == ''">
+     <!-- 검색조건이 없어서 총 레코드 개수 -->
+     </if>
+     <if test="find_field == 'center_name'">
+     <!-- 검색 조건이 센터명인 경우 -->
+      center_name like #{find_name}
+     </if>
+     <if test="find_field == 'center_title'">
+      center_title like #{find_name}
+     </if>
+     </where>
+	</select>
+	
+	<!-- 내용보기 -->
+    <select id="getDateCont" resultType="com.ion.vo.DateVO">
+     select * from center_schedule where cno=#{cno}
+    </select>
+    
+    <!-- 수정 -->
+    <update id="updateDate" parameterType="com.ion.vo.DateVO">
+	  update center_schedule set center_title = #{center_title}, center_cont = #{center_cont}, center_name = #{center_name}, center_date = sysdate where cno = #{cno}
+	</update>
+	
+	<!-- 삭제 -->
+	<delete id="dateDel" parameterType="int">
+	  delete from center_schedule where cno=#{cno}
+	</delete>	     
+	
+</mapper>

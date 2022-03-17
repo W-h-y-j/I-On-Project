@@ -1,74 +1,96 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 
+<!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
-<script src="Resources/js/jquery-3.3.1.min.js"></script>
-<script src="Resources/js/bootstrap.min.js"></script>
-<script src="Resources/js/moment.min.js"></script>
-
-<link rel="stylesheet" href="css/fullcalendar.min.css">
-<script src = "js/fullcalendar.min.js" type = "text/javascript"></script>
-<script>
-$(function() {
-
-	  // page is now ready, initialize the calendar...
-
-	  $('#calendar').fullCalendar({
-	    // put your options and callbacks here
-	  })
-
-	});
-</script>
-<style>
-.btn-group{
- float: right;
- font-size: 20px; 
- color: #333;
-}
-</style>
-
-<title>I-ON:아이 온 희망나눔 서비스</title>
-<jsp:include page="../include/base.jsp" />
+<head>
+	<jsp:include page="../include/base.jsp" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <title>I-ON:아이 온 희망나눔 서비스</title>    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/cs/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="https://uicdn.toast.com/tui.time-picker/latest/tui-time-picker.css">
+    <link rel="stylesheet" type="text/css" href="https://uicdn.toast.com/tui.date-picker/latest/tui-date-picker.css">
+    <link rel="stylesheet" type="text/css" href="/Resources/css/tui-calendar.css">
+    <link rel="stylesheet" type="text/css" href="/Resources/css/default.css">
+    <link rel="stylesheet" type="text/css" href="/Resources/css/icons.css">
+        
 </head>
+<body id="reportsPage">
+	<div class="" id="bg02">
+		<div class="container">
+			<jsp:include page="../include/header.jsp" />
+			 <br/>
+			  <h4>센터 일정</h4>			  
+    <div id="lnb">
+        <div class="lnb-new-schedule">
+            <button id="btn-new-schedule" type="button" class="btn btn-default btn-block lnb-new-schedule-btn" data-toggle="modal">일정 추가</button>
+        </div>
+        <div id="lnb-calendars" class="lnb-calendars">
+            <div>
+                <div class="lnb-calendars-item">
+                    <label>
+                        <input class="tui-full-calendar-checkbox-square" type="checkbox" value="all" checked>
+                        <span></span>
+                        <strong>일정</strong>
+                    </label>
+                </div>
+            </div>
+            <div id="calendarList" class="lnb-calendars-d1">
+            </div>
+        </div>        
+    </div>
+    <div id="right">
+        <div id="menu">
+            <span class="dropdown">
+                <button id="dropdownMenu-calendarType" class="btn btn-default btn-sm dropdown-toggle" type="button" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="true">
+                    <i id="calendarTypeIcon" class="calendar-icon ic_view_month" style="margin-right: 4px;"></i>
+                    <span id="calendarTypeName">Dropdown</span>&nbsp;
+                    <i class="calendar-icon tui-full-calendar-dropdown-arrow"></i>
+                </button>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu-calendarType">
+                    
+                    <li role="presentation">
+                        <a class="dropdown-menu-title" role="menuitem" data-action="toggle-monthly">
+                            <i class="calendar-icon ic_view_month"></i>Month
+                        </a>
+                    </li>                    
+                    
+                </ul>
+            </span>
+            <span id="menu-navi">
+                <button type="button" class="btn btn-default btn-sm move-today" data-action="move-today">Today</button>
+                <button type="button" class="btn btn-default btn-sm move-day" data-action="move-prev">
+                    <i class="calendar-icon ic-arrow-line-left" data-action="move-prev"></i>
+                </button>
+                <button type="button" class="btn btn-default btn-sm move-day" data-action="move-next">
+                    <i class="calendar-icon ic-arrow-line-right" data-action="move-next"></i>
+                </button>
+            </span>
+            <span id="renderRange" class="render-range"></span>
+        </div>
+        <div id="calendar"></div>
+    </div>
 
-<body id="reportsPage" class="white">
-	<div class="container">
-		<jsp:include page="../include/header.jsp" />
-		<div class="row tm-content-row tm-mt-big">
-			<div class="col-xl-12 col-lg-24 tm-md-24 tm-sm-24 tm-col">
-				<div class="bg-white tm-block h-100">
-					<div class="row">
-						<div class="col-md-24 col-sm-24">
-							<h2 class="tm-block-title d-inline-block">센터 일정</h2>
-							<br />
-							<br />
 
-							<div class="btn-group" role="group" aria-label="Basic example">
-								<button type="button"
-									class="fc.button fc-state-default fc-corner-left">
-									<a href="#">캘린더</a>
-								</button>
-								<button type="button"
-									class="fc.button fc-state-default fc-corner-right">
-									<a href="./Center_Date2">리스트</a>
-								</button>
-							</div>
-
-							<br />
-							<br />
-
-							<div id="calendar"></div>
-
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<jsp:include page="../include/footer.jsp" />
-	</div>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <script src="https://uicdn.toast.com/tui.code-snippet/v1.5.2/tui-code-snippet.min.js"></script>
+    <script src="https://uicdn.toast.com/tui.time-picker/v2.0.3/tui-time-picker.min.js"></script>
+    <script src="https://uicdn.toast.com/tui.date-picker/v4.0.3/tui-date-picker.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chance/1.0.13/chance.min.js"></script>
+    <script src="/Resources/js/tui-calendar.js"></script>
+    <script src="/Resources/js/calendars.js"></script>
+    <script src="/Resources/js/schedules.js"></script>
+    <!-- <script src="./js/theme/dooray.js"></script> -->
+    <script src="/Resources/js/app.js"></script>
+    
+   </div>
+ </div>
 </body>
 </html>
