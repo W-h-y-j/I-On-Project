@@ -9,7 +9,7 @@
 	<!-- resultType은 결과값을 받을 타입을 지정한 것 알리아스를 이용해도 되나 일단 패키지명+vo명까지 다 적음 (회의때 알리아스 설정)  -->
 	
 	<select id="listcount" resultType="int">
-		select count(*) from BLOG_NOTICE
+		select count(*) from BLOG_NOTICE WHERE notice_writer = #{notice_writer}
 	</select>
 	
 	<select id="view_blog_notice" resultType="com.ion.vo.BlogVO" >
@@ -18,7 +18,7 @@
 	
 	<select id="view_notice_list" resultType="com.ion.vo.BlogVO">
 		select * from
-			(select ROWNUM RNUM, notice_no, notice_title, notice_content, notice_date, notice_center , notice_writer
+			(select ROWNUM RNUM, notice_no, notice_title, notice_content, notice_date, notice_center , notice_writer, notice_view
 			from (select * from BLOG_NOTICE WHERE notice_writer = #{notice_writer} order by notice_date desc))
 		where RNUM &gt;=#{startrow} and RNUM &lt;=#{endrow}
 	</select>
@@ -28,7 +28,7 @@
 	</select>
 	<!-- 조회수 증가 시키기 -->
 	<update id="viewup">
-		update BLOG_NOTICE set notice_view = notice_view + 1 where notice_no=#{notice_no}
+		update BLOG_NOTICE set notice_view = notice_view + 1 where notice_no	=#{notice_no}
 	</update>
 	
 	<insert id="insert_blog_notice" parameterType="com.ion.vo.BlogVO">

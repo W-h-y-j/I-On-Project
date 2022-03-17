@@ -70,6 +70,7 @@ public class BlogController {
 		model.addAttribute("endpage", endpage);
 		model.addAttribute("maxpage", maxpage);
 		model.addAttribute("page", page);
+		
 		return "blog/BlogCenterNotice";
 	}
 
@@ -77,7 +78,8 @@ public class BlogController {
 	@RequestMapping(value = "/blog/Notice/View")
 	public ModelAndView BlogNoticeView(Model model, int notice_no, int page, HttpServletRequest request, BlogVO blog)
 			throws Exception {
-
+		
+		this.blogService.viewup(notice_no);
 		blog = this.blogService.view_notice_cont(notice_no);
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("blog/view/BlogNoticeView");

@@ -31,17 +31,7 @@
             <br/>
         </div>
         <br/>
-        <div class="col-md-5 offset-md-7">
-            <form class="d-flex">
-                <select class="form-select form-select-sm" aria-label=".form-select-sm example" style="width: 5vw;">
-                    <option  selected>구분</option>
-                    <option value="1">공지</option>
-                    <option value="2">프로그램</option>
-                </select>
-                <input class="form-control me-2" type="search" placeholder="검색어 입력" aria-label="Search" style="width:15vw; margin-left:1vw;">
-                <button class="btn btn-outline-primary" type="submit">Search</button>
-            </form>
-        </div>
+       
         <br/>
         
         <div class="row" id="CenterNoticeLine">
