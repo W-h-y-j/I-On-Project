@@ -156,7 +156,12 @@ public class BlogController {
 	 * @RequestMapping(value = "/blog/Help/View") public String BlogHelpView(Model
 	 * model) throws Exception { return "blog/view/BlogHelpView"; }
 	 */
-
+	
+	@RequestMapping("/blog/Gallery/Create")
+	public String BlogCenterGalleryCreate(Model model) throws Exception{
+		return "blog/create/BlogCenterGalleryCreate";
+	}
+	
 	@RequestMapping(value = "/blog/Help/Create")
 	public String BlogCenterHelpCreate(Model model) throws Exception {
 		return "blog/create/BlogCenterHelpCreate";

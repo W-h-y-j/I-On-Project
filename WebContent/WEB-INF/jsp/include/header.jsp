@@ -35,7 +35,7 @@
 						aria-haspopup="true" aria-expanded="false">지원 프로그램</a>
 						
 						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-							<a class="dropdown-item" href="#">서울시 지원 프로그램</a>
+							<a class="dropdown-item" href="/Center_Date1">서울시 지원 프로그램</a>
 						</div>
 					</li>
 					
