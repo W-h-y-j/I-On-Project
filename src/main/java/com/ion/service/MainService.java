@@ -19,6 +19,15 @@ public interface MainService {
 	public List<MainVO> view_blog_notice();
 	
 	public List<MainVO> view_blog_help();
+
+	public List<MainVO> view_notice_list(MainVO main);
+
+	public int listcount(MainVO main);
+
+	public List<MainVO> view_help_list(MainVO main);
+
+	public int listcount_notice(MainVO main);
+
 	
 
 	

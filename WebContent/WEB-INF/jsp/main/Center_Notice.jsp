@@ -56,14 +56,15 @@
 					</tr>
 				</thead>
 				<tbody>
-				<c:forEach items="${systemBlog}" var="systemBlog" end="10">
+				<c:forEach items="${noticeList}" var="noticeList" end="10">
 										<tr>
-												<td>${systemBlog.notice_no}</td>
-												<td>${systemBlog.notice_div}</td>
-												<td>${systemBlog.notice_title}</td>
-												<td>${systemBlog.notice_writer}</td>
-												<td>${systemBlog.notice_date}</td>
-												<td>${systemBlog.notice_view}</td>
+												<td>${noticeList.notice_no}</td>												
+												<td>${noticeList.notice_title}</td>
+												<td>${noticeList.notice_center}</td>
+												<td>${noticeList.notice_date}</td>
+												<td>${noticeList.notice_view}</td>
+												
+												
 										</tr>	
 										</c:forEach>
 				</tbody>
@@ -73,24 +74,49 @@
 
 		<nav aria-label="Page navigation example">
 			<ul class="pagination justify-content-center">
-				<li class="page-item disabled"><a class="page-link" href="#"
-					tabindex="-1" aria-disabled="true">Previous</a></li>
-				<li class="page-item"><a class="page-link" href="#">1</a></li>
-				<li class="page-item"><a class="page-link" href="#">2</a></li>
-				<li class="page-item"><a class="page-link" href="#">3</a></li>
-				<li class="page-item"><a class="page-link" href="#">4</a></li>
-				<li class="page-item"><a class="page-link" href="#">5</a></li>
-				<li><a class="page-link" href="#">Next</a></li>
+				<li>
+						<c:choose>
+                            	<c:when test="${page < 1}">
+                            		<a class="page-link"  aria-label="Previous">
+                                		<span aria-hidden="true">&laquo;</span>
+                            		</a>
+                            	</c:when>
+                            	<c:when test="${page > 1}">
+                            		<a class="page-link"  href="/Center_Notice?&page=${page-1} "aria-label="Previous">
+                                		<span aria-hidden="true">&laquo;</span>
+                            		</a>
+                            	</c:when>
+                            </c:choose>
+                            	
+                        	</li>
+                        	<c:forEach var="a" begin="${startpage}" end="${endpage}" step="1">
+                    			<c:if test="${a == page}">
+                    				<li class="page-item"><a class="page-link" href="#">[${a}]</a></li>
+                    			</c:if> <%-- 현재쪽 선택 --%>
+                    			
+                    			<c:if test="${a != page}"> <%-- 현재쪽 비선택 --%>
+                    				<li class="page-item"><a class="page-link" href="/Center_Notice?&page=${a}">[${a}]</a></li>
+                    			</c:if>
+                    		</c:forEach>
+                        	<c:if test="${page >= maxpage}">
+                        		<li class="page-item">
+                            		<a class="page-link"  aria-label="Next">
+                                		<span aria-hidden="true">&raquo;</span>
+                            		</a>
+                        		</li>
+                        	</c:if>
+                    		<c:if test="${page < maxpage}" >
+                    			
+                    			<li class="page-item">
+                            		<a class="page-link" href="/Center_Notice?&page=${page+1}" aria-label="Next">
+                                		<span aria-hidden="true">&raquo;</span>
+                            		</a>
+                        		</li>
+                    		</c:if>
 			</ul>
 		</nav>
 		<jsp:include page="../include/footer.jsp" />
 	</div>
 
-	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-	<!--     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> -->
-	<!--     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script> -->
-	<!--     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script> -->
-	<!-- 		<div class="container"> -->
-	<!-- 		</div> -->
 </body>
 </html>

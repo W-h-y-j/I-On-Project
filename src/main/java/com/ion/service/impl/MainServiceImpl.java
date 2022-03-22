@@ -45,6 +45,30 @@ public class MainServiceImpl implements MainService {
 	public List<MainVO> view_blog_help() {
 		return mapper.view_blog_help();
 	}
+
+	@Override
+	public List<MainVO> view_notice_list(MainVO main) {
+		// TODO Auto-generated method stub
+		return mapper.view_notice_list(main);
+	}
+
+	@Override
+	public int listcount(MainVO main) {
+		// TODO Auto-generated method stub
+		return this.mapper.listcount(main);
+	}
+
+	@Override
+	public List<MainVO> view_help_list(MainVO main) {
+		// TODO Auto-generated method stub
+		return mapper.view_help_list(main);
+	}
+
+	@Override
+	public int listcount_notice(MainVO main) {
+		// TODO Auto-generated method stub
+		return this.mapper.listcount_notice(main);
+	}
 	
 
 	

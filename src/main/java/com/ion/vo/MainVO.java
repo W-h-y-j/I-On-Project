@@ -33,11 +33,14 @@ private int notice_no;
 	private String notice_title;
 	private String notice_date;
 	private String notice_writer;
+	private String notice_center;
+	
 	private int notice_view;
 	
 	private int hp_no;
 	private String hp_title;
-	private String hp_content;	
+	private String hp_centername;
+	private String hp_write_date;
 
 	
 	

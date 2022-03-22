@@ -60,5 +60,27 @@
      </where>
     </select>
 
+	<select id="view_help_list" resultType="com.ion.vo.MainVO">
+		select * from
+			(select ROWNUM RNUM, hp_no, hp_title, hp_write_date, hp_centername
+			from (select * from BLOG_HELP  order by hp_write_date desc))
+		where RNUM &gt;=#{startrow} and RNUM &lt;=#{endrow}
+	</select>
+	
+	<select id="listcount" resultType="int">
+		select count(*) from BLOG_HELP
+	</select>
+	
+	<select id="listcount_notice" resultType="int">
+		select count(*) from BLOG_NOTICE
+	</select>
+	
+	<select id="view_notice_list" resultType="com.ion.vo.MainVO">
+		select * from
+			(select ROWNUM RNUM, notice_no, notice_title, notice_center, notice_date ,notice_view
+			from (select * from BLOG_NOTICE  order by notice_date  desc))
+		where RNUM &gt;=#{startrow} and RNUM &lt;=#{endrow}
+	</select>
+	
 
 </mapper>

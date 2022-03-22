@@ -17,8 +17,10 @@ import org.springframework.web.servlet.ModelAndView;
 import com.ion.security.domain.CustomOauthUser;
 import com.ion.security.domain.CustomUser;
 import com.ion.service.MainService;
+import com.ion.vo.BlogVO;
 import com.ion.vo.CenterVO;
 import com.ion.vo.LoginVO;
+import com.ion.vo.MainVO;
 
 @Controller
 public class MainContoller {
@@ -128,24 +130,84 @@ public class MainContoller {
 	}
 	
 	@RequestMapping(value = "/Center_Notice")
-	public String center_Notice(Model model) throws Exception {
+	public String center_Notice(Model model,HttpServletRequest request,@ModelAttribute MainVO main) throws Exception {
 		/* String test=mainService.selectTest(); */
-		model.addAttribute("systemBlog", mainService.view_blog_notice());	
-		return "main/Center_Notice";
-	}
+		int page = 1; // 현재 페이지
+		int limit = 10; // 한 페이지에 보여지는 목록 개수
 
-	
-	@RequestMapping(value = "/Center_Image")
-	public String Center_Image(Model model) throws Exception {
-		/* String test=mainService.selectTest(); */
-		/* model.addAttribute("selectTableList", test); */
-		return "main/Center_Image";
+		if (request.getParameter("page") != null) {
+			// get으로 전달된 쪽번호가 있는 경우 실행
+			page = Integer.parseInt(request.getParameter("page")); // 쪽 번호를 정수 숫자로 변경하여 저장시킴
+		}
+
+		main.setStartrow((page - 1) * 10 + 1);// 시작번호
+		main.setEndrow(main.getStartrow() + limit - 1);// 끝행 번호
+
+		int totalCount = this.mainService.listcount_notice(main);// 총 게시글 수
+		System.out.println("totalCount: " + totalCount);
+
+		List<MainVO> noticeList = this.mainService.view_notice_list(main);// 게시물 목록
+
+		// 총페이지 수
+		int maxpage = (int) ((double) totalCount / limit + 0.95);
+		// 현재 페이지에 보여질 시작페이지
+		int startpage = (((int) ((double) page / 10 + 0.9)) - 1) * 10 + 1;
+		// 현재 페이지에 보여질 마지막 페이지
+		int endpage = maxpage;
+		System.out.println("maxpage:" + maxpage);
+		System.out.println("startpage:" + startpage);
+		System.out.println("endpage:" + endpage);
+
+		if (endpage > startpage + 10 - 1)
+			endpage = startpage + 10 - 1;
+		model.addAttribute("noticeList", noticeList);
+		model.addAttribute("totalCount", totalCount);
+		model.addAttribute("startpage", startpage);
+		model.addAttribute("endpage", endpage);
+		model.addAttribute("maxpage", maxpage);
+		model.addAttribute("page", page);
+		
+		return "main/Center_Notice";
 	}
 	
 	@RequestMapping(value = "/Center_Help")
-	public String Center_Help(Model model) throws Exception {
+	public String Center_Help(Model model,HttpServletRequest request,@ModelAttribute MainVO main) throws Exception {
 		/* String test=mainService.selectTest(); */
-		model.addAttribute("Blog_help", mainService.view_blog_help());	
+		
+		int page = 1; // 현재 페이지
+		int limit = 10; // 한 페이지에 보여지는 목록 개수
+
+		if (request.getParameter("page") != null) {
+			// get으로 전달된 쪽번호가 있는 경우 실행
+			page = Integer.parseInt(request.getParameter("page")); // 쪽 번호를 정수 숫자로 변경하여 저장시킴
+		}
+
+		main.setStartrow((page - 1) * 10 + 1);// 시작번호
+		main.setEndrow(main.getStartrow() + limit - 1);// 끝행 번호
+
+		int totalCount = this.mainService.listcount(main);// 총 게시글 수
+		System.out.println("totalCount: " + totalCount);
+
+		List<MainVO> helpList = this.mainService.view_help_list(main);// 게시물 목록
+
+		// 총페이지 수
+		int maxpage = (int) ((double) totalCount / limit + 0.95);
+		// 현재 페이지에 보여질 시작페이지
+		int startpage = (((int) ((double) page / 10 + 0.9)) - 1) * 10 + 1;
+		// 현재 페이지에 보여질 마지막 페이지
+		int endpage = maxpage;
+		System.out.println("maxpage:" + maxpage);
+		System.out.println("startpage:" + startpage);
+		System.out.println("endpage:" + endpage);
+
+		if (endpage > startpage + 10 - 1)
+			endpage = startpage + 10 - 1;
+		model.addAttribute("helpList", helpList);
+		model.addAttribute("totalCount", totalCount);
+		model.addAttribute("startpage", startpage);
+		model.addAttribute("endpage", endpage);
+		model.addAttribute("maxpage", maxpage);
+		model.addAttribute("page", page);
 		return "main/Center_Help";
 	}
 	
